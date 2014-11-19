@@ -1,4 +1,5 @@
 AwaleGame
 =========
 
-Projet L2 SPI
+Projet L2 SPI 
+Oukreu Poda, Souleiman Iman Choukri
