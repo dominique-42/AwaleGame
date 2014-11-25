@@ -11,6 +11,7 @@
 typedef struct {int x; int y; }t_coord;
 
 int init_matrice(int matrice[L][C]){
+	
 }
 
 int affiche_matrice(int matrice[L][C]) {
@@ -81,13 +82,33 @@ int manger_graines(int nb_graines, int matrice[L][C], int x, int y, int *score) 
 	graine_dbt.x = 0;
 	graine_dbt.y = 0;	
 }
+int nourir(int matrice) {
+	int depl;
+	int x, y;
+	x = y = 0;
+	for(depl = 5; depl>0; depl--) {
+		if(matrice[L][C] > depl){
+			return 0;
+		}
+	}	
+}
+ int adv_mort(int*score) {
+	if(&score
+ }
+int partie_fini(int matrice[L][C]) {
 
+}
 int main(){
 	
 	int awale[L][C];
-	int score = 0;
-	int choix;
+	int score_j1 = 0;
+	int score_j2 = 0;
+	int choix, nb_graine, coord_x;
 	char pseudo[20];
+	
+	int coord_y1 = 1;
+	int coord_y2 = 0;
+
 	FILE * fic_pseudo;
 	FILE * fic_score;
 	FILE * fic_partie;
@@ -114,12 +135,29 @@ int main(){
 				fprintf(fic_pseudo, "%s\n", pseudo);
 				
 				printf("\nQue la partie commence !\n");
-
+				init_matrice(awale);
+				affiche_matrice(awale);
 				
+				while(!partie_finie){
+				
+					printf("\nJoueur 1 : Saisissez votre point de jeu: \n");
+					scanf("%i%i", coord_x-1);
+					nb_graine = awale[coord_x][coord_y1];
+					manger_graines(nb_graine, awale, coord_x, y1, &scorej1);
+					affiche_matrice(awale);
+				
+					printf("\nJoueur 2 : Saisissez votre point de jeu : \n");
+					scanf("%i%i", coord_x-1);
+					nb_graine = awale[coord_x][coord_y2];
+					manger_graines(nb_graine, awale, coord_x, y2, &scorej1);
+					affiche_matrice(awale);
+				
+				}
+                                                                                                      
 			
 			
 			break;
-			case 2:  ; break;
+			case 2: /*Etape 2 du jeux*/ ; break;
 			case 3:  printf("Au revoir\n"); break;
 			default: printf("Erreur: votre choix doit etre compris entre 1 et 6\n");
 		}
