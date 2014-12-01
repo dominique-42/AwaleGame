@@ -1,2 +1,0 @@
-fonction.exe: fonction.c
-			gcc -o fonction.exe fonction.c -Wall
