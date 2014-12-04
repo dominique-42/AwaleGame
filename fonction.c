@@ -361,9 +361,9 @@ int main(){
 				
 				}
 			
-				printf("Voulez vous sauvegarder la partie y pour Oui et n pour Non\n");
+				printf("Voulez vous sauvegarder la partie Y pour Oui et N pour Non\n");
 				scanf("%*c%c", &reponse);                                                                                   
-				if(reponse == 'y') {
+				if(reponse == 'Y') {
 						sauvegarder(fic_save);
 				}
 				fclose(fic_save);
