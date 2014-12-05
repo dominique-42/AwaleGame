@@ -171,13 +171,7 @@ int aide (int joueur, int matrice[L][C])
 		}
 	}
 	
-    
-    
-    
-    
-    
-    
-    
+ 
 
 /**
 *\fn int nourir(int matrice[L][C], int joueur)
