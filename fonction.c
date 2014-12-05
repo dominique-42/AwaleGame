@@ -141,41 +141,90 @@ void manger_graines(int nb_graines, int matrice[L][C], int joueur, int x, int *s
 }
     
 /**
-*\fn int aide (int joueur, int matrice[L][C])
+*\fn int aide(int joueur, int matrice[L][C], int * case_aide)
 *\brief  quelle case bouger pour avoir plus de graines 
 *\param score virtuel , parametre qui permet de calculer le nombre de graines avant de jouer pour avoir le maximum de graines 
-*\return 0 si il n'ya aucune possibilité de ramasser des graines
+*\return 0 si il n'ya aucune possibilité de ramasser des graines, et retourne la valeur de la case en pointeur
 **/
 
-int aide (int joueur, int matrice[L][C])
+int aide(int joueur, int matrice[L][C], int * case_aide){
 
 	int score[C];
-	int i, j;
-	for(i = 0; i<matrice[joueur][i];i++) {
-		for(j = 0; i<matrice[joueur][i];i++) {
-			dpl_avant(&x,&joueur);
-			matrice[joueur][x] = matrice[joueur][x]+1;
-			if(i == nb_graines-1) {
-			nb_gr_fin = matrice[joueur][x];
+	
+	int cpt_aide = 0;
+	int j, k;
+	
+	int coord_x;
+	
+	int max = 0;
+	int nb_gr_fin;
+	
+	int mat_aide[L][C];
+	int nb_graine_case;
+	
+	int case_mat;
+	
+
+	for(case_mat = 0; case_mat<C ;case_mat++) {
+		
+		for(k = 0; k<L; k++) {		//Actualiser la matrice aide avec la disposition du plateau
+			for(j=0; j<C; j++) {
+				mat_aide[k][j] = matrice[k][j];
 			}
 		}
+		
+		nb_graine_case = mat_aide[joueur][case_mat];
+		coord_x = case_mat;
+		for(j = 0; j<nb_graine_case;j++) {
+			
+			dpl_avant(&coord_x,&joueur);
+			mat_aide[joueur][coord_x] = mat_aide[joueur][coord_x]+1;
+			
+			if(j == nb_graine_case-1) {
+				nb_gr_fin = mat_aide[joueur][coord_x];
+			}
+		}
+		
 	
-		j = nb_graines;
-		if(matrice[joueur][x] == 2 || matrice[joueur][x] == 3) {
-			score[i] = score[i]+matrice[joueur][x];
-			matrice[joueur][x] = 0;
-			while( i>0 && nb_gr_fin<=3 && nb_gr_fin > 1) {	//initialise le score 
-				score[i] = score+matrice[joueur][x];
-				matrice[joueur][x] = 0;
-				dpl_arriere(&x, &joueur);
-				nb_gr_fin = matrice[joueur][x];
+		j = nb_graine_case;
+		
+		if(mat_aide[joueur][coord_x] == 2 || mat_aide[joueur][coord_x] == 3) {
+			
+			score[case_mat] = score[case_mat]+mat_aide[joueur][coord_x];
+			mat_aide[joueur][coord_x] = 0;
+			
+			while( j>0 && nb_gr_fin<=3 && nb_gr_fin > 1) {	
+				
+				score[case_mat] = score[case_mat]+mat_aide[joueur][coord_x];
+				mat_aide[joueur][coord_x] = 0;
+				dpl_arriere(&coord_x, &joueur);
+				nb_gr_fin = mat_aide[joueur][coord_x];
 				j--;
 			}	
 		}
 	}
 	
-    
-    
+	for(j=0; j<C; j++) {
+		cpt_aide = cpt_aide + score[j];
+	}
+   
+    if(cpt_aide == 0) {
+		return 0;
+	}
+	
+	else {
+		
+		for(j=0; j<C; j++) {
+			
+			if(max < score[j]){
+				max = score[j];
+				*case_aide = j;
+			}
+		}
+		return 1;
+   }
+   
+}
     
     
     
@@ -307,7 +356,11 @@ int main(){
 	int joueur1 = 1;
 
 	int choix, nb_graine, coord_x;
+	int case_aide;
+	
 	char reponse;
+	
+	char rep_aide;
 	
 	
 
@@ -338,7 +391,18 @@ int main(){
 				
 
 				while(partie_pas_finie(awale, joueur1, joueur2, &scorej1, &scorej2 ) && reponse != 'q'){
-				
+					
+					
+					printf("\n%s : Saisissez votre point de jeu: \n", player1);
+					
+					if(aide(joueur1, awale, &case_aide)) {
+						printf("Voulez vous une aide ?\n");
+						scanf("%*c%c", &rep_aide);
+						if(rep_aide == 'y') {
+							printf("Bougez la case %i !", case_aide);
+						}
+					}
+					
 					printf("\n%s : Saisissez votre point de jeu: \n", player1);
 					scanf("%i", &coord_x);
 					assert(coord_x > 0);
@@ -351,6 +415,15 @@ int main(){
 
 					
 					printf("\n%s : Saisissez votre point de jeu : \n", player2);
+					
+					if(aide(joueur2, awale, &case_aide)) {
+						printf("Voulez vous une aide ?\n");
+						scanf("%*c%c", &rep_aide);
+						if(rep_aide == 'y') {
+							printf("Bougez la case %i !", case_aide);
+						}
+					}
+					
 					scanf("%i", &coord_x);
 					
 					nb_graine = awale[joueur2][coord_x-1];
@@ -386,6 +459,15 @@ int main(){
 				while(partie_pas_finie(awale, joueur1, joueur2, &scorej1, &scorej2 ) && reponse != 'n'){
 				
 					printf("\n%s : Saisissez votre point de jeu: \n", player1);
+					
+					if(aide(joueur1, awale, &case_aide)) {
+						printf("Voulez vous une aide ?\n");
+						scanf("%*c%c", &rep_aide);
+						if(rep_aide == 'y') {
+							printf("Bougez la case %i !", case_aide);
+						}
+					}
+					
 					scanf("%i", &coord_x);
 					assert(coord_x > 0);
 					
@@ -397,6 +479,15 @@ int main(){
 
 					
 					printf("\n%s : Saisissez votre point de jeu : \n", player2);
+					
+					if(aide(joueur2, awale, &case_aide)) {
+						printf("Voulez vous une aide ?\n");
+						scanf("%*c%c", &rep_aide);
+						if(rep_aide == 'y') {
+							printf("Bougez la case %i !", case_aide);
+						}
+					}
+					
 					scanf("%i", &coord_x);
 					
 					nb_graine = awale[joueur2][coord_x-1];
