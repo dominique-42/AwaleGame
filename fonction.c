@@ -136,7 +136,48 @@ void manger_graines(int nb_graines, int matrice[L][C], int joueur, int x, int *s
 	}
 
 }
+    
+/**
+*\fn int aide (int joueur, int matrice[L][C])
+*\brief  quelle case bouger pour avoir plus de graines 
+*\param score virtuel , parametre qui permet de calculer le nombre de graines avant de jouer pour avoir le maximum de graines 
+*\return 0 si il n'ya aucune possibilité de ramasser des graines
+**/
 
+int aide (int joueur, int matrice[L][C])
+
+	int score[C];
+	int i, j;
+	for(i = 0; i<matrice[joueur][i];i++) {
+		for(j = 0; i<matrice[joueur][i];i++) {
+			dpl_avant(&x,&joueur);
+			matrice[joueur][x] = matrice[joueur][x]+1;
+			if(i == nb_graines-1) {
+			nb_gr_fin = matrice[joueur][x];
+			}
+		}
+	
+		j = nb_graines;
+		if(matrice[joueur][x] == 2 || matrice[joueur][x] == 3) {
+			score[i] = score[i]+matrice[joueur][x];
+			matrice[joueur][x] = 0;
+			while( i>0 && nb_gr_fin<=3 && nb_gr_fin > 1) {	//initialise le score 
+				score[i] = score+matrice[joueur][x];
+				matrice[joueur][x] = 0;
+				dpl_arriere(&x, &joueur);
+				nb_gr_fin = matrice[joueur][x];
+				j--;
+			}	
+		}
+	}
+	
+    
+    
+    
+    
+    
+    
+    
 
 /**
 *\fn int nourir(int matrice[L][C], int joueur)
