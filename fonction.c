@@ -106,27 +106,30 @@ void manger_graines(int nb_graines, int matrice[L][C], int joueur, int x, int *s
 	assert( joueur>=0 && joueur<L);
 	
 	int i;
+	int clan;
 	int nb_gr_fin;
 	t_coord graine_dbt;
 	graine_dbt.joueur = joueur;
 	graine_dbt.x = x;
+	clan = joueur;
 	
 	matrice[graine_dbt.joueur][graine_dbt.x] = 0;
 	
 	for(i = 0; i<nb_graines;i++) {
 		dpl_avant(&x,&joueur);
 		
+		matrice[joueur][x] = matrice[joueur][x]+1;
+		
 		if(i == nb_graines-1) {
 		nb_gr_fin = matrice[joueur][x];
 		}
-		matrice[joueur][x] = matrice[joueur][x]+1;
 	}
 	
 	i = nb_graines;
-	if(matrice[joueur][x] == 2 || matrice[joueur][x] == 3) {
+	if((matrice[joueur][x] == 2 || matrice[joueur][x] == 3 ) && clan != joueur) {
 		*score = *score+matrice[joueur][x];
 		matrice[joueur][x] = 0;
-		while( i>0 && nb_gr_fin<=3 && nb_gr_fin > 1) {	//initialise le score 
+		while( i>0 && nb_gr_fin<=3 && nb_gr_fin > 1 && clan != joueur) {	//initialise le score 
 			(*score) = (*score)+matrice[joueur][x];
 			matrice[joueur][x] = 0;
 			dpl_arriere(&x, &joueur);
@@ -212,9 +215,9 @@ void afficher_score(int score, char joueur[20]) {
 }
 
 /**
-*\fn void sauvegarder(void)
+*\fn void sauvegarder(FILE*fichier)
 *\brief Permet de sauvegarder une partie en cours, les scores et pseudos de la partie inclues
-*\param 
+*\param fichier, le fichier de sauvegarde
 */
 void sauvegarder(FILE * fichier) {
 	
@@ -232,7 +235,11 @@ void sauvegarder(FILE * fichier) {
 	}
 	 
 }
-
+/**
+*\fn void sauvegarder(FILE*fichier)
+*\brief Permet de charger une partie sauvegarder, les scores et pseudos de la partie inclues
+*\param fichier, le fichier de sauvegarde à recuperer
+*/
 void charger_partie(FILE * fichier) {
 	
 	int i, j;
@@ -265,10 +272,11 @@ int main(){
 
 	FILE * fic_save;
 
-	fic_save = fopen("sauvegarde.txt", "rw+");
+	fic_save = fopen("sauvegarde.txt", "r+");
 
 
 	printf("\nMenu :\n");
+		
 		printf(" 1 - Voulez vous commencez une nouvelle partie ?\n");
 		printf(" 2 - Reprendre la partie\n");
 		printf(" 3 - Quittez AWELE\n");
@@ -304,8 +312,8 @@ int main(){
 					printf("\n%s : Saisissez votre point de jeu : \n", player2);
 					scanf("%i", &coord_x);
 					
-					nb_graine = awale[joueur2][6-coord_x];
-					manger_graines(nb_graine, awale, joueur2, 6-coord_x, &scorej2);
+					nb_graine = awale[joueur2][coord_x-1];
+					manger_graines(nb_graine, awale, joueur2, coord_x-1, &scorej2);
 					affiche_matrice(awale);
 					
 					afficher_score(scorej2, player2);
@@ -350,20 +358,20 @@ int main(){
 					printf("\n%s : Saisissez votre point de jeu : \n", player2);
 					scanf("%i", &coord_x);
 					
-					nb_graine = awale[joueur2][6-coord_x];
-					manger_graines(nb_graine, awale, joueur2, 6-coord_x, &scorej2);
+					nb_graine = awale[joueur2][coord_x-1];
+					manger_graines(nb_graine, awale, joueur2, coord_x-1, &scorej2);
 					affiche_matrice(awale);
 					
 					afficher_score(scorej2, player2);
 
-					printf("Voulez vous abandonner ou quittez le jeu\n");
+					printf("Voulez vous abandonner ou quittez le jeu q pour quitter, s pour continuer\n");
 					scanf("%*c%c", &reponse);
 				
 				}
 			
-				printf("Voulez vous sauvegarder la partie Y pour Oui et N pour Non\n");
+				printf("Voulez vous sauvegarder la partie y pour Oui et n pour Non\n");
 				scanf("%*c%c", &reponse);                                                                                   
-				if(reponse == 'Y') {
+				if(reponse == 'y') {
 						sauvegarder(fic_save);
 				}
 				fclose(fic_save);
