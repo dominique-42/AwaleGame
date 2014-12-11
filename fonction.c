@@ -157,14 +157,18 @@ int jeu_ordi(int ordinateur, int matrice[L][C]){
 	
 	int case_ordi = 0;
 	
-	int max = score[0];
+	int max;
 	
 	int mat_tmp[L][C];
 	
 	int case_mat;
 	
-
+	for(j=0; j<C; j++)
+		score[j] = 0;
+	
 	for(case_mat = 0; case_mat<C ;case_mat++) {
+		
+		fprintf(stderr, "ORDI : essaye case %d\n", case_mat);
 		
 		//Actualiser la matrice aide avec la disposition du plateau
 		
@@ -174,15 +178,24 @@ int jeu_ordi(int ordinateur, int matrice[L][C]){
 			}
 		}
 		
-		manger_graines(mat_tmp[case_mat][ordinateur], mat_tmp ,ordinateur, case_mat, &score[case_mat]);
+		if(mat_tmp[case_mat][ordinateur] != 0){
+			manger_graines(mat_tmp[case_mat][ordinateur], mat_tmp ,ordinateur, case_mat, &score[case_mat]);
+			fprintf(stderr, "ORDI : score = %d\n", score[case_mat]);
+		} else {
+			fprintf(stderr, "ORDI : case vide !!\n");	
+		}
+		
 	}
-	for(j=0; j<C; j++) {
+	max = score[0];
+	for(j=1; j<C; j++) {
 			
 		if(max < score[j]){
 			max = score[j];
 			case_ordi = j;
 		}
 	}
+	fprintf(stderr, " --> ORDI va jouer en %d\n", case_ordi);
+		
 	return case_ordi;
 }
    
