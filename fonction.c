@@ -129,7 +129,7 @@ void manger_graines(int nb_graines, int matrice[L][C], int joueur, int x, int *s
 	if((matrice[joueur][x] == 2 || matrice[joueur][x] == 3 ) && clan != joueur) {
 		*score = *score+matrice[joueur][x];
 		matrice[joueur][x] = 0;
-		while( i>0 && nb_gr_fin<=3 && nb_gr_fin > 1 && clan != joueur) {	//initialise le score 
+		while( i>0 && nb_gr_fin<=3 && nb_gr_fin > 1 && clan != joueur) {	//initialise le score selon le nb de graines mangées
 			(*score) = (*score)+matrice[joueur][x];
 			matrice[joueur][x] = 0;
 			dpl_arriere(&x, &joueur);
@@ -153,55 +153,24 @@ int aide(int joueur, int matrice[L][C], int * case_aide){
 	
 	int cpt_aide = 0;
 	int j, k;
-	
-	int coord_x;
-	
+
 	int max = 0;
-	int nb_gr_fin;
 	
 	int mat_aide[L][C];
-	int nb_graine_case;
 	
 	int case_mat;
 	
 
 	for(case_mat = 0; case_mat<C ;case_mat++) {
 		
-		for(k = 0; k<L; k++) {		//Actualiser la matrice aide avec la disposition du plateau
+		/*Actualiser la matrice aide avec la disposition du plateau de jeu*/
+		for(k = 0; k<L; k++) {		
 			for(j=0; j<C; j++) {
 				mat_aide[k][j] = matrice[k][j];
 			}
 		}
+		manger_graines(mat_aide[case_mat][joueur], mat_aide, joueur, case_mat, &score[case_mat]);
 		
-		nb_graine_case = mat_aide[joueur][case_mat];
-		coord_x = case_mat;
-		for(j = 0; j<nb_graine_case;j++) {
-			
-			dpl_avant(&coord_x,&joueur);
-			mat_aide[joueur][coord_x] = mat_aide[joueur][coord_x]+1;
-			
-			if(j == nb_graine_case-1) {
-				nb_gr_fin = mat_aide[joueur][coord_x];
-			}
-		}
-		
-	
-		j = nb_graine_case;
-		
-		if(mat_aide[joueur][coord_x] == 2 || mat_aide[joueur][coord_x] == 3) {
-			
-			score[case_mat] = score[case_mat]+mat_aide[joueur][coord_x];
-			mat_aide[joueur][coord_x] = 0;
-			
-			while( j>0 && nb_gr_fin<=3 && nb_gr_fin > 1) {	
-				
-				score[case_mat] = score[case_mat]+mat_aide[joueur][coord_x];
-				mat_aide[joueur][coord_x] = 0;
-				dpl_arriere(&coord_x, &joueur);
-				nb_gr_fin = mat_aide[joueur][coord_x];
-				j--;
-			}	
-		}
 	}
 	
 	for(j=0; j<C; j++) {
@@ -462,7 +431,7 @@ int main(){
 					
 					if(aide(joueur1, awale, &case_aide)) {
 						printf("Voulez vous une aide ?\n");
-						scanf("%*c%c", &rep_aide);
+						scanf("%c", &rep_aide);
 						if(rep_aide == 'y') {
 							printf("Bougez la case %i !", case_aide);
 						}
