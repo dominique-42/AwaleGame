@@ -13,6 +13,7 @@ int scorej1 = 0;
 int scorej2 = 0;
 char player1[20];
 char player2[20];
+char ordinateur[] = "Ordinateur";
 
 typedef struct {int joueur; int x; }t_coord;
 /**
@@ -138,7 +139,54 @@ void manger_graines(int nb_graines, int matrice[L][C], int joueur, int x, int *s
 		}	
 	}
 
+} 
+
+ 
+/**
+*\fn int jeu_ordi(int ordinateur, int matrice[L][C], int * case_aide)
+*\brief  quelle case bouger pour avoir plus de graines 
+*\param score virtuel , parametre qui permet de calculer le nombre de graines avant de jouer pour avoir le maximum de graines 
+*\return 0 si il n'ya aucune possibilité de ramasser des graines, et retourne la valeur de la case en pointeur
+**/
+
+int jeu_ordi(int ordinateur, int matrice[L][C]){
+
+	int score[C];
+	
+	int j, k;
+	
+	int case_ordi = 0;
+	
+	int max = score[0];
+	
+	int mat_tmp[L][C];
+	
+	int case_mat;
+	
+
+	for(case_mat = 0; case_mat<C ;case_mat++) {
+		
+		//Actualiser la matrice aide avec la disposition du plateau
+		
+		for(k = 0; k<L; k++) {		
+			for(j=0; j<C; j++) {
+				mat_tmp[k][j] = matrice[k][j];
+			}
+		}
+		
+		manger_graines(mat_tmp[case_mat][ordinateur], mat_tmp ,ordinateur, case_mat, &score[case_mat]);
+	}
+	for(j=0; j<C; j++) {
+			
+		if(max < score[j]){
+			max = score[j];
+			case_ordi = j;
+		}
+	}
+	return case_ordi;
 }
+   
+  
     
 /**
 *\fn int aide(int joueur, int matrice[L][C], int * case_aide)
@@ -298,6 +346,10 @@ void afficher_score(int score, char joueur[20]) {
 
 }
 
+void afficher_score2(int score) {
+	printf("\nLe score du joueur est %i\n",  score);
+
+}
 /**
 *\fn void sauvegarder(FILE*fichier)
 *\brief Permet de sauvegarder une partie en cours, les scores et pseudos de la partie inclues
@@ -348,9 +400,9 @@ int main(){
 	
 	int joueur2 = 0;
 	int joueur1 = 1;
-
-	int choix, nb_graine, coord_x;
-	int case_aide;
+    int ordinateur = 0;
+	int choix, choix2, nb_graine, coord_x;
+	int case_aide, case_ordi;
 	
 	char reponse;
 	
@@ -360,7 +412,7 @@ int main(){
 
 	FILE * fic_save;
 
-	fic_save = fopen("sauvegarde.txt", "r+");
+	fic_save = fopen("sauvegarde.txt", "w+");
 
 
 	printf("\nMenu :\n");
@@ -374,74 +426,136 @@ int main(){
 	
 	switch(choix)
 		{	case 1 : 
-				printf("Joueur 1\nVeuillez saisir votre pseudonyme ?\n");
-				scanf("%s", player1);
-				printf("Joueur 2\nVeuillez saisir votre pseudonyme ?\n");
-				scanf("%s", player2);
+				
+				printf(" 1 - jouer à 2 \n");
+				printf(" 2 - Jouez avec l'ordinateur ?\n");
+				printf(" ----Quel est votre choix\n");
+
+				scanf("%i",&choix2);
+
+				switch(choix2){
+					
+					case 1 :
+					
+						printf("Joueur 1\nVeuillez saisir votre pseudonyme ?\n");
+						scanf("%s", player1);
+						printf("Joueur 2\nVeuillez saisir votre pseudonyme ?\n");
+						scanf("%s", player2);
 			
-				printf("\nQue la partie commence !\n");
-				init_matrice(awale);
-				affiche_matrice(awale);				
+						printf("\nQue la partie commence !\n");
+						init_matrice(awale);
+						affiche_matrice(awale);				
 				
 
-				while(partie_pas_finie(awale, joueur1, joueur2, &scorej1, &scorej2 ) && reponse != 'q'){
+						while(partie_pas_finie(awale, joueur1, joueur2, &scorej1, &scorej2 ) && reponse != 'q'){
 					
 					
-					printf("\n%s : Saisissez votre point de jeu: \n", player1);
+						
+							/*if(aide(joueur1, awale, &case_aide)) {
+								printf("Voulez vous une aide ?\n");
+								scanf("%*c%c", &rep_aide);
+								if(rep_aide == 'y') {
+									printf("Bougez la case %i !", case_aide);
+								}
+							}*/
 					
-					if(aide(joueur1, awale, &case_aide)) {
-						printf("Voulez vous une aide ?\n");
-						scanf("%*c%c", &rep_aide);
-						if(rep_aide == 'y') {
-							printf("Bougez la case %i !", case_aide);
-						}
-					}
+							printf("\n%s : Saisissez votre point de jeu: \n", player1);
+							scanf("%i", &coord_x);
+							assert(coord_x > 0);
 					
-					printf("\n%s : Saisissez votre point de jeu: \n", player1);
-					scanf("%i", &coord_x);
-					assert(coord_x > 0);
+							nb_graine = awale[joueur1][coord_x-1];
+							manger_graines(nb_graine, awale, joueur1, coord_x-1, &scorej1);
+							affiche_matrice(awale);
 					
-					nb_graine = awale[joueur1][coord_x-1];
-					manger_graines(nb_graine, awale, joueur1, coord_x-1, &scorej1);
-					affiche_matrice(awale);
-					
-					afficher_score(scorej1, player1);
+							afficher_score(scorej1, player1);
 
 					
-					printf("\n%s : Saisissez votre point de jeu : \n", player2);
+							printf("\n%s : Saisissez votre point de jeu : \n", player2);
 					
-					if(aide(joueur2, awale, &case_aide)) {
-						printf("Voulez vous une aide ?\n");
-						scanf("%*c%c", &rep_aide);
-						if(rep_aide == 'y') {
-							printf("Bougez la case %i !", case_aide);
-						}
-					}
+						/*	if(aide(joueur2, awale, &case_aide)) {
+								printf("Voulez vous une aide ?\n");
+								scanf("%*c%c", &rep_aide);
+								if(rep_aide == 'y') {
+									printf("Bougez la case %i !", case_aide);
+								}
+							}*/
 					
-					scanf("%i", &coord_x);
+							scanf("%i", &coord_x);
 					
-					nb_graine = awale[joueur2][coord_x-1];
-					manger_graines(nb_graine, awale, joueur2, coord_x-1, &scorej2);
-					affiche_matrice(awale);
+							nb_graine = awale[joueur2][coord_x-1];
+							manger_graines(nb_graine, awale, joueur2, coord_x-1, &scorej2);
+							affiche_matrice(awale);
 					
-					afficher_score(scorej2, player2);
+							afficher_score(scorej2, player2);
 
-					printf("Voulez vous abandonner ou quittez le jeu q pour quitter, s pour continuer\n");
-					scanf("%*c%c", &reponse);
+							printf("Voulez vous abandonner ou quittez le jeu q pour quitter, s pour continuer\n");
+							scanf("%*c%c", &reponse);
 				
-				}
-                printf("Voulez vous sauvegarder la partie y pour Oui et n pour Non\n");
-				scanf("%*c%c", &reponse);                                                                                   
-				if(reponse == 'y') {
-						sauvegarder(fic_save);
-				}
-				fclose(fic_save);
-			break;
+						}
+						printf("Voulez vous sauvegarder la partie y pour Oui et n pour Non\n");
+						scanf("%*c%c", &reponse);                                                                                   
+						if(reponse == 'y') {
+							sauvegarder(fic_save);
+						}
+						fclose(fic_save);
+					break;
 			
-			/*Reprendre la partie*/
+			/*Partie avec l'ordinateur*/
 			
-			case 2: 
+					case 2: 
+						printf("Joueur 1\nVeuillez saisir votre pseudonyme ?\n");
+						scanf("%s", player1);
+
+			            printf("\nQue la partie commence !\n");
+						init_matrice(awale);
+						affiche_matrice(awale);				
+				
+
+						while(partie_pas_finie(awale, joueur1, joueur2, &scorej1, &scorej2 ) && reponse != 'q'){
+					
+		
+					
+							printf("\n%s : Saisissez votre point de jeu: \n", player1);
+							scanf("%i", &coord_x);
+							assert(coord_x > 0);
+					
+							nb_graine = awale[joueur1][coord_x-1];
+							manger_graines(nb_graine, awale, joueur1, coord_x-1, &scorej1);
+							affiche_matrice(awale);
+					
+							afficher_score(scorej1, player1);
+
+							printf("\n Tour de l' Ordinateur \n");
+							
+							case_ordi = jeu_ordi(ordinateur, awale);
+					
+							nb_graine = awale[ordinateur][case_ordi];
+							manger_graines(nb_graine, awale, ordinateur, case_ordi, &scorej2);
+							affiche_matrice(awale);
+					
+							afficher_score2(scorej2);
+
+							printf("Voulez vous abandonner ou quittez le jeu q pour quitter, s pour continuer\n");
+							scanf("%*c%c", &reponse);
+				
+						}
+						printf("Voulez vous sauvegarder la partie y pour Oui et n pour Non\n");
+						scanf("%*c%c", &reponse);                                                                                   
+						if(reponse == 'y') {
+							sauvegarder(fic_save);
+						}
+						fclose(fic_save);
 			
+					break;
+
+					default: printf("Erreur: votre choix doit etre compris entre 1 et 2\n"); break;
+		
+		
+	}
+		
+		
+		/*Reprendre la partie deja enregistré*/
+		case 2: 
 				
 				charger_partie(fic_save);
 				
@@ -454,7 +568,7 @@ int main(){
 				
 					printf("\n%s : Saisissez votre point de jeu: \n", player1);
 					
-					if(aide(joueur1, awale, &case_aide)) {
+					if(!aide(joueur1, awale, &case_aide)) {
 						printf("Voulez vous une aide ?\n");
 						scanf("%*c%c", &rep_aide);
 						if(rep_aide == 'y') {
