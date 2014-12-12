@@ -163,7 +163,8 @@ int jeu_ordi(int ordinateur, int matrice[L][C]){
 	
 	int case_mat;
 	
-	for(j=0; j<C; j++)
+	
+    for(j=0; j<C; j++)
 		score[j] = 0;
 	
 	for(case_mat = 0; case_mat<C ;case_mat++) {
@@ -178,8 +179,8 @@ int jeu_ordi(int ordinateur, int matrice[L][C]){
 			}
 		}
 		
-		if(mat_tmp[case_mat][ordinateur] != 0){
-			manger_graines(mat_tmp[case_mat][ordinateur], mat_tmp ,ordinateur, case_mat, &score[case_mat]);
+	if(mat_tmp [ordinateur][case_mat]!= 0){
+			manger_graines(mat_tmp[ordinateur][case_mat], mat_tmp ,ordinateur, case_mat, &score[case_mat]);
 			fprintf(stderr, "ORDI : score = %d\n", score[case_mat]);
 		} else {
 			fprintf(stderr, "ORDI : case vide !!\n");	
@@ -198,8 +199,7 @@ int jeu_ordi(int ordinateur, int matrice[L][C]){
 		
 	return case_ordi;
 }
-   
-  
+	
     
 /**
 *\fn int aide(int joueur, int matrice[L][C], int * case_aide)
@@ -382,7 +382,7 @@ int main(){
 	
 	int joueur2 = 0;
 	int joueur1 = 1;
-    int ordinateur = 0;
+        int ordinateur = 0;
 	int choix, choix2, nb_graine, coord_x;
 	int case_aide, case_ordi;
 	
