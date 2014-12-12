@@ -233,7 +233,7 @@ int jeu_ordi(int ordinateur, int matrice[L][C]){
 			else
 				case_ordi--;
 	
-		}while(mat_tmp[ordinateur][case_ordi] == 0);	
+		}while(mat_tmp[ordinateur][case_ordi] == 0);
 	
 	}
 	
