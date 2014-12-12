@@ -113,9 +113,7 @@ void manger_graines(int nb_graines, int matrice[L][C], int joueur, int x, int *s
 	graine_dbt.joueur = joueur;
 	graine_dbt.x = x;
 	clan = joueur;
-	
-	matrice[graine_dbt.joueur][graine_dbt.x] = 0;
-	
+		
 	for(i = 0; i<nb_graines;i++) {
 		dpl_avant(&x,&joueur);
 		
@@ -126,6 +124,8 @@ void manger_graines(int nb_graines, int matrice[L][C], int joueur, int x, int *s
 		}
 	}
 	
+	matrice[graine_dbt.joueur][graine_dbt.x] = 0;
+
 	i = nb_graines;
 	if((matrice[joueur][x] == 2 || matrice[joueur][x] == 3 ) && clan != joueur) {
 		*score = *score+matrice[joueur][x];
@@ -152,69 +152,45 @@ void manger_graines(int nb_graines, int matrice[L][C], int joueur, int x, int *s
 int jeu_ordi(int ordinateur, int matrice[L][C]){
 
 	int score[C];
-	
 	int j, k;
-	
 	int case_ordi;
-	
 	int max;
-	
 	int cpt = 0;
 	int mat_tmp[L][C];
 	
-	int case_mat, case_tmp;
+	int case_mat;
 	
-
+	//init scores pour chaque case
     for(j=0; j<C; j++)
 		score[j] = 0;
 
-	
+	// on essaye de jouer dans chaque case, et on regarde le score de chaque case
 	for(case_mat = 0; case_mat<C ;case_mat++) {
 		
-		fprintf(stderr, "ORDI : essaye case %d\n", case_mat);
-		
+
 		//Actualiser la matrice aide avec la disposition du plateau
-		
 		for(k = 0; k<L; k++) {		
 			for(j=0; j<C; j++) {
 				mat_tmp[k][j] = matrice[k][j];
 			}
 		}
-		
-
-		fprintf(stderr, "Matrice tmp\n");
-
-		affiche_matrice(mat_tmp);
-		
-		case_tmp = case_mat;
-		if(mat_tmp[ordinateur][case_tmp] != 0){
-			manger_graines(mat_tmp[ordinateur][case_tmp], mat_tmp ,ordinateur, case_tmp, &score[case_mat]);
-		
-			fprintf(stderr, "ORDI : score = %d\n", score[case_mat]);
-			fprintf(stderr, "Case tmp = %d\n", case_tmp );
-			fprintf(stderr, "ORDI : %d !!\n", ordinateur);	
-
-
-		} else {
-			fprintf(stderr, "ORDI : case vide !!\n");	
+				
+		if(mat_tmp[ordinateur][case_mat] != 0){ //s'il y a au mons 1 graine dans la case, on essaye de jouer à partir de cette case
+			
+			manger_graines(mat_tmp[ordinateur][case_mat], mat_tmp ,ordinateur, case_mat, &score[case_mat]);
+			
+		} 
+		else {
+			fprintf(stderr, "ORDI : case vide !!\n");
+			score[case_mat] = -1; //on ne doit pas choisir cette case
 		}
-		
-		affiche_matrice(mat_tmp);
-
+	}
 	
-	}
-	for(k = 0; k<L; k++) {		
-			for(j=0; j<C; j++) {
-				mat_tmp[k][j] = matrice[k][j];
-				/*fprintf(stderr, "MatTmp : case %d = %d\n", j, mat_tmp[k][j]);*/
-
-			}
-		}
-	for(j=0; j<C; j++) {
-		cpt = cpt + score[j];
-	}
-	if(cpt != 0) {
+	//on n' a plus besoin de mat_tmp
+	
+	//détecter la case qui permet de manger le plus de graines
 		max = score[0];
+		case_ordi = 0;
 		for(j=1; j<C; j++) {
 			
 			if(max < score[j]){
@@ -223,20 +199,9 @@ int jeu_ordi(int ordinateur, int matrice[L][C]){
 			}
 		
 		}
-	}
-	else {
-		case_ordi = 0;
-		do{
-		
-			if(mat_tmp[ordinateur][case_ordi] == 0 && case_ordi != C-1) 
-				case_ordi++;
-			else
-				case_ordi--;
 	
-		}while(mat_tmp[ordinateur][case_ordi] == 0);
-	
-	}
-	
+	fprintf(stderr, "---> ORDI va jouer %d\n", case_ordi);
+
 	return case_ordi;
 }
 	
