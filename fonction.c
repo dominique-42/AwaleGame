@@ -143,10 +143,10 @@ void manger_graines(int nb_graines, int matrice[L][C], int joueur, int x, int *s
 
  
 /**
-*\fn int jeu_ordi(int ordinateur, int matrice[L][C], int * case_aide)
-*\brief  quelle case bouger pour avoir plus de graines 
-*\param score virtuel , parametre qui permet de calculer le nombre de graines avant de jouer pour avoir le maximum de graines 
-*\return 0 si il n'ya aucune possibilité de ramasser des graines, et retourne la valeur de la case en pointeur
+*\fn int jeu_ordi(int ordinateur, int matrice[L][C])
+*\brief  La case que l'ordinateur devrait bouger
+*\param ordinateur , matrice represente le plateau de jeu
+*\return la case à déplacer
 **/
 
 int jeu_ordi(int ordinateur, int matrice[L][C]){
@@ -155,16 +155,18 @@ int jeu_ordi(int ordinateur, int matrice[L][C]){
 	
 	int j, k;
 	
-	int case_ordi = 0;
+	int case_ordi;
 	
 	int max;
 	
+	int cpt = 0;
 	int mat_tmp[L][C];
 	
-	int case_mat;
+	int case_mat, case_tmp;
 	
-	for(j=0; j<C; j++)
+	for(j=0; j<C; j++){
 		score[j] = 0;
+	}
 	
 	for(case_mat = 0; case_mat<C ;case_mat++) {
 		
@@ -178,24 +180,60 @@ int jeu_ordi(int ordinateur, int matrice[L][C]){
 			}
 		}
 		
-		if(mat_tmp[case_mat][ordinateur] != 0){
-			manger_graines(mat_tmp[case_mat][ordinateur], mat_tmp ,ordinateur, case_mat, &score[case_mat]);
+		fprintf(stderr, "Matrice tmp\n");
+
+		affiche_matrice(mat_tmp);
+		
+		case_tmp = case_mat;
+		if(mat_tmp[ordinateur][case_tmp] != 0){
+			manger_graines(mat_tmp[ordinateur][case_tmp], mat_tmp ,ordinateur, case_tmp, &score[case_mat]);
 			fprintf(stderr, "ORDI : score = %d\n", score[case_mat]);
+			fprintf(stderr, "Case tmp = %d\n", case_tmp );
+			fprintf(stderr, "ORDI : %d !!\n", ordinateur);	
+
+
 		} else {
 			fprintf(stderr, "ORDI : case vide !!\n");	
 		}
 		
+		affiche_matrice(mat_tmp);
+
+	
 	}
-	max = score[0];
-	for(j=1; j<C; j++) {
+	for(k = 0; k<L; k++) {		
+			for(j=0; j<C; j++) {
+				mat_tmp[k][j] = matrice[k][j];
+				/*fprintf(stderr, "MatTmp : case %d = %d\n", j, mat_tmp[k][j]);*/
+
+			}
+		}
+	for(j=0; j<C; j++) {
+		cpt = cpt + score[j];
+	}
+	if(cpt != 0) {
+		max = score[0];
+		for(j=1; j<C; j++) {
 			
-		if(max < score[j]){
-			max = score[j];
-			case_ordi = j;
+			if(max < score[j]){
+				max = score[j];
+				case_ordi = j;
+			}
+		
 		}
 	}
-	fprintf(stderr, " --> ORDI va jouer en %d\n", case_ordi);
+	else {
+		case_ordi = 0;
+		do{
 		
+			if(mat_tmp[ordinateur][case_ordi] == 0 && case_ordi != C-1) 
+				case_ordi++;
+			else
+				case_ordi--;
+	
+		}while(mat_tmp[ordinateur][case_ordi] == 0);	
+	
+	}
+	
 	return case_ordi;
 }
    
@@ -230,7 +268,7 @@ int aide(int joueur, int matrice[L][C], int * case_aide){
 				mat_aide[k][j] = matrice[k][j];
 			}
 		}
-		manger_graines(mat_aide[case_mat][joueur], mat_aide, joueur, case_mat, &score[case_mat]);
+		manger_graines(mat_aide[joueur][case_mat], mat_aide, joueur, case_mat, &score[case_mat]);
 		
 	}
 	for(j=0; j<C; j++) {
@@ -328,6 +366,11 @@ void afficher_score(int score, char joueur[20]) {
 
 }
 
+/**
+*\fn afficher_score2(int score)
+*\brief Permet d'afficher le score du joueur
+*\param score score du joueur
+*/
 void afficher_score2(int score) {
 	printf("\nLe score du joueur est %i\n",  score);
 
@@ -394,7 +437,7 @@ int main(){
 
 	FILE * fic_save;
 
-	fic_save = fopen("sauvegarde.txt", "w+");
+	fic_save = fopen("sauvegarde.txt", "rw+");
 
 
 	printf("\nMenu :\n");
@@ -409,7 +452,7 @@ int main(){
 	switch(choix)
 		{	case 1 : 
 				
-				printf(" 1 - jouer à 2 \n");
+				printf(" 1 - Jouer à deux ? \n");
 				printf(" 2 - Jouez avec l'ordinateur ?\n");
 				printf(" ----Quel est votre choix\n");
 
@@ -493,7 +536,7 @@ int main(){
 						affiche_matrice(awale);				
 				
 
-						while(partie_pas_finie(awale, joueur1, joueur2, &scorej1, &scorej2 ) && reponse != 'q'){
+						while(partie_pas_finie(awale, joueur1, ordinateur, &scorej1, &scorej2 ) && reponse != 'q'){
 					
 		
 					
@@ -533,7 +576,9 @@ int main(){
 					default: printf("Erreur: votre choix doit etre compris entre 1 et 2\n"); break;
 		
 		
-	}
+			}
+			break;
+			
 		
 		
 		/*Reprendre la partie deja enregistré*/
@@ -550,13 +595,13 @@ int main(){
 				
 					printf("\n%s : Saisissez votre point de jeu: \n", player1);
 					
-					if(!aide(joueur1, awale, &case_aide)) {
+					/*if(!aide(joueur1, awale, &case_aide)) {
 						printf("Voulez vous une aide ?\n");
 						scanf("%c", &rep_aide);
 						if(rep_aide == 'y') {
 							printf("Bougez la case %i !", case_aide);
 						}
-					}
+					}*/
 					
 					scanf("%i", &coord_x);
 					assert(coord_x > 0);
@@ -570,13 +615,13 @@ int main(){
 					
 					printf("\n%s : Saisissez votre point de jeu : \n", player2);
 					
-					if(aide(joueur2, awale, &case_aide)) {
+					/*if(aide(joueur2, awale, &case_aide)) {
 						printf("Voulez vous une aide ?\n");
 						scanf("%*c%c", &rep_aide);
 						if(rep_aide == 'y') {
 							printf("Bougez la case %i !", case_aide);
 						}
-					}
+					}*/
 					
 					scanf("%i", &coord_x);
 					
