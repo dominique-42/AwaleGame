@@ -70,21 +70,11 @@ void charger_partie(FILE * fichier) {
 	char reponse;
 	char rep_aide;
 	
-			
-			
-			printf("Joueur 1\nVeuillez saisir votre pseudonyme ?\n");
-			scanf("%s", pseudo1);
-			printf("Joueur 2\nVeuillez saisir votre pseudonyme ?\n");
-			scanf("%s", pseudo2);
-			init_matrice(awale);
-			affiche_matrice(awale);				
-				
-
 			while(partie_pas_finie(awale, &scorej1, &scorej2 ) && reponse != 'q'){
 					
 					
 							/*Tour du joueur 1*/
-				if(aide(joueur1, awale, &case_aide) ) {
+				if(aide(JOUEUR1, awale, &case_aide) ) {
 				printf("\nVoulez vous une aide, y pour Oui, n pour Non ?\n");
 				scanf("%*c%c", &rep_aide);
 					if(rep_aide == 'y') {
@@ -98,7 +88,7 @@ void charger_partie(FILE * fichier) {
 				while(coord_x > C || coord_x < 0) {
 							
 					printf("\nVotre choix doit etre compris entre 1 et 6\n");
-					printf("\n%s : Saisissez votre point de jeu: \n", player1);
+					printf("\n%s : Saisissez votre point de jeu: \n", pseudo1);
 					scanf("%i", &coord_x);
 							
 				}
@@ -112,7 +102,7 @@ void charger_partie(FILE * fichier) {
 
 				/*Tour du joueur 2*/
 
-				if(aide(joueur2, awale, &case_aide)) {
+				if(aide(JOUEUR2, awale, &case_aide)) {
 					printf("\nVoulez vous une aide, y pour Oui, n pour Non ?\n");
 					scanf("%*c%c", &rep_aide);
 						if(rep_aide == 'y') {
@@ -160,24 +150,13 @@ void jouer_avec_ordinateur(FILE * fichier) {
 	int nb_graine, coord_x;
 	int case_aide;
 	int case_ordi;
-	
 	char reponse;
-	
 	char rep_aide;
 		
-		
-		printf("Joueur 1\nVeuillez saisir votre pseudonyme ?\n");
-		scanf("%s", pseudo1);
-
-		printf("\nQue la partie commence !\n");
-		init_matrice(awale);
-		affiche_matrice(awale);				
-				
-
 		while(partie_pas_finie(awale, &scorej1, &scorej2 ) && reponse != 'q'){
 					
 		
-			if(aide(joueur1, awale, &case_aide)) {
+			if(aide(JOUEUR1, awale, &case_aide)) {
 				printf("\nVoulez vous une aide, y pour Oui, n pour Non ?\n");
 				scanf("%*c%c", &rep_aide);
 					if(rep_aide == 'y') {
@@ -206,7 +185,7 @@ void jouer_avec_ordinateur(FILE * fichier) {
 			/*Tour de l'ordinateur*/
 							
 			printf("\n Tour de l' Ordinateur \n");
-			strcpy(player2, "Ordinateur");
+			strcpy(pseudo2, "Ordinateur");
 			
 			/*Recuperer la case que l'ordinateur va joué*/
 							
@@ -234,10 +213,12 @@ void jouer_avec_ordinateur(FILE * fichier) {
 void jouer(FILE * fichier){
 	
 				if(strcmp(pseudo2, "Ordinateur") == 0) {
-					jouer_avec_ordinateur(fic_save);
+					affiche_matrice(awale);		
+					jouer_avec_ordinateur(fichier);
 				}
 				else {
-					jouer_a_deux(fic_save);
+					affiche_matrice(awale);		
+					jouer_a_deux(fichier);
 				}
 	}
 
