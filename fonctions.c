@@ -3,19 +3,7 @@
 #include<string.h>
 #include<assert.h>
 
-
-#ifndef L
-#define L 2
-#endif
-
-
-#ifndef C
-#define C 6
-#endif
-
-#ifndef N
-#define N 12
-#endif
+#include "fonctions.h"
 
 typedef struct {int joueur; int x; }t_coord;
 
@@ -321,8 +309,8 @@ int nourir(int matrice[L][C], int joueur) {
 *\param matrice[L][C], joueur1, joueur2, score1, score2
 *\return 1 si partie finie, 0 sinon
 */
-int partie_pas_finie(int matrice[L][C], int joueur1, int joueur2, int *score1, int *score2 ) {
-	if(nourir(matrice, joueur1) == 1 || nourir(matrice, joueur2) == 1) {
+int partie_pas_finie(int matrice[L][C], int *score1, int *score2 ) {
+	if(nourir(matrice, JOUEUR1) == 1 || nourir(matrice, JOUEUR2) == 1) {
 		return 1;
 		}
 	if(gagne(score1, score2)) {
