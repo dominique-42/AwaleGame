@@ -300,7 +300,7 @@ int nourir(int matrice[L][C], int joueur) {
 	return 0;	
 }
 /**
-*\fn int gagne(int*score,int*score2)
+*\fn int gagner(int*score,int*score2)
 *\brief verifie si le score des joueurs "joueur1" ou "joueur2" a depassé 25 ou pas
 *\param score (score du joueurà, joueur
 *\return 0 si score des deux joueurs <25, 1 sinon
@@ -342,4 +342,9 @@ void afficher_score(int score, char joueur[20]) {
 	printf("\nLe score du joueur %s est %i\n", joueur, score);
 
 }
+
+
+
+
+
 

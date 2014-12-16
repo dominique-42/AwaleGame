@@ -69,6 +69,23 @@ void charger_partie(FILE * fichier) {
 	}
 
 }
+
+/**
+*\fn  void victoire (int score1 , score2)
+*\brief Permet d'afficher le score et le pseudo du joueur victorieux
+*\param score1 score du joueur 1, score 2 score du joueur 2
+*/ 
+
+void  victoire (int score1, int score2){
+	if (score1>score2 ){
+		printf("Victoire du %s \n Score : %i\n", player1, score1);
+	}
+	else if (score2>score1){
+		printf("Victoire du %s \n Score : %i\n", player2, score2);
+	}	
+}
+
+
 /**
 *\fn void jouer_a_deux(int joueur1, int joueur2, FILE * fichier)
 *\brief Permet de joueur
@@ -132,10 +149,32 @@ void charger_partie(FILE * fichier) {
 						}
 				}
 							
-				printf("\n%s : Saisissez votre point de jeu : \n", player2);
-				scanf("%*c%i", &coord_x);
-							
-				while(coord_x > C || coord_x < 0) {
+				
+				// faire
+				// 		afficher un message pour la saisie
+				// 		récupère la coordonnée
+				// 		vérifier que cette coord est valide, sinon -> afficher message d'erreur
+				// 		vérifier que la case n'est pas vide -> sinon message d'erreur
+				// tant que (coordonnées invalides OU case est vide )
+				
+				
+				do {
+					printf("\n%s : Saisissez votre point de jeu : \n", player2);
+					scanf("%*c%i", &coord_x);
+					
+					if(coord_x > C || coord_x < 0){ //si les coordonnées sont mauvaises
+						printf("\nVotre choix doit etre compris entre 1 et 6\n");
+					}
+					else {
+						nb_graine = awale[joueur2][coord_x-1];
+						if(nb_graine == 0){ //si la case est vide		
+							printf("\n la case est vide !! on ne pas bouger la case !!\n");
+						}
+					}
+				
+				} while(coord_x > C || coord_x < 0 || nb_graine == 0);
+				
+				/*while(coord_x > C || coord_x < 0) {
 							
 					printf("\nVotre choix doit etre compris entre 1 et 6\n");
 					printf("\n%s : Saisissez votre point de jeu: \n", player1);
@@ -143,6 +182,16 @@ void charger_partie(FILE * fichier) {
 							
 				}
 				nb_graine = awale[joueur2][coord_x-1];
+			    while (nb_graine == 0) {
+					printf("\n la case est vide !! on ne pas bouger la case !!\n");
+					printf("\n%s: saisissez un point de jeu superieur à 0 \n");
+					scanf("%i", &coord_x);
+					nb_graine = awale[joueur2][coord_x-1];
+				  }*/
+				  
+				 // ici on est sur que la case coord_x n'est pas vide !
+				 // on peut appeler manger_graines sans probleme !
+				  
 				manger_graines(nb_graine, awale, joueur2, coord_x-1, &scorej2);
 				affiche_matrice(awale);
 					
@@ -159,6 +208,8 @@ void charger_partie(FILE * fichier) {
 				sauvegarder(fichier);
 			}
 			fclose(fichier);
+			if (!partie_pas_finie(awale, joueur1, joueur2, &scorej1, &scorej2))
+				victoire(scorej1,scorej2);
 }
 /**
 *\fn void jouer_avec_ordinateur(int joueur1, int joueur2, FILE * fichier)
@@ -240,8 +291,14 @@ void jouer_avec_ordinateur(int joueur1, int joueur2, FILE * fichier) {
 			sauvegarder(fichier);
 		}
 		fclose(fichier);
+		 if (!partie_pas_finie(awale, joueur1, joueur2, &scorej1, &scorej2))
+			victoire(scorej1,scorej2);
 			
 	}
+	
+
+
+
 
 int main(){
 	
