@@ -1,4 +1,11 @@
-fonction.exe: fonction.c
-			gcc -g fonction.c -o fonction.exe  -Wall
+awale: main.o fonctions.o
+		gcc -o awale fonctions.o main.c -Wall	
+		
+main.o: main.c
+		gcc -c  main.c 
+		
+fonctions.o: fonctions.c
+		gcc -c fonctions.c 
+			
 clean:
-	rm -f fonction.exe *o
+	rm -f awale *o
