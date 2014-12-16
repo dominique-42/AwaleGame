@@ -3,20 +3,7 @@
 #include<string.h>
 #include<assert.h>
 #include "fonctions.h"
-
-#ifndef L
-#define L 2
-#endif
-
-
-#ifndef C
-#define C 6
-#endif
-
-#ifndef N
-#define N 12
-#endif
-
+#include "jeu.h"
 
 
 int awale[L][C];
@@ -300,18 +287,10 @@ void jouer_avec_ordinateur(int joueur1, int joueur2, FILE * fichier) {
 
 
 
+
 int main(){
 	
-
-	
-	int joueur2 = 0;
-	int joueur1 = 1;
-    int ordinateur = 0;
 	int choix, choix2;
-	
-	
-		
-
 	FILE * fic_save;
 
 	fic_save = fopen("sauvegarde.txt", "rw+");
@@ -338,8 +317,10 @@ int main(){
 				switch(choix2){
 					
 					case 1 :/*Le jeu est entre deux joueurs*/
-					
-							jouer_a_deux(joueur1, joueur2, fic_save);
+							
+							
+							
+							jouer_a_deux(fic_save);
 						
 					break;
 			
@@ -347,7 +328,7 @@ int main(){
 				/*Partie avec l'ordinateur*/
 					case 2: 
 						
-							jouer_avec_ordinateur(joueur1, ordinateur, fic_save);
+							jouer_avec_ordinateur(fic_save);
 			
 					break;
 
@@ -364,12 +345,9 @@ int main(){
 				
 				charger_partie(fic_save);
 				
-				if(strcmp(player2, "Ordinateur") == 0) {
-					jouer_avec_ordinateur(joueur1, ordinateur, fic_save);
-				}
-				else {
-					jouer_a_deux(joueur1, joueur2, fic_save);
-				}
+				jouer(fic_save);
+				
+				
 			
 			break;
 			case 3:  printf("Au revoir\n"); break;

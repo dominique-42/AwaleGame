@@ -1,11 +1,18 @@
-awale: main.o fonctions.o
-		gcc -o awale fonctions.o main.c -Wall	
+
+OBJS=fonctions.o jeu.o
+CC=gcc
+PROG=awale
+OPTS=-Wall
+
+awale: main.c ${OBJS}
+		${CC} -o ${PROG} ${OBJS} main.c ${OPTS}	
 		
-main.o: main.c
-		gcc -c  main.c 
 		
 fonctions.o: fonctions.c
-		gcc -c fonctions.c 
+		${CC} -c fonctions.c ${OPTS}
 			
+jeu.o: jeu.c
+		${CC} -c jeu.c ${OPTS}
+
 clean:
-	rm -f awale *o
+	rm -f ${PROG} *.o
