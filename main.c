@@ -4,9 +4,20 @@
 #include<assert.h>
 #include "fonctions.h"
 
-static const L = 2;
-static const C = 6;
-static const N = 12;
+#ifndef L
+#define L 2
+#endif
+
+
+#ifndef C
+#define C 6
+#endif
+
+#ifndef N
+#define N 12
+#endif
+
+
 
 int awale[L][C];
 int scorej1 = 0;
@@ -67,7 +78,6 @@ void charger_partie(FILE * fichier) {
 	
 	int nb_graine;
 	int case_aide;
-	int case_ordi;
 	int coord_x;
 	char reponse;
 	char rep_aide;
@@ -157,6 +167,15 @@ void charger_partie(FILE * fichier) {
 */
 
 void jouer_avec_ordinateur(int joueur1, int joueur2, FILE * fichier) {
+	
+
+	int nb_graine, coord_x;
+	int case_aide;
+	int case_ordi;
+	
+	char reponse;
+	
+	char rep_aide;
 		
 		
 		printf("Joueur 1\nVeuillez saisir votre pseudonyme ?\n");
@@ -167,7 +186,7 @@ void jouer_avec_ordinateur(int joueur1, int joueur2, FILE * fichier) {
 		affiche_matrice(awale);				
 				
 
-		while(partie_pas_finie(awale, joueur1, ordinateur, &scorej1, &scorej2 ) && reponse != 'q'){
+		while(partie_pas_finie(awale, joueur1, joueur2, &scorej1, &scorej2 ) && reponse != 'q'){
 					
 		
 			if(aide(joueur1, awale, &case_aide)) {
@@ -203,10 +222,10 @@ void jouer_avec_ordinateur(int joueur1, int joueur2, FILE * fichier) {
 			
 			/*Recuperer la case que l'ordinateur va joué*/
 							
-			case_ordi = jeu_ordi(ordinateur, awale);
+			case_ordi = jeu_ordi(joueur2, awale);
 					
-			nb_graine = awale[ordinateur][case_ordi];
-			manger_graines(nb_graine, awale, ordinateur, case_ordi, &scorej2);
+			nb_graine = awale[joueur2][case_ordi];
+			manger_graines(nb_graine, awale, joueur2, case_ordi, &scorej2);
 			affiche_matrice(awale);
 					
 			afficher_score(scorej2, player2);
@@ -218,9 +237,9 @@ void jouer_avec_ordinateur(int joueur1, int joueur2, FILE * fichier) {
 		printf("Voulez vous sauvegarder la partie y pour Oui et n pour Non\n");
 		scanf("%*c%c", &reponse);                                                                                   
 		if(reponse == 'y') {
-			sauvegarder(fic_save);
+			sauvegarder(fichier);
 		}
-		fclose(fic_save);
+		fclose(fichier);
 			
 	}
 
@@ -231,13 +250,9 @@ int main(){
 	int joueur2 = 0;
 	int joueur1 = 1;
     int ordinateur = 0;
-	int choix, choix2, nb_graine, coord_x;
-	int case_aide;
-	int case_ordi;
+	int choix, choix2;
 	
-	char reponse;
 	
-	char rep_aide;
 		
 
 	FILE * fic_save;

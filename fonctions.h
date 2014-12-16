@@ -1,3 +1,23 @@
+#include<stdlib.h>
+#include<stdio.h>
+#include<string.h>
+#include<assert.h>
+
+
+#ifndef L
+#define L 2
+#endif
+
+
+#ifndef C
+#define C 6
+#endif
+
+#ifndef N
+#define N 12
+#endif
+
+
 void init_matrice(int matrice[L][C]);
 void affiche_matrice(int matrice[L][C]) ;
 void dpl_arriere(int*x, int*y);
