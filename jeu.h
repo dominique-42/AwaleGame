@@ -18,6 +18,7 @@ void charger_partie(FILE * fichier);
 void jouer_a_deux(FILE * fichier);
 void jouer_avec_ordinateur(FILE * fichier);
 void jouer(FILE * fichier);
+void  victoire (int score1, int score2);
 
 
 #endif
