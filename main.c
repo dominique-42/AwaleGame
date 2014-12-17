@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<assert.h>
+
 #include "fonctions.h"
 #include "jeu.h"
 
@@ -319,7 +320,13 @@ int main(){
 					case 1 :/*Le jeu est entre deux joueurs*/
 							
 							
-							
+							printf("Joueur 1\nVeuillez saisir votre pseudonyme ?\n");
+							scanf("%s", pseudo1);
+							printf("Joueur 2\nVeuillez saisir votre pseudonyme ?\n");
+							scanf("%s", pseudo2);
+							printf("\nQue la partie commence !\n");
+							init_matrice(awale);
+							affiche_matrice(awale);		
 							jouer_a_deux(fic_save);
 						
 					break;
@@ -327,7 +334,11 @@ int main(){
 			
 				/*Partie avec l'ordinateur*/
 					case 2: 
-						
+							printf("Joueur 1\nVeuillez saisir votre pseudonyme ?\n");
+							scanf("%s", pseudo1);
+							printf("\nQue la partie commence !\n");
+							init_matrice(awale);
+							affiche_matrice(awale);
 							jouer_avec_ordinateur(fic_save);
 			
 					break;
