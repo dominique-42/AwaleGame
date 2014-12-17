@@ -6,7 +6,6 @@
 #include "fonctions.h"
 #include "jeu.h"
 
-
 int main(){
 	
 	int choix, choix2;

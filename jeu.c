@@ -85,15 +85,22 @@ void charger_partie(FILE * fichier) {
 					
 				printf("\n%s : Saisissez votre point de jeu: \n", pseudo1);
 				scanf("%*c%i", &coord_x);
-							
-				while(coord_x > C || coord_x < 0) {
-							
+				
+				do {
+					
+					if(coord_x > C || coord_x < 0){ //si les coordonnées sont mauvaises
 					printf("\nVotre choix doit etre compris entre 1 et 6\n");
-					printf("\n%s : Saisissez votre point de jeu: \n", pseudo1);
-					scanf("%i", &coord_x);
-							
-				}
-				assert(coord_x > 0);
+					}
+					else {
+						nb_graine = awale[joueur][coord_x-1];
+						if(nb_graine == 0){ //si la case est vide		
+						printf("\nLa case est vide !! On ne peut pas bouger la case !!\n");
+						}
+					printf("\n%s : Saisissez votre point de jeu : \n", pseudo);
+					scanf("%*c%i", &coord_x);
+					}
+				
+				} while(coord_x > C || coord_x < 0 || matrice[joueur][coord_x] == 0);			
 					
 				nb_graine = awale[JOUEUR1][coord_x-1];
 				manger_graines(nb_graine, awale, JOUEUR1, coord_x-1, &scorej1);
@@ -118,26 +125,27 @@ void charger_partie(FILE * fichier) {
 				// 		vérifier que la case n'est pas vide -> sinon message d'erreur
 				// tant que (coordonnées invalides OU case est vide )
 				
-				
-				do {
+		
 					printf("\n%s : Saisissez votre point de jeu : \n", pseudo2);
 					scanf("%*c%i", &coord_x);
 					
+				do {
+					
 					if(coord_x > C || coord_x < 0){ //si les coordonnées sont mauvaises
-						printf("\nVotre choix doit etre compris entre 1 et 6\n");
+					printf("\nVotre choix doit etre compris entre 1 et 6\n");
 					}
 					else {
-						nb_graine = awale[JOUEUR2][coord_x-1];
+						nb_graine = awale[joueur][coord_x-1];
 						if(nb_graine == 0){ //si la case est vide		
-							printf("\n la case est vide !! on ne pas bouger la case !!\n");
+						printf("\nLa case est vide !! On ne peut pas bouger la case !!\n");
 						}
+					printf("\n%s : Saisissez votre point de jeu : \n", pseudo);
+					scanf("%*c%i", &coord_x);
 					}
 				
-				} while(coord_x > C || coord_x < 0 || nb_graine == 0);
-				
+				} while(coord_x > C || coord_x < 0 || matrice[joueur][coord_x] == 0);			
 				  
-				 // ici on est sur que la case coord_x n'est pas vide !
-				 // on peut appeler manger_graines sans probleme !
+				
 				  
 				manger_graines(nb_graine, awale, JOUEUR2, coord_x-1, &scorej2);
 				affiche_matrice(awale);
@@ -191,15 +199,21 @@ void jouer_avec_ordinateur(FILE * fichier) {
 			printf("\n%s : Saisissez votre point de jeu: \n", pseudo1);
 			scanf("%*c%i", &coord_x);
 							
-			while(coord_x > C || coord_x < 0) {
-							
-				printf("\nVotre choix doit etre compris entre 1 et 6\n");
-				printf("\n%s : Saisissez votre point de jeu: \n", pseudo1);
-				scanf("%i", &coord_x);
-							
-			} 
-							
-			assert(coord_x > 0);
+			do {
+					
+					if(coord_x > C || coord_x < 0){ //si les coordonnées sont mauvaises
+					printf("\nVotre choix doit etre compris entre 1 et 6\n");
+					}
+					else {
+						nb_graine = awale[joueur][coord_x-1];
+						if(nb_graine == 0){ //si la case est vide		
+						printf("\nLa case est vide !! On ne peut pas bouger la case !!\n");
+						}
+					printf("\n%s : Saisissez votre point de jeu : \n", pseudo);
+					scanf("%*c%i", &coord_x);
+					}
+				
+			} while(coord_x > C || coord_x < 0 || matrice[joueur][coord_x] == 0);	
 					
 			nb_graine = awale[JOUEUR1][coord_x-1];
 			manger_graines(nb_graine, awale, JOUEUR1, coord_x-1, &scorej1);

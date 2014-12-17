@@ -12,6 +12,8 @@
 char pseudo1[20];
 char pseudo2[20];
 int awale[L][C];
+int scorej1 = 0;
+int scorej2 = 0;
 
 void sauvegarder(FILE * fichier);
 void charger_partie(FILE * fichier);
