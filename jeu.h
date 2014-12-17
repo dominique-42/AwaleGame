@@ -12,8 +12,6 @@
 char pseudo1[20];
 char pseudo2[20];
 int awale[L][C];
-int scorej1 = 0;
-int scorej2 = 0;
 
 void sauvegarder(FILE * fichier);
 void charger_partie(FILE * fichier);
@@ -21,6 +19,7 @@ void jouer_a_deux(FILE * fichier);
 void jouer_avec_ordinateur(FILE * fichier);
 void jouer(FILE * fichier);
 void  victoire (int score1, int score2);
+int coup_possible(int coord_x, int matrice [L][C], int joueur, char pseudo[20]);
 
 
 #endif

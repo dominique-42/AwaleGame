@@ -19,5 +19,6 @@ int nourir(int matrice[L][C], int joueur);
 int gagne(int*score1, int *score2);
 int partie_pas_finie(int matrice[L][C], int *score1, int *score2 ) ;
 void afficher_score(int score, char joueur[20]);
+int plateau_vide(int matrice[L][C], int joueur);
 
 #endif

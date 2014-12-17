@@ -271,21 +271,21 @@ int nourir(int matrice[L][C], int joueur) {
 	int x;			//coordonnée de la case du plateau du joueur
 
 	if(joueur == 0) {
-		depl = 6;
+		nb_depl = 6;
 		for(x = 5; x>0; x--) {
-			if(matrice[joueur][x] > depl){
+			if(matrice[joueur][x] > nb_depl){
 				return 1;
 			}
-			depl--;
+			nb_depl--;
 		}
 	}
 	else if(joueur == 1) {
-		depl = 6;
-		for(x = 0; x>dpl; x-- ){
-			if(matrice[joueur][x] > depl){
+		nb_depl = 6;
+		for(x = 0; x>nb_depl; x-- ){
+			if(matrice[joueur][x] > nb_depl){
 				return 1;
 			}
-			depl--;
+			nb_depl--;
 
 		}
 	}
@@ -313,62 +313,7 @@ int plateau_vide(int matrice[L][C], int joueur) {
 
 }
    
-        
-/**
-*\fn int nourir(int matrice[L][C], int joueur)
-*\brief est-ce que le joueur j peut nourir son adversaie qui est affame ?
-*\param matrice[L][C], joueur
-*\return
-**/
-
-int coup_possible(int coord_x, int matrice [L][C], int joueur, char pseudo[20]){
-	
-	coord_x--;
-	// verifier que le camp de l'avdersaire est vide ou pas 
-	
-	 if(joueur == JOUEUR1 && plateau_vide(matrice,JOUEUR2)) {
-		 
-	// si elle est vide on verifie si le joueur adverse peut le nourir 
-
-		if(nourir(matrice, joueur)){
-			do{
-				if(matrice[joueur][coord_x] < (C-coord_x)) { // permet de verifier si la case saiie permet de nourir l'adversaire
-					printf("Attention ! vous devez  nourrir votre adversaire");
-					printf("\n%s : Saisissez votre point de jeu : \n", pseudo);
-					scanf("%*c%i", &coord_x);
-				}
-			}while(matrice[joueur][coord_x] < (C-coord_x));
-			
-		}
-		else {
-			printf("\nLe jeu est terminée");
-			victoire(scorej1, scorej2);
-			return 1;
-
-		}
-	}
-	else if(joueur == JOUEUR2 && plateau_vide(matrice,JOUEUR1)) {
-
-		if(nourir(matrice, joueur)){
-
-			do{
-				if(matrice[joueur][coord_x] < (coord_x + 1)) { // permet de verifier si la case saiie permet de nourir l'adversaire
-					printf("Attention ! vous devez  nourrir votre adversaire");
-					printf("\n%s : Saisissez votre point de jeu : \n", pseudo);
-					scanf("%*c%i", &coord_x);
-				}
-			}while(matrice[joueur][coord_x] < (coord_x + 1));
-			
-		}
-		else {
-			printf("\nLe jeu est terminée");
-			victoire(scorej1, scorej2);
-			return 1;
-		}
-	}
-}
-
-
+ 
         
 /**
 *\fn int gagner(int*score,int*score2)
@@ -385,17 +330,6 @@ int coup_possible(int coord_x, int matrice [L][C], int joueur, char pseudo[20]){
 		return 0;
  }
  
-
- /**
-*\fn partie_finie(int matrice[L][C], int joueur1, int joueur2, int score1, int score2 )
-*\brief Permet de verifier si une partie est terminée ou pas en verifiant si l'on peut nourir l'adversaire et si l'un des score est sup a 25
-*\param matrice[L][C], joueur1, joueur2, score1, score2
-*\return 1 si partie finie, 0 sinon
-*/
-int adv_vide(int matrice[L][C]) {
-
-}
-
  /**
 *\fn partie_finie(int matrice[L][C], int joueur1, int joueur2, int score1, int score2 )
 *\brief Permet de verifier si une partie est terminée ou pas en verifiant si l'on peut nourir l'adversaire et si l'un des score est sup a 25
