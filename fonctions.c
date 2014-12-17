@@ -288,6 +288,85 @@ int nourir(int matrice[L][C], int joueur) {
 	}
 	return 0;	
 }
+   
+/**
+*\fn int plateau_vide(int matrice[L][C], int joueur)
+*\brief est-ce que lplateau du joueur est vide?
+*\param matrice[L][C], joueur
+*\return
+**/  
+int plateau_vide(int matrice[L][C], int joueur) {
+	int cpt = 0;
+	int i;
+	for(i = 0; i<C; i++) {
+		cpt = cpt + matrice[joueur][i];
+	}
+	if(cpt == 0) { //si le plateau est vide on renvoie 1
+		return 1;
+	}
+	else
+		return 0; //si le plateau du joueur n'est pas vide on renvoie 0
+
+
+}
+   
+        
+/**
+*\fn int nourir(int matrice[L][C], int joueur)
+*\brief est-ce que le joueur j peut nourir son adversaie qui est affame ?
+*\param matrice[L][C], joueur
+*\return
+**/
+
+int coup_possible(int coord_x, int matrice [L][C], int joueur, char pseudo[20]){
+	
+	coord_x--;
+	// verifier que le camp de l'avdersaire est vide ou pas 
+	
+	 if(joueur == JOUEUR1 && plateau_vide(matrice,JOUEUR2)) {
+		 
+	// si elle est vide on verifie si le joueur adverse peut le nourir 
+
+		if(nourir(matrice, joueur)){
+			do{
+				if(matrice[joueur][coord_x] < (C-coord_x)) { // permet de verifier si la case saiie permet de nourir l'adversaire
+					printf("Attention ! vous devez  nourrir votre adversaire");
+					printf("\n%s : Saisissez votre point de jeu : \n", pseudo);
+					scanf("%*c%i", &coord_x);
+				}
+			}while(matrice[joueur][coord_x] < (C-coord_x));
+			
+		}
+		else {
+			printf("\nLe jeu est terminée");
+			victoire(scorej1, scorej2);
+			return 1;
+
+		}
+	}
+	else if(joueur == JOUEUR2 && plateau_vide(matrice,JOUEUR1)) {
+
+		if(nourir(matrice, joueur)){
+
+			do{
+				if(matrice[joueur][coord_x] < (coord_x + 1)) { // permet de verifier si la case saiie permet de nourir l'adversaire
+					printf("Attention ! vous devez  nourrir votre adversaire");
+					printf("\n%s : Saisissez votre point de jeu : \n", pseudo);
+					scanf("%*c%i", &coord_x);
+				}
+			}while(matrice[joueur][coord_x] < (coord_x + 1));
+			
+		}
+		else {
+			printf("\nLe jeu est terminée");
+			victoire(scorej1, scorej2);
+			return 1;
+		}
+	}
+}
+
+
+        
 /**
 *\fn int gagner(int*score,int*score2)
 *\brief verifie si le score des joueurs "joueur1" ou "joueur2" a depassé 25 ou pas
