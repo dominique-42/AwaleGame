@@ -267,23 +267,26 @@ int aide(int joueur, int matrice[L][C], int * case_aide){
 **/
 int nourir(int matrice[L][C], int joueur) {
 	
-	int depl;
-	int x;
+	int nb_depl; // nbr de deplacement correspondant a chaque case pour pouvoir nourir l'adversaire
+	int x;			//coordonnée de la case du plateau du joueur
+
 	if(joueur == 0) {
 		depl = 6;
 		for(x = 5; x>0; x--) {
-			if(matrice[joueur][depl] > depl){
+			if(matrice[joueur][x] > depl){
 				return 1;
 			}
 			depl--;
 		}
 	}
-	else if(joueur == 0) {
+	else if(joueur == 1) {
 		depl = 6;
-		for(depl = 0; depl>0; depl++ ){
-			if(matrice[joueur][depl] > depl){
+		for(x = 0; x>dpl; x-- ){
+			if(matrice[joueur][x] > depl){
 				return 1;
 			}
+			depl--;
+
 		}
 	}
 	return 0;	
@@ -303,7 +306,17 @@ int nourir(int matrice[L][C], int joueur) {
 		return 0;
  }
  
- 
+
+ /**
+*\fn partie_finie(int matrice[L][C], int joueur1, int joueur2, int score1, int score2 )
+*\brief Permet de verifier si une partie est terminée ou pas en verifiant si l'on peut nourir l'adversaire et si l'un des score est sup a 25
+*\param matrice[L][C], joueur1, joueur2, score1, score2
+*\return 1 si partie finie, 0 sinon
+*/
+int adv_vide(int matrice[L][C]) {
+
+}
+
  /**
 *\fn partie_finie(int matrice[L][C], int joueur1, int joueur2, int score1, int score2 )
 *\brief Permet de verifier si une partie est terminée ou pas en verifiant si l'on peut nourir l'adversaire et si l'un des score est sup a 25
