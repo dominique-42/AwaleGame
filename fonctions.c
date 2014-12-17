@@ -250,7 +250,7 @@ int aide(int joueur, int matrice[L][C], int * case_aide){
 		
 		}
 	if(detecteur_aide > 0) { //si l'aide est necessaire alors on envoie vraie 
-		*case_aide = case_aide + 1; // on adapte l'indice de la case à l'affichage du plateau qui est de 1 à 6
+		*case_aide = *case_aide + 1; // on adapte l'indice de la case à l'affichage du plateau qui est de 1 à 6
 		return 1;
 	}
 	else if(detecteur_aide == 0){// si l'aide n'est pas necessaire on envoie 0
