@@ -361,11 +361,11 @@ void jouer(FILE * fichier){
 */ 
 
 void  victoire (int score1, int score2){
-	if (score1>score2 ){
-		printf("Victoire du %s \n Score : %i\n", pseudo1, score1);
+	if (score1>=25){
+		printf("Victoire de %s \n Score : %i\n", pseudo1, score1);
 	}
-	else if (score2>score1){
-		printf("Victoire du %s \n Score : %i\n", pseudo2, score2);
+	else if (score2>=25){
+		printf("Victoire de %s \n Score : %i\n", pseudo2, score2);
 	}	
 }
        
