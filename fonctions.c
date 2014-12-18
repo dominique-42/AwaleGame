@@ -135,20 +135,19 @@ void manger_graines(int nb_graines, int matrice[L][C], int joueur, int x, int *s
 
  
 /**
-*\fn int jeu_ordi(int ordinateur, int matrice[L][C])
+*\fn int jeu_ordi(int matrice[L][C])
 *\brief  La case que l'ordinateur devrait bouger
 *\param ordinateur , matrice represente le plateau de jeu
 *\return la case à déplacer
 **/
 
-int jeu_ordi(int ordinateur, int matrice[L][C]){
+int jeu_ordi(int matrice[L][C]){
 
 	int score[C];
 	int j, k;
 	int case_ordi;
 	int max;
 	int mat_tmp[L][C];
-	
 	int case_mat;
 	
 	//init scores pour chaque case
@@ -166,17 +165,23 @@ int jeu_ordi(int ordinateur, int matrice[L][C]){
 			}
 		}
 				
-		if(mat_tmp[ordinateur][case_mat] != 0){ //s'il y a au mons 1 graine dans la case, on essaye de jouer à partir de cette case
-			manger_graines(mat_tmp[ordinateur][case_mat], mat_tmp ,ordinateur, case_mat, &score[case_mat]);
+		if(mat_tmp[ORDINATEUR][case_mat] != 0){ //s'il y a au mons 1 graine dans la case, on essaye de jouer à partir de cette case
+			manger_graines(mat_tmp[ORDINATEUR][case_mat], mat_tmp ,ORDINATEUR, case_mat, &score[case_mat]);
 		} 
+		
 		else {
 			//fprintf(stderr, "ORDI : case vide !!\n");
 			score[case_mat] = -1; //on ne doit pas choisir cette case
 		}
 	}
 	
-	//on n' a plus besoin de mat_tmp
-	
+	//Actualiser la matrice aide avec la disposition du plateau
+		for(k = 0; k<L; k++) {		
+			for(j=0; j<C; j++) {
+				mat_tmp[k][j] = matrice[k][j];
+			}
+		}
+		
 	//détecter la case qui permet de manger le plus de graines
 		max = score[0];
 		case_ordi = 0;
@@ -188,9 +193,16 @@ int jeu_ordi(int ordinateur, int matrice[L][C]){
 			}
 		
 		}
+	/*si l'adversaire est affamé choisir une case qui le nourri*/
+	if(plateau_vide(matrice, JOUEUR1)) {	
+		for(j=0; j<C; j++) {
+			if(nourir_case(mat_tmp, ORDINATEUR, j)){
+				case_ordi = j;
+			}
+		}
+	}
 	
 	fprintf(stderr, "---> ORDI va jouer %d\n", case_ordi+1);
-
 	return case_ordi;
 }
 	
@@ -344,7 +356,7 @@ int plateau_vide(int matrice[L][C], int joueur) {
 *\param score (score du joueurà, joueur
 *\return 0 si score des deux joueurs <25, 1 sinon
 */
- int gagne(int *score1, int score2) {
+ int gagne(int *score1, int *score2) {
 	
 	if((*score1) >= 25 || (*score2) >= 25) {
 		return 1;
