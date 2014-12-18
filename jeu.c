@@ -10,77 +10,84 @@ int scorej1 = 0;
 int scorej2 = 0;
 
 /**
+*\fn  void victoire (int score1 , score2)
+*\brief Permet d'afficher le score et le pseudo du joueur victorieux
+*\param score1 score du joueur 1, score 2 score du joueur 2
+*/ 
+
+void  victoire (int score1, int score2){
+	if (score1>score2 ){
+		printf("Victoire du %s \n Score : %i\n", pseudo1, score1);
+	}
+	else if (score2>score1){
+		printf("Victoire du %s \n Score : %i\n", pseudo2, score2);
+	}	
+}
+
+/**
+*\fn int jeu_possible(int matrice [L][C], int joueur, char pseudo[20])
+*\brief est-ce que le joueur j peut-il jouer ?
+*\param coord_x, matrice,joueur, pseudo
+*\return  0 si le joueur ne peut pas jouer, 1 sinon
+**/
+
+int jeu_possible(int matrice [L][C], int j){
+	
+	/*le jeu est possible si le joueur n'a pas son plateau vide
+	 * -si le joueur peut nourir et si son adversaire est affamé */
+	 
+	if(!plateau_vide(matrice, j)){ /*si le plateau du joueur n'est pas vide*/
+		if(j == JOUEUR1) 
+			return (plateau_vide(matrice, JOUEUR2) && nourir(matrice, JOUEUR1)); /*renvoie vrai si l'adversaire est affamé est le joueur j capable de le nourir*/
+		if(j == JOUEUR2) 
+			return (plateau_vide(matrice, JOUEUR1) && nourir(matrice, JOUEUR2)); 
+	}
+	return (plateau_vide(matrice, j));
+	
+	/*Renvoi vraie si
+	 * -le plateau du joueur n'est pas vide et que l'adversaire est affamé et le joueur j capable de le nourir*/
+	 
+	 /*Renvoie faux si 
+	  * -si le jeu n'est pas possible cad ->> si le plateau du joueur j est vide 
+	  * 								  ->> si */
+}
+
+
+
+/**
 *\fn int coup_possible(int coord_x, int matrice [L][C], int joueur, char pseudo[20])
 *\brief est-ce que le joueur j peut jouer à la case de coord_x
 *\param coord_x, matrice,joueur, pseudo
 *\return  1 si la partie n'est plus jouable, 0 sinon
 **/
 
-int coup_possible(int coord_x, int matrice [L][C], int joueur, char pseudo[20]){
+int coup_possible(int coord_x, int matrice [L][C], int joueur){
 	
-	coord_x--;
-	// verifier que le camp de l'avdersaire est vide ou pas 
 	
-	 if(joueur == JOUEUR1 && plateau_vide(matrice,JOUEUR2)) {
-		 
-	// si elle est vide on verifie si le joueur adverse peut le nourir 
-
-		if(nourir(matrice, joueur)){
-			do{
-				if(matrice[joueur][coord_x] < (C-coord_x)) { // permet de verifier si la case saiie permet de nourir l'adversaire
-					printf("Attention ! vous devez  nourrir votre adversaire");
-					printf("\n%s : Saisissez votre point de jeu : \n", pseudo);
-					scanf("%*c%i", &coord_x);
-				}
-			}while(matrice[joueur][coord_x] < (C-coord_x));
-			
-		}
-		else {
-			printf("\nLe jeu est terminée");
-			return 1;
-
-		}
-	}
-	else if(joueur == JOUEUR2 && plateau_vide(matrice,JOUEUR1)) {
-
-		if(nourir(matrice, joueur)){
-
-			do{
-				if(matrice[joueur][coord_x] < (coord_x + 1)) { // permet de verifier si la case saiie permet de nourir l'adversaire
-					printf("Attention ! vous devez  nourrir votre adversaire");
-					printf("\n%s : Saisissez votre point de jeu : \n", pseudo);
-					scanf("%*c%i", &coord_x);
-				}
-			}while(matrice[joueur][coord_x] < (coord_x + 1));
-			
-		}
-		else {
-			printf("\nLe jeu est terminée");
+	// si l'adversaire est affamé -> est-ce que la case coord_x peut nourrir l'adversaire
+	
+	if(joueur == JOUEUR1 && plateau_vide(matrice,JOUEUR2)) {
+		
+		// si elle est vide on verifie si le joueur adverse peut le nourir avce la case coord_x !
+		if(nourir_case(matrice, JOUEUR1, coord_x)){
 			return 1;
 		}
-	}
-	else if(joueur == ORDINATEUR && plateau_vide(matrice,JOUEUR1)) {
-
-		if(nourir(matrice, joueur)){
-
-			do{
-				if(matrice[joueur][coord_x] < (coord_x + 1)) { // permet de verifier si la case saiie permet de nourir l'adversaire
-					printf("Attention Ordinateur! vous devez  nourrir votre adversaire");
-					coord_x = jeu_ordi(JOUEUR2, awale);
-
-				}
-			}while(matrice[joueur][coord_x] < (coord_x + 1));
-			
-		}
 		else {
-			printf("\nLe jeu est terminée");
-			return 1;
+			return 0; //on ne peut pas jouer ici ...
 		}
 	}
-	
-	return 0;
+	else if((joueur == JOUEUR2 || joueur == ORDINATEUR) && plateau_vide(matrice,JOUEUR1)) {
+
+		if(nourir_case(matrice, ORDINATEUR, coord_x) && strcmp(pseudo2, "Ordinateur") == 1)
+			return 1;
+		
+		else if(nourir_case(matrice, JOUEUR2, coord_x) && strcmp(pseudo2, "Ordinateur") != 1) 
+			return 1;
+	}
+		else 
+			return 0;
+	return 1;
 }
-
 
 /**
 *\fn void sauvegarder(FILE*fichier)
@@ -137,25 +144,49 @@ void charger_partie(FILE * fichier) {
 	int coord_x;
 	char reponse;
 	char rep_aide;
+	int nb_jocker_j1 = 3;
+	int nb_jocker_j2 = 3;
+
 	
 				
 			while(partie_pas_finie(awale, &scorej1, &scorej2 ) && reponse != 'q'){
 					
 					
 							/*Tour du joueur 1*/
-				if(aide(JOUEUR1, awale, &case_aide) ) {
+				
+				if(aide(JOUEUR1, awale, &case_aide) && nb_jocker_j1 <= 3 && nb_jocker_j1 > 0) {
 				printf("\n%s, voulez vous une aide, y pour Oui, n pour Non ?\n", pseudo1);
 				scanf("%*c%c", &rep_aide);
 					if(rep_aide == 'y') {
 						printf("Bougez la case %i !", case_aide);
+						nb_jocker_j1--;
 					}
 				}
 					
+				if(!jeu_possible(awale, JOUEUR1)){ /*On verifie si le jeu est possible*/
+					victoire(scorej1, scorej2);
+					break;
+
+				}	
+				
 				printf("\n%s : Saisissez votre point de jeu: \n", pseudo1);
 				scanf("%*c%i", &coord_x);
 				
-				do {
+				/*Si le joueur est affamé est qu'on peut le nourir, on verifie si le coord_x saisie permet de le nourir 
+				 * et on repete la saisie tant que la bonne case n'est pas saisie
+				 */
+				 
+				if(jeu_possible(awale, JOUEUR1)) {
 					
+					do{
+						printf("\n%s : Attention vous devez nourir votre adversaire !!\n", pseudo1); 
+						printf("\n%s : Saisissez votre point de jeu: \n", pseudo1);
+						scanf("%*c%i", &coord_x);
+						
+					}while(!coup_possible(coord_x-1, awale, JOUEUR1));
+				}
+					
+				do {
 					if(coord_x > C || coord_x < 0){ //si les coordonnées sont mauvaises
 					printf("\nVotre choix doit etre compris entre 1 et 6\n");
 					}
@@ -168,13 +199,9 @@ void charger_partie(FILE * fichier) {
 						}
 					}
 				
-				} while(coord_x > C || coord_x < 0 || nb_graine == 0);			
+				} while(coord_x > C || coord_x < 0 || nb_graine == 0 || !coup_possible(coord_x, awale, JOUEUR1));			
 				
-				if(coup_possible(coord_x, awale, JOUEUR1, pseudo1)){
-					victoire(scorej1, scorej2);
-					break;
-
-				}	
+				
 				
 				nb_graine = awale[JOUEUR1][coord_x-1];
 				manger_graines(nb_graine, awale, JOUEUR1, coord_x-1, &scorej1);
@@ -184,27 +211,39 @@ void charger_partie(FILE * fichier) {
 
 				/*Tour du joueur 2*/
 
-				if(aide(JOUEUR2, awale, &case_aide)) {
+				if(aide(JOUEUR2, awale, &case_aide) && nb_jocker_j2 <= 3  && nb_jocker_j2 > 0) {
 					printf("\n%s, voulez vous une aide, y pour Oui, n pour Non ?\n", pseudo2);
 					scanf("%*c%c", &rep_aide);
 						if(rep_aide == 'y') {
 							printf("Bougez la case %i !", case_aide);
+							nb_jocker_j2--;
+
 						}
 				}
 				
-				// faire
-				// 		afficher un message pour la saisie
-				// 		récupère la coordonnée
-				// 		vérifier que cette coord est valide, sinon -> afficher message d'erreur
-				// 		vérifier que la case n'est pas vide -> sinon message d'erreur
-				// tant que (coordonnées invalides OU case est vide )
-				
+				if(!jeu_possible(awale, JOUEUR1)){ /*On verifie si le jeu est possible*/
+					victoire(scorej1, scorej2);
+					break;
+
+				}	
 		
-					printf("\n%s : Saisissez votre point de jeu : \n", pseudo2);
-					scanf("%*c%i", &coord_x);
+				printf("\n%s : Saisissez votre point de jeu : \n", pseudo2);
+				scanf("%i", &coord_x);
+				
+				/*Si le joueur est affamé est qu'on peut le nourir, on verifie si le coord_x saisie permet de le nourir 
+				 * et on repete la saisie tant que la bonne case n'est pas saisie
+				 */
+				if(jeu_possible(awale, JOUEUR2)) {	
 					
+					do{
+						printf("\n%s : Attention vous devez nourir votre adversaire !!\n", pseudo2); 
+						printf("\n%s : Saisissez votre point de jeu: \n", pseudo2);
+						scanf("%*c%i", &coord_x);
+						
+					}while(!coup_possible(coord_x-1, awale, JOUEUR2));
+				}
+				
 				do {
-					
 					if(coord_x > C || coord_x < 0){ //si les coordonnées sont mauvaises
 					printf("\nVotre choix doit etre compris entre 1 et 6\n");
 					}
@@ -216,25 +255,18 @@ void charger_partie(FILE * fichier) {
 							scanf("%*c%i", &coord_x);
 						}
 					}
-				
 				} while(coord_x > C || coord_x < 0 || nb_graine == 0);			
-				  
-				if(coup_possible(coord_x, awale, JOUEUR2, pseudo2)){
-					victoire(scorej1, scorej2);
-					break;
-
-				}	
 				  
 				manger_graines(nb_graine, awale, JOUEUR2, coord_x-1, &scorej2);
 				affiche_matrice(awale);
-					
 				afficher_score(scorej2, pseudo2);
 
-				printf("Voulez vous abandonner ou quittez le jeu q pour quitter, s pour continuer\n");
+				printf("Voulez quittez le jeu q pour quitter, s pour continuer\n");
 				scanf("%*c%c", &reponse);
 				
 			}
 			/*Demander si la partie devrait etre sauvegarder*/
+			
 			printf("Voulez vous sauvegarder la partie y pour Oui et n pour Non\n");
 			scanf("%*c%c", &reponse);                                                                                   
 			if(reponse == 'y') {
@@ -243,7 +275,7 @@ void charger_partie(FILE * fichier) {
 			fclose(fichier);
 			if (!partie_pas_finie(awale, &scorej1, &scorej2)) {
 				victoire(scorej1,scorej2);
-			 }
+			}
 }			
 				
 				
@@ -259,25 +291,44 @@ void jouer_avec_ordinateur(FILE * fichier) {
 	int nb_graine, coord_x;
 	int case_aide;
 	int case_ordi;
-	
 	char reponse;
-	
 	char rep_aide;
+	int nb_jocker_j1 = 3;
 		
 		while(partie_pas_finie(awale, &scorej1, &scorej2 ) && reponse != 'q'){
 					
 		
-			if(aide(JOUEUR1, awale, &case_aide)) {
+			if(aide(JOUEUR1, awale, &case_aide) && nb_jocker_j1 <= 3  && nb_jocker_j1 > 0) {
 				printf("\n%s, voulez vous une aide, y pour Oui, n pour Non ?\n", pseudo1);
 				scanf("%*c%c", &rep_aide);
 					if(rep_aide == 'y') {
 						printf("Bougez la case %i !", case_aide);
+						nb_jocker_j1--;
 					}
-			}
-			
+				}
+			if(!jeu_possible(awale, JOUEUR1)){ /*On verifie si le jeu est possible*/
+					victoire(scorej1, scorej2);
+					break;
+
+				}	
+				
 			printf("\n%s : Saisissez votre point de jeu: \n", pseudo1);
-			scanf("%*c%i", &coord_x);
-							
+			scanf("%i", &coord_x);
+			
+			/*Si le joueur est affamé est qu'on peut le nourir, on verifie si le coord_x saisie permet de le nourir 
+			* et on repete la saisie tant que la bonne case n'est pas saisie
+			*/
+			if(jeu_possible(awale, JOUEUR1)) {
+					
+					do{
+						printf("\n%s : Attention vous devez nourir votre adversaire !!\n", pseudo1); 
+						printf("\n%s : Saisissez votre point de jeu: \n", pseudo1);
+						scanf("%*c%i", &coord_x);
+						
+					}while(!coup_possible(coord_x-1, awale, JOUEUR1));
+				}
+			
+				
 			do {
 					
 					if(coord_x > C || coord_x < 0){ //si les coordonnées sont mauvaises
@@ -293,12 +344,9 @@ void jouer_avec_ordinateur(FILE * fichier) {
 					}
 				
 			} while(coord_x > C || coord_x < 0 || nb_graine == 0);	
-					
-			if(coup_possible(coord_x, awale, JOUEUR1, pseudo1)){
-					victoire(scorej1, scorej2);
-					break;
-
-				}	
+			
+			
+			
 				
 			nb_graine = awale[JOUEUR1][coord_x-1];
 			manger_graines(nb_graine, awale, JOUEUR1, coord_x-1, &scorej1);
@@ -311,22 +359,24 @@ void jouer_avec_ordinateur(FILE * fichier) {
 			printf("\n Tour de l' Ordinateur \n");
 			strcpy(pseudo2, "Ordinateur");
 			
-			/*Recuperer la case que l'ordinateur va joué*/
-							
-			case_ordi = jeu_ordi(JOUEUR2, awale);
-			
-			if(coup_possible(case_ordi, awale, JOUEUR2, pseudo2)){
+			if(!jeu_possible(awale, ORDINATEUR)){ /*On verifie si le jeu est possible*/
 					victoire(scorej1, scorej2);
 					break;
 
 				}	
+
+			/*Recuperer la case que l'ordinateur va joué*/
+							
+			case_ordi = jeu_ordi(awale);
+			
+
 			nb_graine = awale[JOUEUR2][case_ordi];
 			manger_graines(nb_graine, awale, JOUEUR2, case_ordi, &scorej2);
 			affiche_matrice(awale);
 					
 			afficher_score(scorej2, pseudo2);
 							
-			printf("Voulez vous abandonner ou quittez le jeu q pour quitter, s pour continuer\n");
+			printf("Voulez vous quittez le jeu q pour quitter, s pour continuer\n");
 			scanf("%*c%c", &reponse);
 				
 		}
@@ -336,10 +386,11 @@ void jouer_avec_ordinateur(FILE * fichier) {
 			sauvegarder(fichier);
 		}
 		fclose(fichier);
-		 if (!partie_pas_finie(awale, &scorej1, &scorej2))
-			victoire(scorej1,scorej2);
+		 /*if (!partie_pas_finie(awale, &scorej1, &scorej2))
+			victoire(scorej1,scorej2);*/
 			
 	}
+
 	
 
 
@@ -354,20 +405,6 @@ void jouer(FILE * fichier){
 					jouer_a_deux(fichier);
 				}
 	}
-/**
-*\fn  void victoire (int score1 , score2)
-*\brief Permet d'afficher le score et le pseudo du joueur victorieux
-*\param score1 score du joueur 1, score 2 score du joueur 2
-*/ 
 
-void  victoire (int score1, int score2){
-	if (score1>=25){
-		printf("Victoire de %s \n Score : %i\n", pseudo1, score1);
-	}
-	else if (score2>=25){
-		printf("Victoire de %s \n Score : %i\n", pseudo2, score2);
-	}	
-}
-       
 
 
