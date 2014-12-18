@@ -267,34 +267,56 @@ int aide(int joueur, int matrice[L][C], int * case_aide){
 **/
 int nourir(int matrice[L][C], int joueur) {
 	
-	int nb_depl; // nbr de deplacement correspondant a chaque case pour pouvoir nourir l'adversaire
+	//int nb_depl; // nbr de deplacement correspondant a chaque case pour pouvoir nourir l'adversaire
 	int x;			//coordonnée de la case du plateau du joueur
 
-	if(joueur == 0) {
-		nb_depl = 6;
-		for(x = 5; x>0; x--) {
-			if(matrice[joueur][x] > nb_depl){
-				return 1;
+	if(joueur == JOUEUR2 || joueur == ORDINATEUR) {
+		//nb_depl = C;
+		for(x = C-1; x>=0; x--) {
+			if(matrice[joueur][x] > x){ //dans la case x, il faut au moins x+1 graines (ex: case 0 -> 1 graine minimum, case 5 -> 6 graines ..)
+				return 1;	// retourne 1 si nourir l'adversaire est possible
 			}
-			nb_depl--;
+			//nb_depl--;
 		}
 	}
-	else if(joueur == 1) {
-		nb_depl = 6;
-		for(x = 0; x>nb_depl; x-- ){
-			if(matrice[joueur][x] > nb_depl){
-				return 1;
+	else if(joueur == JOUEUR1) {
+		//nb_depl = C;
+		for(x = 0; x<C; x++ ){
+			if(matrice[joueur][x] >= C-x){
+				return 1;	//retourne 1 si nourir l'adversaire est possible
 			}
-			nb_depl--;
-
+			//nb_depl--;
 		}
 	}
 	return 0;	
 }
+
+/**
+*\fn int nourir_case(int matrice[L][C], int joueur, int coord_x)
+*\brief est-ce que le joueur j peut nourir son adversaie qui est affame en jouant la case coord_x?
+*\param matrice[L][C], joueur, coord_x
+*\return 0 si on ne peut pas le nourir, 1 si oui
+**/
+int nourir_case(int matrice[L][C], int joueur, int coord_x) {
+	
+	if(joueur == JOUEUR2 || joueur == ORDINATEUR) {
+		if(matrice[joueur][coord_x] > coord_x){ //dans la case x, il faut au moins x+1 graines (ex: case 0 -> 1 graine minimum, case 5 -> 6 graines ..)
+			return 1;	// retourne 1 si nourir l'adversaire est possible
+		}
+	}
+	else if(joueur == JOUEUR1) {
+		if(matrice[joueur][coord_x] >= C-coord_x){
+			return 1;	//retourne 1 si nourir l'adversaire est possible
+		}
+	}
+	return 0;	
+}
+
+
    
 /**
 *\fn int plateau_vide(int matrice[L][C], int joueur)
-*\brief est-ce que lplateau du joueur est vide?
+*\brief est-ce que le plateau du joueur est vide?
 *\param matrice[L][C], joueur
 *\return
 **/  
@@ -307,8 +329,9 @@ int plateau_vide(int matrice[L][C], int joueur) {
 	if(cpt == 0) { //si le plateau est vide on renvoie 1
 		return 1;
 	}
-	else
-		return 0; //si le plateau du joueur n'est pas vide on renvoie 0
+	//else
+	
+	return 0; //si le plateau du joueur n'est pas vide on renvoie 0
 
 
 }
@@ -321,9 +344,9 @@ int plateau_vide(int matrice[L][C], int joueur) {
 *\param score (score du joueurà, joueur
 *\return 0 si score des deux joueurs <25, 1 sinon
 */
- int gagne(int*score1, int *score2) {
+ int gagne(int *score1, int score2) {
 	
-	if(*score1 > 25 || *score2 >25) {
+	if((*score1) >= 25 || (*score2) >= 25) {
 		return 1;
 		}
 	else 
@@ -332,7 +355,7 @@ int plateau_vide(int matrice[L][C], int joueur) {
  
  /**
 *\fn partie_finie(int matrice[L][C], int joueur1, int joueur2, int score1, int score2 )
-*\brief Permet de verifier si une partie est terminée ou pas en verifiant si l'on peut nourir l'adversaire et si l'un des score est sup a 25
+*\brief Permet de verifier si une partie est terminée ou pas en verifiant si l'on peut nourir l'adversaire et si l'un des score est superieure ou egale à 25
 *\param matrice[L][C], joueur1, joueur2, score1, score2
 *\return 1 si partie finie, 0 sinon
 */

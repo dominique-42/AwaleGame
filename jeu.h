@@ -19,7 +19,8 @@ void jouer_a_deux(FILE * fichier);
 void jouer_avec_ordinateur(FILE * fichier);
 void jouer(FILE * fichier);
 void  victoire (int score1, int score2);
-int coup_possible(int coord_x, int matrice [L][C], int joueur, char pseudo[20]);
+int coup_possible(int coord_x, int matrice [L][C], int joueur);
+int jeu_possible(int matrice [L][C], int j);
 
 
 #endif
