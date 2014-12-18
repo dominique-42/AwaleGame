@@ -283,21 +283,15 @@ int nourir(int matrice[L][C], int joueur) {
 	int x;			//coordonnée de la case du plateau du joueur
 
 	if(joueur == JOUEUR2 || joueur == ORDINATEUR) {
-		//nb_depl = C;
 		for(x = C-1; x>=0; x--) {
-			if(matrice[joueur][x] > x){ //dans la case x, il faut au moins x+1 graines (ex: case 0 -> 1 graine minimum, case 5 -> 6 graines ..)
+			if(matrice[joueur][x] > x) //dans la case x, il faut au moins x+1 graines (ex: case 0 -> 1 graine minimum, case 5 -> 6 graines ..)
 				return 1;	// retourne 1 si nourir l'adversaire est possible
-			}
-			//nb_depl--;
 		}
 	}
 	else if(joueur == JOUEUR1) {
-		//nb_depl = C;
 		for(x = 0; x<C; x++ ){
-			if(matrice[joueur][x] >= C-x){
+			if(matrice[joueur][x] >= C-x)
 				return 1;	//retourne 1 si nourir l'adversaire est possible
-			}
-			//nb_depl--;
 		}
 	}
 	return 0;	
@@ -366,18 +360,17 @@ int plateau_vide(int matrice[L][C], int joueur) {
  }
  
  /**
-*\fn partie_finie(int matrice[L][C], int joueur1, int joueur2, int score1, int score2 )
+*\fn partie_pas_finie(int matrice[L][C], int joueur1, int joueur2, int score1, int score2 )
 *\brief Permet de verifier si une partie est terminée ou pas en verifiant si l'on peut nourir l'adversaire et si l'un des score est superieure ou egale à 25
-*\param matrice[L][C], joueur1, joueur2, score1, score2
+*\param matrice[L][C], score1, score2
 *\return 1 si partie finie, 0 sinon
 */
 int partie_pas_finie(int matrice[L][C], int *score1, int *score2 ) {
-	if(nourir(matrice, JOUEUR1) == 1 || nourir(matrice, JOUEUR2) == 1) {
+	/*si le JOUEUR1 peut nourir le JOUEUR2 et vice versa 
+	 * *ou que l'un des score des joueurs est < ou = à 25 alors on envoit vraie*/
+	 
+	if(nourir(matrice, JOUEUR1) || nourir(matrice, JOUEUR2) || gagne(score1, score2))
 		return 1;
-		}
-	if(gagne(score1, score2)) {
-		return 1;
-		}
 	else 
 		return 0;
 }
