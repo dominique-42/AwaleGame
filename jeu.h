@@ -12,15 +12,26 @@
 char pseudo1[20];
 char pseudo2[20];
 int awale[L][C];
+/**
+ * \struct t_joueur jeu.h
+ * \brief  Structure definissant le score et le pseudonyme du joueur  
+ */
+typedef struct{char pseudo[20]; int score;} t_joueur;
+
 
 void sauvegarder(FILE * fichier);
-void charger_partie(FILE * fichier);
-void jouer_a_deux(FILE * fichier);
-void jouer_avec_ordinateur(FILE * fichier);
-void jouer(FILE * fichier);
-void  victoire (int score1, int score2);
+int charger_partie(FILE * fichier);
+void jouer_a_deux(FILE * fichier, FILE * fic_records);
+void jouer_avec_ordinateur(FILE * fichier, FILE * fic_records);
+void jouer(FILE * fichier, FILE * fic_records);
+void  victoire (FILE * fichier);
 int coup_possible(int coord_x, int matrice [L][C], int joueur);
 int jeu_possible(int matrice [L][C], int j);
+int gain_difficile(int matrice[L][C], int * nb_coups);
+void classer_records(FILE * fichier, t_joueur * record_score, int * nb_score);
+void regles_jeu();
+void incrementer(int * nb_score);
+
 
 
 #endif
