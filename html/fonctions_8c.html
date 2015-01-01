@@ -1,0 +1,755 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>AwaleGame: Référence du fichier fonctions.c</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">AwaleGame
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Projet d&#39;etude en L2 SPI Okrou Poda Souleiman Iman Choukri</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('fonctions_8c.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier fonctions.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fichier contenant les fonctions necessaire à la construction du jeu.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br/>
+<code>#include &lt;stdio.h&gt;</code><br/>
+<code>#include &lt;string.h&gt;</code><br/>
+<code>#include &lt;assert.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="fonctions_8h_source.html">fonctions.h</a>&quot;</code><br/>
+</div>
+<p><a href="fonctions_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structt__coord.html">t_coord</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure definissant les coordonnées du plateau.  <a href="structt__coord.html#details">Plus de détails...</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions_8c.html#ae3ec776570c8f5eb533d3bdce41c9047">init_matrice</a> (int matrice[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>])</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'initialiser la matrice avec 4 graines dans chaque case.  <a href="#ae3ec776570c8f5eb533d3bdce41c9047"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions_8c.html#ab19c01649425ea408ee2e9b25488ebd4">affiche_matrice</a> (int matrice[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>])</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'afficher la matrice representant le plateau du jeu.  <a href="#ab19c01649425ea408ee2e9b25488ebd4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions_8c.html#add5428be2cf96e89acc765eee569afdf">dpl_arriere</a> (int *x, int *y)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de se deplacer sur la grille en arriere.  <a href="#add5428be2cf96e89acc765eee569afdf"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions_8c.html#aaa6e52410ede7e56d1e8c9386696f0e3">dpl_avant</a> (int *x, int *y)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de se deplacer dans la grille en avant.  <a href="#aaa6e52410ede7e56d1e8c9386696f0e3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions_8c.html#ad49a599d350f73c9cc202ef3201cdeec">manger_graines</a> (int nb_graines, int matrice[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>], int joueur, int x, int *score)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet jouer en se deplacant sur le plateau et en mangeant les graines qui se presentent et incremente le score du joueur.  <a href="#ad49a599d350f73c9cc202ef3201cdeec"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions_8c.html#ac37f804d2f7e9671be90f817f2db4141">non_affame</a> (int nb_graines, int matrice[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>], int clan, int joueur, int x)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de connaitre si un joueur sera affamé si l'adversaire joue un coup permettant de ramasser des graines.  <a href="#ac37f804d2f7e9671be90f817f2db4141"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions_8c.html#a3ccefa8bf9d384d34a69ed29e53110d2">jeu_ordi</a> (int matrice[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>])</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de simuler le jeu de l'ordinateur.  <a href="#a3ccefa8bf9d384d34a69ed29e53110d2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions_8c.html#a04919928f4159bf20368a095ea7c3996">aide</a> (int joueur, int matrice[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>], int *case_aide)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Quelle case bouger pour avoir le plus de graines à un coup à jouer?  <a href="#a04919928f4159bf20368a095ea7c3996"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions_8c.html#a1daad9db268f5b0306091d48a599f4dd">nourir</a> (int matrice[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>], int joueur)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Est-ce que le joueur j peut nourir son adversaie qui est affame ?  <a href="#a1daad9db268f5b0306091d48a599f4dd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions_8c.html#aa89e568c538461a9709196085af01961">nourir_case</a> (int matrice[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>], int joueur, int coord_x)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Est-ce que le joueur "joueur" peut nourir son adversaie qui est affame en jouant la case coord_x?  <a href="#aa89e568c538461a9709196085af01961"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56">plateau_vide</a> (int matrice[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>], int joueur)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Est-ce que le plateau du joueur "joueur" est vide?  <a href="#ad7de1ef74c78ad466c833df118a69a56"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions_8c.html#a1bb3aeb743ad104b7ed0c863d15d3ef0">graines_restantes</a> (int matrice[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>], int joueur)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Compter le nombre de graines dans le plateau de jeu pour chaque joueur.  <a href="#a1bb3aeb743ad104b7ed0c863d15d3ef0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions_8c.html#aed36295a355e61d266e2553626d4b581">partie_finie</a> (int matrice[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>], int score1, int score2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de verifier si une partie est terminée ou pas en verifiant si l'un des score est superieure ou egale à 25.  <a href="#aed36295a355e61d266e2553626d4b581"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fonctions_8c.html#a428b0322e777eb8e676248c564f08f3f">afficher_score</a> (int score, char joueur[20])</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'afficher le score du joueur en indiquant son pseudo.  <a href="#a428b0322e777eb8e676248c564f08f3f"></a><br/></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
+<div class="textblock"><p>Fichier contenant les fonctions necessaire à la construction du jeu. </p>
+<dl class="author"><dt><b>Auteur:</b></dt><dd>Okrou Poda, Souleiman Iman Choukri </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>0.1 </dd></dl>
+<dl class="date"><dt><b>Date:</b></dt><dd>19 novembre 2014</dd></dl>
+<p>Projet d'etude L2 SPI : Programmation du Jeu Awale </p>
+
+<p>Définition dans le fichier <a class="el" href="fonctions_8c_source.html">fonctions.c</a>.</p>
+</div><hr/><h2>Documentation des fonctions</h2>
+<a class="anchor" id="ab19c01649425ea408ee2e9b25488ebd4"></a><!-- doxytag: member="fonctions.c::affiche_matrice" ref="ab19c01649425ea408ee2e9b25488ebd4" args="(int matrice[L][C])" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="fonctions_8h.html#ab19c01649425ea408ee2e9b25488ebd4">affiche_matrice</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrice</em>[L][C]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet d'afficher la matrice representant le plateau du jeu. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrice</td><td>Matrice representant le plateau du jeu \ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="fonctions_8c_source.html#l00044">44</a> du fichier <a class="el" href="fonctions_8c_source.html">fonctions.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a428b0322e777eb8e676248c564f08f3f"></a><!-- doxytag: member="fonctions.c::afficher_score" ref="a428b0322e777eb8e676248c564f08f3f" args="(int score, char joueur[20])" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="fonctions_8h.html#aff012a2a68d6e381c091d475f4e1a220">afficher_score</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>score</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>joueur</em>[20]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet d'afficher le score du joueur en indiquant son pseudo. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">score</td><td>score du joueur </td></tr>
+    <tr><td class="paramname">joueur</td><td>pseudo du joueur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="fonctions_8c_source.html#l00445">445</a> du fichier <a class="el" href="fonctions_8c_source.html">fonctions.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a04919928f4159bf20368a095ea7c3996"></a><!-- doxytag: member="fonctions.c::aide" ref="a04919928f4159bf20368a095ea7c3996" args="(int joueur, int matrice[L][C], int *case_aide)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="fonctions_8h.html#a04919928f4159bf20368a095ea7c3996">aide</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>joueur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrice</em>[L][C], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>case_aide</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Quelle case bouger pour avoir le plus de graines à un coup à jouer? </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">joueur</td><td>Joueur pour lequel l'aide est recherchee </td></tr>
+    <tr><td class="paramname">matrice</td><td>Plateau du jeu </td></tr>
+    <tr><td class="paramname">case_aide</td><td>Pointeur sur la case à bouger pour obtenir l'aide </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>0 si il n'ya aucune possibilité de ramasser des graines, 1 si oui </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="fonctions_8c_source.html#l00280">280</a> du fichier <a class="el" href="fonctions_8c_source.html">fonctions.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="add5428be2cf96e89acc765eee569afdf"></a><!-- doxytag: member="fonctions.c::dpl_arriere" ref="add5428be2cf96e89acc765eee569afdf" args="(int *x, int *y)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="fonctions_8h.html#a46705ea420700b8bf765ff0248ad3cf8">dpl_arriere</a> </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet de se deplacer sur la grille en arriere. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Pointeur sur le coordonnée x </td></tr>
+    <tr><td class="paramname">y</td><td>Pointeur sur le coordonnée y </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="fonctions_8c_source.html#l00063">63</a> du fichier <a class="el" href="fonctions_8c_source.html">fonctions.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa6e52410ede7e56d1e8c9386696f0e3"></a><!-- doxytag: member="fonctions.c::dpl_avant" ref="aaa6e52410ede7e56d1e8c9386696f0e3" args="(int *x, int *y)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="fonctions_8h.html#aaa6e52410ede7e56d1e8c9386696f0e3">dpl_avant</a> </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet de se deplacer dans la grille en avant. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Pointeur sur le coordonnée x </td></tr>
+    <tr><td class="paramname">y</td><td>Pointeur sur le coordonnée y </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="fonctions_8c_source.html#l00084">84</a> du fichier <a class="el" href="fonctions_8c_source.html">fonctions.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1bb3aeb743ad104b7ed0c863d15d3ef0"></a><!-- doxytag: member="fonctions.c::graines_restantes" ref="a1bb3aeb743ad104b7ed0c863d15d3ef0" args="(int matrice[L][C], int joueur)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="fonctions_8h.html#a1bb3aeb743ad104b7ed0c863d15d3ef0">graines_restantes</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrice</em>[L][C], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>joueur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Compter le nombre de graines dans le plateau de jeu pour chaque joueur. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrice</td><td>Plateau de jeu </td></tr>
+    <tr><td class="paramname">joueur</td><td>Represente la ligne du joueur </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Le nombre de graine restantes dans la ligne du joueur </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="fonctions_8c_source.html#l00412">412</a> du fichier <a class="el" href="fonctions_8c_source.html">fonctions.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae3ec776570c8f5eb533d3bdce41c9047"></a><!-- doxytag: member="fonctions.c::init_matrice" ref="ae3ec776570c8f5eb533d3bdce41c9047" args="(int matrice[L][C])" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="fonctions_8h.html#ae3ec776570c8f5eb533d3bdce41c9047">init_matrice</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrice</em>[L][C]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet d'initialiser la matrice avec 4 graines dans chaque case. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrice</td><td>Matrice representant le plateau du jeu </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="fonctions_8c_source.html#l00029">29</a> du fichier <a class="el" href="fonctions_8c_source.html">fonctions.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3ccefa8bf9d384d34a69ed29e53110d2"></a><!-- doxytag: member="fonctions.c::jeu_ordi" ref="a3ccefa8bf9d384d34a69ed29e53110d2" args="(int matrice[L][C])" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="fonctions_8h.html#a3ccefa8bf9d384d34a69ed29e53110d2">jeu_ordi</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrice</em>[L][C]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet de simuler le jeu de l'ordinateur. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrice</td><td>Representant le plateau de jeu </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>La case à déplacer </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="fonctions_8c_source.html#l00208">208</a> du fichier <a class="el" href="fonctions_8c_source.html">fonctions.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad49a599d350f73c9cc202ef3201cdeec"></a><!-- doxytag: member="fonctions.c::manger_graines" ref="ad49a599d350f73c9cc202ef3201cdeec" args="(int nb_graines, int matrice[L][C], int joueur, int x, int *score)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="fonctions_8h.html#ad49a599d350f73c9cc202ef3201cdeec">manger_graines</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_graines</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrice</em>[L][C], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>joueur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>score</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet jouer en se deplacant sur le plateau et en mangeant les graines qui se presentent et incremente le score du joueur. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nb_graines</td><td>Nombre de graines dans la case </td></tr>
+    <tr><td class="paramname">matrice</td><td>Plateau du jeu </td></tr>
+    <tr><td class="paramname">joueur</td><td>Coordonnée y de la case </td></tr>
+    <tr><td class="paramname">score</td><td>Pointeur sur le coordonnée x de la case </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="fonctions_8c_source.html#l00110">110</a> du fichier <a class="el" href="fonctions_8c_source.html">fonctions.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac37f804d2f7e9671be90f817f2db4141"></a><!-- doxytag: member="fonctions.c::non_affame" ref="ac37f804d2f7e9671be90f817f2db4141" args="(int nb_graines, int matrice[L][C], int clan, int joueur, int x)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="fonctions_8h.html#ac37f804d2f7e9671be90f817f2db4141">non_affame</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_graines</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrice</em>[L][C], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>clan</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>joueur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet de connaitre si un joueur sera affamé si l'adversaire joue un coup permettant de ramasser des graines. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nb_graines</td><td>Nombre de graine dans la case à deplacer </td></tr>
+    <tr><td class="paramname">matrice[L][C]</td><td>Plateau du jeu </td></tr>
+    <tr><td class="paramname">clan</td><td>Ligne du joueur </td></tr>
+    <tr><td class="paramname">joueur</td><td>Representant la ligne du joueur </td></tr>
+    <tr><td class="paramname">x</td><td>Corrdonnée x de la case </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>1 si l'adversaire est affame apres le coup, 0 sinon </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="fonctions_8c_source.html#l00163">163</a> du fichier <a class="el" href="fonctions_8c_source.html">fonctions.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1daad9db268f5b0306091d48a599f4dd"></a><!-- doxytag: member="fonctions.c::nourir" ref="a1daad9db268f5b0306091d48a599f4dd" args="(int matrice[L][C], int joueur)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="fonctions_8h.html#a1daad9db268f5b0306091d48a599f4dd">nourir</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrice</em>[L][C], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>joueur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Est-ce que le joueur j peut nourir son adversaie qui est affame ? </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrice</td><td>Plateau du jeu </td></tr>
+    <tr><td class="paramname">joueur</td><td>Joueur dont la capacité de nourir est testé </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>0 si on ne peut pas le nourir, 1 si oui </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="fonctions_8c_source.html#l00342">342</a> du fichier <a class="el" href="fonctions_8c_source.html">fonctions.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa89e568c538461a9709196085af01961"></a><!-- doxytag: member="fonctions.c::nourir_case" ref="aa89e568c538461a9709196085af01961" args="(int matrice[L][C], int joueur, int coord_x)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="fonctions_8h.html#aa89e568c538461a9709196085af01961">nourir_case</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrice</em>[L][C], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>joueur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>coord_x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Est-ce que le joueur "joueur" peut nourir son adversaie qui est affame en jouant la case coord_x? </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrice</td><td>Plateau de jeu </td></tr>
+    <tr><td class="paramname">joueur</td><td>Representant la ligne du joueur </td></tr>
+    <tr><td class="paramname">coord_x</td><td>Coordonnée x de la case </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>0 si on ne peut pas le nourir, 1 si oui </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="fonctions_8c_source.html#l00369">369</a> du fichier <a class="el" href="fonctions_8c_source.html">fonctions.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aed36295a355e61d266e2553626d4b581"></a><!-- doxytag: member="fonctions.c::partie_finie" ref="aed36295a355e61d266e2553626d4b581" args="(int matrice[L][C], int score1, int score2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="fonctions_8h.html#aed36295a355e61d266e2553626d4b581">partie_finie</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrice</em>[L][C], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>score1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>score2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet de verifier si une partie est terminée ou pas en verifiant si l'un des score est superieure ou egale à 25. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrice</td><td>Plateau de jeu </td></tr>
+    <tr><td class="paramname">score1</td><td>Score du joueur 1 </td></tr>
+    <tr><td class="paramname">score2</td><td>Score du joueur 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>1 si la partie est finie, 0 sinon </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="fonctions_8c_source.html#l00430">430</a> du fichier <a class="el" href="fonctions_8c_source.html">fonctions.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad7de1ef74c78ad466c833df118a69a56"></a><!-- doxytag: member="fonctions.c::plateau_vide" ref="ad7de1ef74c78ad466c833df118a69a56" args="(int matrice[L][C], int joueur)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="fonctions_8h.html#ad7de1ef74c78ad466c833df118a69a56">plateau_vide</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrice</em>[L][C], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>joueur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Est-ce que le plateau du joueur "joueur" est vide? </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrice</td><td>Plateau de jeu </td></tr>
+    <tr><td class="paramname">joueur</td><td>Represente la ligne du joueur </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>1 si le platau est vide, 0 sinon </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="fonctions_8c_source.html#l00393">393</a> du fichier <a class="el" href="fonctions_8c_source.html">fonctions.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="fonctions_8c.html">fonctions.c</a>      </li>
+
+    <li class="footer">Généré le Jeudi Janvier 1 2015 21:43:10 pour AwaleGame par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

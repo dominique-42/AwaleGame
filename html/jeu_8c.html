@@ -1,0 +1,651 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>AwaleGame: Référence du fichier jeu.c</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">AwaleGame
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Projet d&#39;etude en L2 SPI Okrou Poda Souleiman Iman Choukri</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('jeu_8c.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier jeu.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fichier contenant les fonctions necessaire au déroulement du jeu.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br/>
+<code>#include &lt;stdio.h&gt;</code><br/>
+<code>#include &lt;string.h&gt;</code><br/>
+<code>#include &lt;assert.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="fonctions_8h_source.html">fonctions.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="jeu_8h_source.html">jeu.h</a>&quot;</code><br/>
+</div>
+<p><a href="jeu_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8c.html#a74fc2dac8f195aab3a01564e1449abd8">victoire</a> (FILE *fichier)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'afficher le score et le pseudo du joueur victorieux et de l'enregistrer dans le record des scores.  <a href="#a74fc2dac8f195aab3a01564e1449abd8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8c.html#a2c3520fc9ff89bd6b4a087e0d84698cd">gain_difficile</a> (int matrice[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>], int *nb_tour)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de detecter si un tour est difficile à jouer et incremente le nombre de tour où ce cas est rencontré.  <a href="#a2c3520fc9ff89bd6b4a087e0d84698cd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8c.html#acf96a95ac5fbcf5e4e5d6d4e33f6c4d5">jeu_possible</a> (int matrice[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>], int joueur)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Est-ce que le joueur "joueur" peut-il jouer ?  <a href="#acf96a95ac5fbcf5e4e5d6d4e33f6c4d5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8c.html#a87a8c018fa7c064d9bb41dfa7180ba79">coup_possible</a> (int coord_x, int matrice[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>], int joueur)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Est-ce que le joueur j peut jouer à la case de coord_x ?  <a href="#a87a8c018fa7c064d9bb41dfa7180ba79"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8c.html#a895c618d619bd79f7e7d533b0fb5b39e">regles_jeu</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'afficher les regles du jeu.  <a href="#a895c618d619bd79f7e7d533b0fb5b39e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8c.html#acc82d0a24a8d141c83e5f2891d1d6310">sauvegarder</a> (FILE *fichier)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de sauvegarder une partie en cours, les scores et le pseudo du JOUEUR2 de la partie.  <a href="#acc82d0a24a8d141c83e5f2891d1d6310"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8c.html#ad7b9f7ffaba2018585f1ddf03bab4933">classer_records</a> (FILE *fichier, <a class="el" href="structt__joueur.html">t_joueur</a> *record_score, int *nb_score)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'afficher les 10 meilleures scores enregistrés du jeu.  <a href="#ad7b9f7ffaba2018585f1ddf03bab4933"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8c.html#a65d1300c1e90d794185bd1710cd41339">charger_partie</a> (FILE *fichier)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de charger une partie sauvegarder.  <a href="#a65d1300c1e90d794185bd1710cd41339"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8c.html#a97f7d4b3a559a9cf4b49c0595c228e92">jouer_a_deux</a> (FILE *fichier, FILE *fic_records)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de joueur une partie entre deux joueurs.  <a href="#a97f7d4b3a559a9cf4b49c0595c228e92"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8c.html#afc75ac9015ba15325420fa8c5dec3799">jouer_avec_ordinateur</a> (FILE *fichier, FILE *fic_records)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de joueur une partie avec l'ordinateur.  <a href="#afc75ac9015ba15325420fa8c5dec3799"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8c.html#abf885104c5203b71aeb45e91d4f51487">jouer</a> (FILE *fichier, FILE *fic_records)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de joueur.  <a href="#abf885104c5203b71aeb45e91d4f51487"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8c.html#a5a8037325d2d08c3fb5740af57f143d1">faux</a> = 0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8c.html#abdd213f579da8124619963971cdc2830">vrai</a> = 1</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a> = 0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a> = 0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8c.html#a181fbca82e37c16ba51311694f0cbbe8">nb_tours</a> = 0</td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
+<div class="textblock"><p>Fichier contenant les fonctions necessaire au déroulement du jeu. </p>
+<dl class="author"><dt><b>Auteur:</b></dt><dd>Okrou Poda, Souleiman Iman Choukri </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>0.1 </dd></dl>
+<dl class="date"><dt><b>Date:</b></dt><dd>19 novembre 2014</dd></dl>
+<p>Projet d'etude L2 SPI : Programmation du Jeu Awale </p>
+
+<p>Définition dans le fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+</div><hr/><h2>Documentation des fonctions</h2>
+<a class="anchor" id="a65d1300c1e90d794185bd1710cd41339"></a><!-- doxytag: member="jeu.c::charger_partie" ref="a65d1300c1e90d794185bd1710cd41339" args="(FILE *fichier)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="jeu_8h.html#a65d1300c1e90d794185bd1710cd41339">charger_partie</a> </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichier</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet de charger une partie sauvegarder. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fichier</td><td>Le fichier de sauvegarde à recuperer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>0 si aucune partie est sauvegardée, 1 si oui </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00253">253</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad7b9f7ffaba2018585f1ddf03bab4933"></a><!-- doxytag: member="jeu.c::classer_records" ref="ad7b9f7ffaba2018585f1ddf03bab4933" args="(FILE *fichier, t_joueur *record_score, int *nb_score)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="jeu_8h.html#ad8c2c40a19bd92f67c1048db215f2965">classer_records</a> </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__joueur.html">t_joueur</a> *&#160;</td>
+          <td class="paramname"><em>record_score</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nb_score</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet d'afficher les 10 meilleures scores enregistrés du jeu. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fichier</td><td>Le fichier de sauvegarde à recuperer </td></tr>
+    <tr><td class="paramname">record_score</td><td>Pointeur sur une structure de type <a class="el" href="structt__joueur.html" title="Structure definissant le score et le pseudonyme du joueur.">t_joueur</a> </td></tr>
+    <tr><td class="paramname">nb_score</td><td>Pointeur sur le nombre de score </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00197">197</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a87a8c018fa7c064d9bb41dfa7180ba79"></a><!-- doxytag: member="jeu.c::coup_possible" ref="a87a8c018fa7c064d9bb41dfa7180ba79" args="(int coord_x, int matrice[L][C], int joueur)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="jeu_8h.html#a87a8c018fa7c064d9bb41dfa7180ba79">coup_possible</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>coord_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrice</em>[L][C], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>joueur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Est-ce que le joueur j peut jouer à la case de coord_x ? </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coord_x</td><td>Coordonnée x à verifier </td></tr>
+    <tr><td class="paramname">matrice</td><td>Plateau du jeu </td></tr>
+    <tr><td class="paramname">joueur</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>1 si la case saisie est joueable, 0 sinon </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00128">128</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2c3520fc9ff89bd6b4a087e0d84698cd"></a><!-- doxytag: member="jeu.c::gain_difficile" ref="a2c3520fc9ff89bd6b4a087e0d84698cd" args="(int matrice[L][C], int *nb_tour)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="jeu_8h.html#a1387ba500711984dfa8124c4f80e439b">gain_difficile</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrice</em>[L][C], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nb_tour</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet de detecter si un tour est difficile à jouer et incremente le nombre de tour où ce cas est rencontré. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrice</td><td>Plateau de jeu </td></tr>
+    <tr><td class="paramname">nb_tour</td><td>Pointeur sur le nombre de tour </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>0 si il existe des coup gagnants, 1 si c'est difficile de trouver des coups gagnants </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00057">57</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acf96a95ac5fbcf5e4e5d6d4e33f6c4d5"></a><!-- doxytag: member="jeu.c::jeu_possible" ref="acf96a95ac5fbcf5e4e5d6d4e33f6c4d5" args="(int matrice[L][C], int joueur)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="jeu_8h.html#a188fe244372c8d4e8420df3414195b6f">jeu_possible</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrice</em>[L][C], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>joueur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Est-ce que le joueur "joueur" peut-il jouer ? </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrice</td><td>Represente le plateau de jeu </td></tr>
+    <tr><td class="paramname">joueur</td><td>L'un des joueur </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Renvoi vraie (1) si : -le plateau du joueur n'est pas vide et que l'adversaire est affamé et le joueur j capable de le nourir -le plateau du joueur vide et son adversaire capable de le nourir -le plateau du joueur n'est pas vide Renvoie faux (0) si : -le jeu n'est pas possible si l'adversaire est affamé et le joueur incapable de le nourir -le plateau du joueur est vide et que l'adversaire est incapable de le nourir </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00081">81</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abf885104c5203b71aeb45e91d4f51487"></a><!-- doxytag: member="jeu.c::jouer" ref="abf885104c5203b71aeb45e91d4f51487" args="(FILE *fichier, FILE *fic_records)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="jeu_8h.html#abf885104c5203b71aeb45e91d4f51487">jouer</a> </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fic_records</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet de joueur. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fichier</td><td>Le fichier de sauvegarde </td></tr>
+    <tr><td class="paramname">fic_records</td><td>Le fichier contenant les records </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00593">593</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a97f7d4b3a559a9cf4b49c0595c228e92"></a><!-- doxytag: member="jeu.c::jouer_a_deux" ref="a97f7d4b3a559a9cf4b49c0595c228e92" args="(FILE *fichier, FILE *fic_records)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="jeu_8h.html#a97f7d4b3a559a9cf4b49c0595c228e92">jouer_a_deux</a> </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fic_records</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet de joueur une partie entre deux joueurs. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fichier</td><td>Le fichier de sauvegarde </td></tr>
+    <tr><td class="paramname">fic_records</td><td>Le fichier contenant les records </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00281">281</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afc75ac9015ba15325420fa8c5dec3799"></a><!-- doxytag: member="jeu.c::jouer_avec_ordinateur" ref="afc75ac9015ba15325420fa8c5dec3799" args="(FILE *fichier, FILE *fic_records)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="jeu_8h.html#afc75ac9015ba15325420fa8c5dec3799">jouer_avec_ordinateur</a> </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fic_records</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet de joueur une partie avec l'ordinateur. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fichier</td><td>Le fichier de sauvegarde </td></tr>
+    <tr><td class="paramname">fic_records</td><td>Le fichier contenant les records </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00455">455</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a895c618d619bd79f7e7d533b0fb5b39e"></a><!-- doxytag: member="jeu.c::regles_jeu" ref="a895c618d619bd79f7e7d533b0fb5b39e" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="jeu_8h.html#a9f53b6fb81145a5f2275d19576b95a53">regles_jeu</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet d'afficher les regles du jeu. </p>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00153">153</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acc82d0a24a8d141c83e5f2891d1d6310"></a><!-- doxytag: member="jeu.c::sauvegarder" ref="acc82d0a24a8d141c83e5f2891d1d6310" args="(FILE *fichier)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="jeu_8h.html#acc82d0a24a8d141c83e5f2891d1d6310">sauvegarder</a> </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichier</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet de sauvegarder une partie en cours, les scores et le pseudo du JOUEUR2 de la partie. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fichier</td><td>Le fichier de sauvegarde </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00176">176</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a74fc2dac8f195aab3a01564e1449abd8"></a><!-- doxytag: member="jeu.c::victoire" ref="a74fc2dac8f195aab3a01564e1449abd8" args="(FILE *fichier)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="jeu_8h.html#a74fc2dac8f195aab3a01564e1449abd8">victoire</a> </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichier</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Permet d'afficher le score et le pseudo du joueur victorieux et de l'enregistrer dans le record des scores. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fichier</td><td>Fichier où les scores des joeuurs gagnants sont enregistrés </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00034">34</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Documentation des variables</h2>
+<a class="anchor" id="a5a8037325d2d08c3fb5740af57f143d1"></a><!-- doxytag: member="jeu.c::faux" ref="a5a8037325d2d08c3fb5740af57f143d1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="jeu_8c.html#a5a8037325d2d08c3fb5740af57f143d1">faux</a> = 0</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Booleen faux </p>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00020">20</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a181fbca82e37c16ba51311694f0cbbe8"></a><!-- doxytag: member="jeu.c::nb_tours" ref="a181fbca82e37c16ba51311694f0cbbe8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="jeu_8c.html#a181fbca82e37c16ba51311694f0cbbe8">nb_tours</a> = 0</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Nombre de tour dont les coups gangnants de la partie sont difficile à trouver </p>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00025">25</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aee4219d2e0a21bb4450d03a769631982"></a><!-- doxytag: member="jeu.c::scorej1" ref="aee4219d2e0a21bb4450d03a769631982" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a> = 0</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Score du JOUEUR1 </p>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00023">23</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aebbdab619bc8ed61e72e70a36ac5fe4d"></a><!-- doxytag: member="jeu.c::scorej2" ref="aebbdab619bc8ed61e72e70a36ac5fe4d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a> = 0</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Score du JOUEUR2 </p>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00024">24</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abdd213f579da8124619963971cdc2830"></a><!-- doxytag: member="jeu.c::vrai" ref="abdd213f579da8124619963971cdc2830" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="jeu_8c.html#abdd213f579da8124619963971cdc2830">vrai</a> = 1</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Booleen vrai </p>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00021">21</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="jeu_8c.html">jeu.c</a>      </li>
+
+    <li class="footer">Généré le Jeudi Janvier 1 2015 21:43:10 pour AwaleGame par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

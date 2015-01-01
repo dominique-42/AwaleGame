@@ -1,0 +1,427 @@
+\hypertarget{fonctions_8h}{\section{\-Référence du fichier fonctions.\-h}
+\label{fonctions_8h}\index{fonctions.\-h@{fonctions.\-h}}
+}
+
+
+\-Fichier contenant les en-\/tête des fonctions qui sont necessaires à la construction du jeu.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\*
+{\ttfamily \#include $<$stdio.\-h$>$}\*
+{\ttfamily \#include $<$string.\-h$>$}\*
+{\ttfamily \#include $<$assert.\-h$>$}\*
+{\ttfamily \#include \char`\"{}jeu.\-h\char`\"{}}\*
+\subsection*{\-Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{fonctions_8h_ae3ec776570c8f5eb533d3bdce41c9047}{init\-\_\-matrice} (int matrice\mbox{[}\hyperlink{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}{\-L}\mbox{]}\mbox{[}\hyperlink{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}{\-C}\mbox{]})
+\begin{DoxyCompactList}\small\item\em \-Permet d'initialiser la matrice avec 4 graines dans chaque case. \end{DoxyCompactList}\item 
+void \hyperlink{fonctions_8h_ab19c01649425ea408ee2e9b25488ebd4}{affiche\-\_\-matrice} (int matrice\mbox{[}\hyperlink{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}{\-L}\mbox{]}\mbox{[}\hyperlink{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}{\-C}\mbox{]})
+\begin{DoxyCompactList}\small\item\em \-Permet d'afficher la matrice representant le plateau du jeu. \end{DoxyCompactList}\item 
+void \hyperlink{fonctions_8h_a46705ea420700b8bf765ff0248ad3cf8}{dpl\-\_\-arriere} (int $\ast$x, int $\ast$y)
+\begin{DoxyCompactList}\small\item\em \-Permet de se deplacer sur la grille en arriere. \end{DoxyCompactList}\item 
+void \hyperlink{fonctions_8h_aaa6e52410ede7e56d1e8c9386696f0e3}{dpl\-\_\-avant} (int $\ast$x, int $\ast$y)
+\begin{DoxyCompactList}\small\item\em \-Permet de se deplacer dans la grille en avant. \end{DoxyCompactList}\item 
+void \hyperlink{fonctions_8h_ad49a599d350f73c9cc202ef3201cdeec}{manger\-\_\-graines} (int nb\-\_\-graines, int matrice\mbox{[}\hyperlink{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}{\-L}\mbox{]}\mbox{[}\hyperlink{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}{\-C}\mbox{]}, int joueur, int x, int $\ast$score)
+\begin{DoxyCompactList}\small\item\em \-Permet jouer en se deplacant sur le plateau et en mangeant les graines qui se presentent et incremente le score du joueur. \end{DoxyCompactList}\item 
+int \hyperlink{fonctions_8h_a3ccefa8bf9d384d34a69ed29e53110d2}{jeu\-\_\-ordi} (int matrice\mbox{[}\hyperlink{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}{\-L}\mbox{]}\mbox{[}\hyperlink{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}{\-C}\mbox{]})
+\begin{DoxyCompactList}\small\item\em \-Permet de simuler le jeu de l'ordinateur. \end{DoxyCompactList}\item 
+int \hyperlink{fonctions_8h_a04919928f4159bf20368a095ea7c3996}{aide} (int joueur, int matrice\mbox{[}\hyperlink{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}{\-L}\mbox{]}\mbox{[}\hyperlink{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}{\-C}\mbox{]}, int $\ast$case\-\_\-aide)
+\begin{DoxyCompactList}\small\item\em \-Quelle case bouger pour avoir le plus de graines à un coup à jouer? \end{DoxyCompactList}\item 
+int \hyperlink{fonctions_8h_a1daad9db268f5b0306091d48a599f4dd}{nourir} (int matrice\mbox{[}\hyperlink{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}{\-L}\mbox{]}\mbox{[}\hyperlink{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}{\-C}\mbox{]}, int joueur)
+\begin{DoxyCompactList}\small\item\em \-Est-\/ce que le joueur j peut nourir son adversaie qui est affame ? \end{DoxyCompactList}\item 
+int \hyperlink{fonctions_8h_aed36295a355e61d266e2553626d4b581}{partie\-\_\-finie} (int matrice\mbox{[}\hyperlink{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}{\-L}\mbox{]}\mbox{[}\hyperlink{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}{\-C}\mbox{]}, int score1, int score2)
+\begin{DoxyCompactList}\small\item\em \-Permet de verifier si une partie est terminée ou pas en verifiant si l'un des score est superieure ou egale à 25. \end{DoxyCompactList}\item 
+void \hyperlink{fonctions_8h_aff012a2a68d6e381c091d475f4e1a220}{afficher\-\_\-score} (int score, char joueur\mbox{[}20\mbox{]})
+\begin{DoxyCompactList}\small\item\em \-Permet d'afficher le score du joueur en indiquant son pseudo. \end{DoxyCompactList}\item 
+int \hyperlink{fonctions_8h_ad7de1ef74c78ad466c833df118a69a56}{plateau\-\_\-vide} (int matrice\mbox{[}\hyperlink{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}{\-L}\mbox{]}\mbox{[}\hyperlink{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}{\-C}\mbox{]}, int joueur)
+\begin{DoxyCompactList}\small\item\em \-Est-\/ce que le plateau du joueur \char`\"{}joueur\char`\"{} est vide? \end{DoxyCompactList}\item 
+int \hyperlink{fonctions_8h_aa89e568c538461a9709196085af01961}{nourir\-\_\-case} (int matrice\mbox{[}\hyperlink{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}{\-L}\mbox{]}\mbox{[}\hyperlink{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}{\-C}\mbox{]}, int joueur, int coord\-\_\-x)
+\begin{DoxyCompactList}\small\item\em \-Est-\/ce que le joueur \char`\"{}joueur\char`\"{} peut nourir son adversaie qui est affame en jouant la case coord\-\_\-x? \end{DoxyCompactList}\item 
+int \hyperlink{fonctions_8h_a1bb3aeb743ad104b7ed0c863d15d3ef0}{graines\-\_\-restantes} (int matrice\mbox{[}\hyperlink{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}{\-L}\mbox{]}\mbox{[}\hyperlink{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}{\-C}\mbox{]}, int joueur)
+\begin{DoxyCompactList}\small\item\em \-Compter le nombre de graines dans le plateau de jeu pour chaque joueur. \end{DoxyCompactList}\item 
+int \hyperlink{fonctions_8h_ac37f804d2f7e9671be90f817f2db4141}{non\-\_\-affame} (int nb\-\_\-graines, int matrice\mbox{[}\hyperlink{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}{\-L}\mbox{]}\mbox{[}\hyperlink{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}{\-C}\mbox{]}, int clan, int joueur, int x)
+\begin{DoxyCompactList}\small\item\em \-Permet de connaitre si un joueur sera affamé si l'adversaire joue un coup permettant de ramasser des graines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Description détaillée}
+\-Fichier contenant les en-\/tête des fonctions qui sont necessaires à la construction du jeu. \begin{DoxyAuthor}{\-Auteur}
+\-Okrou \-Poda, \-Souleiman \-Iman \-Choukri 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{\-Version}
+0.\-1 
+\end{DoxyVersion}
+\begin{DoxyDate}{\-Date}
+19 novembre 2014
+\end{DoxyDate}
+\-Projet d'etude \-L2 \-S\-P\-I \-: \-Programmation du \-Jeu \-Awale 
+
+\-Définition dans le fichier \hyperlink{fonctions_8h_source}{fonctions.\-h}.
+
+
+
+\subsection{\-Documentation des fonctions}
+\hypertarget{fonctions_8h_ab19c01649425ea408ee2e9b25488ebd4}{\index{fonctions.\-h@{fonctions.\-h}!affiche\-\_\-matrice@{affiche\-\_\-matrice}}
+\index{affiche\-\_\-matrice@{affiche\-\_\-matrice}!fonctions.h@{fonctions.\-h}}
+\subsubsection[{affiche\-\_\-matrice}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf affiche\-\_\-matrice} (
+\begin{DoxyParamCaption}
+\item[{int}]{matrice\mbox{[}\-L\mbox{]}\mbox{[}\-C\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{fonctions_8h_ab19c01649425ea408ee2e9b25488ebd4}
+
+
+\-Permet d'afficher la matrice representant le plateau du jeu. 
+
+
+\begin{DoxyParams}{\-Paramètres}
+{\em matrice} & \-Matrice representant le plateau du jeu $\backslash$ \\
+\hline
+\end{DoxyParams}
+
+
+\-Définition à la ligne 44 du fichier fonctions.\-c.
+
+\hypertarget{fonctions_8h_aff012a2a68d6e381c091d475f4e1a220}{\index{fonctions.\-h@{fonctions.\-h}!afficher\-\_\-score@{afficher\-\_\-score}}
+\index{afficher\-\_\-score@{afficher\-\_\-score}!fonctions.h@{fonctions.\-h}}
+\subsubsection[{afficher\-\_\-score}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf afficher\-\_\-score} (
+\begin{DoxyParamCaption}
+\item[{int}]{score, }
+\item[{char}]{joueur\mbox{[}20\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{fonctions_8h_aff012a2a68d6e381c091d475f4e1a220}
+
+
+\-Permet d'afficher le score du joueur en indiquant son pseudo. 
+
+
+\begin{DoxyParams}{\-Paramètres}
+{\em score} & score du joueur \\
+\hline
+{\em joueur} & pseudo du joueur \\
+\hline
+\end{DoxyParams}
+
+
+\-Définition à la ligne 445 du fichier fonctions.\-c.
+
+\hypertarget{fonctions_8h_a04919928f4159bf20368a095ea7c3996}{\index{fonctions.\-h@{fonctions.\-h}!aide@{aide}}
+\index{aide@{aide}!fonctions.h@{fonctions.\-h}}
+\subsubsection[{aide}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf aide} (
+\begin{DoxyParamCaption}
+\item[{int}]{joueur, }
+\item[{int}]{matrice\mbox{[}\-L\mbox{]}\mbox{[}\-C\mbox{]}, }
+\item[{int $\ast$}]{case\-\_\-aide}
+\end{DoxyParamCaption}
+)}}\label{fonctions_8h_a04919928f4159bf20368a095ea7c3996}
+
+
+\-Quelle case bouger pour avoir le plus de graines à un coup à jouer? 
+
+
+\begin{DoxyParams}{\-Paramètres}
+{\em joueur} & \-Joueur pour lequel l'aide est recherchee \\
+\hline
+{\em matrice} & \-Plateau du jeu \\
+\hline
+{\em case\-\_\-aide} & \-Pointeur sur la case à bouger pour obtenir l'aide \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Renvoie}
+0 si il n'ya aucune possibilité de ramasser des graines, 1 si oui 
+\end{DoxyReturn}
+
+
+\-Définition à la ligne 280 du fichier fonctions.\-c.
+
+\hypertarget{fonctions_8h_a46705ea420700b8bf765ff0248ad3cf8}{\index{fonctions.\-h@{fonctions.\-h}!dpl\-\_\-arriere@{dpl\-\_\-arriere}}
+\index{dpl\-\_\-arriere@{dpl\-\_\-arriere}!fonctions.h@{fonctions.\-h}}
+\subsubsection[{dpl\-\_\-arriere}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf dpl\-\_\-arriere} (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{x, }
+\item[{int $\ast$}]{y}
+\end{DoxyParamCaption}
+)}}\label{fonctions_8h_a46705ea420700b8bf765ff0248ad3cf8}
+
+
+\-Permet de se deplacer sur la grille en arriere. 
+
+
+\begin{DoxyParams}{\-Paramètres}
+{\em x} & \-Pointeur sur le coordonnée x \\
+\hline
+{\em y} & \-Pointeur sur le coordonnée y \\
+\hline
+\end{DoxyParams}
+
+
+\-Définition à la ligne 63 du fichier fonctions.\-c.
+
+\hypertarget{fonctions_8h_aaa6e52410ede7e56d1e8c9386696f0e3}{\index{fonctions.\-h@{fonctions.\-h}!dpl\-\_\-avant@{dpl\-\_\-avant}}
+\index{dpl\-\_\-avant@{dpl\-\_\-avant}!fonctions.h@{fonctions.\-h}}
+\subsubsection[{dpl\-\_\-avant}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf dpl\-\_\-avant} (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{x, }
+\item[{int $\ast$}]{y}
+\end{DoxyParamCaption}
+)}}\label{fonctions_8h_aaa6e52410ede7e56d1e8c9386696f0e3}
+
+
+\-Permet de se deplacer dans la grille en avant. 
+
+
+\begin{DoxyParams}{\-Paramètres}
+{\em x} & \-Pointeur sur le coordonnée x \\
+\hline
+{\em y} & \-Pointeur sur le coordonnée y \\
+\hline
+\end{DoxyParams}
+
+
+\-Définition à la ligne 84 du fichier fonctions.\-c.
+
+\hypertarget{fonctions_8h_a1bb3aeb743ad104b7ed0c863d15d3ef0}{\index{fonctions.\-h@{fonctions.\-h}!graines\-\_\-restantes@{graines\-\_\-restantes}}
+\index{graines\-\_\-restantes@{graines\-\_\-restantes}!fonctions.h@{fonctions.\-h}}
+\subsubsection[{graines\-\_\-restantes}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf graines\-\_\-restantes} (
+\begin{DoxyParamCaption}
+\item[{int}]{matrice\mbox{[}\-L\mbox{]}\mbox{[}\-C\mbox{]}, }
+\item[{int}]{joueur}
+\end{DoxyParamCaption}
+)}}\label{fonctions_8h_a1bb3aeb743ad104b7ed0c863d15d3ef0}
+
+
+\-Compter le nombre de graines dans le plateau de jeu pour chaque joueur. 
+
+
+\begin{DoxyParams}{\-Paramètres}
+{\em matrice} & \-Plateau de jeu \\
+\hline
+{\em joueur} & \-Represente la ligne du joueur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Renvoie}
+\-Le nombre de graine restantes dans la ligne du joueur 
+\end{DoxyReturn}
+
+
+\-Définition à la ligne 412 du fichier fonctions.\-c.
+
+\hypertarget{fonctions_8h_ae3ec776570c8f5eb533d3bdce41c9047}{\index{fonctions.\-h@{fonctions.\-h}!init\-\_\-matrice@{init\-\_\-matrice}}
+\index{init\-\_\-matrice@{init\-\_\-matrice}!fonctions.h@{fonctions.\-h}}
+\subsubsection[{init\-\_\-matrice}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf init\-\_\-matrice} (
+\begin{DoxyParamCaption}
+\item[{int}]{matrice\mbox{[}\-L\mbox{]}\mbox{[}\-C\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{fonctions_8h_ae3ec776570c8f5eb533d3bdce41c9047}
+
+
+\-Permet d'initialiser la matrice avec 4 graines dans chaque case. 
+
+\-Pour les tailles des matrices !
+
+
+\begin{DoxyParams}{\-Paramètres}
+{\em matrice} & \-Matrice representant le plateau du jeu \\
+\hline
+\end{DoxyParams}
+
+
+\-Définition à la ligne 29 du fichier fonctions.\-c.
+
+\hypertarget{fonctions_8h_a3ccefa8bf9d384d34a69ed29e53110d2}{\index{fonctions.\-h@{fonctions.\-h}!jeu\-\_\-ordi@{jeu\-\_\-ordi}}
+\index{jeu\-\_\-ordi@{jeu\-\_\-ordi}!fonctions.h@{fonctions.\-h}}
+\subsubsection[{jeu\-\_\-ordi}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf jeu\-\_\-ordi} (
+\begin{DoxyParamCaption}
+\item[{int}]{matrice\mbox{[}\-L\mbox{]}\mbox{[}\-C\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{fonctions_8h_a3ccefa8bf9d384d34a69ed29e53110d2}
+
+
+\-Permet de simuler le jeu de l'ordinateur. 
+
+
+\begin{DoxyParams}{\-Paramètres}
+{\em matrice} & \-Representant le plateau de jeu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Renvoie}
+\-La case à déplacer 
+\end{DoxyReturn}
+
+
+\-Définition à la ligne 208 du fichier fonctions.\-c.
+
+\hypertarget{fonctions_8h_ad49a599d350f73c9cc202ef3201cdeec}{\index{fonctions.\-h@{fonctions.\-h}!manger\-\_\-graines@{manger\-\_\-graines}}
+\index{manger\-\_\-graines@{manger\-\_\-graines}!fonctions.h@{fonctions.\-h}}
+\subsubsection[{manger\-\_\-graines}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf manger\-\_\-graines} (
+\begin{DoxyParamCaption}
+\item[{int}]{nb\-\_\-graines, }
+\item[{int}]{matrice\mbox{[}\-L\mbox{]}\mbox{[}\-C\mbox{]}, }
+\item[{int}]{joueur, }
+\item[{int}]{x, }
+\item[{int $\ast$}]{score}
+\end{DoxyParamCaption}
+)}}\label{fonctions_8h_ad49a599d350f73c9cc202ef3201cdeec}
+
+
+\-Permet jouer en se deplacant sur le plateau et en mangeant les graines qui se presentent et incremente le score du joueur. 
+
+
+\begin{DoxyParams}{\-Paramètres}
+{\em nb\-\_\-graines} & \-Nombre de graines dans la case \\
+\hline
+{\em matrice} & \-Plateau du jeu \\
+\hline
+{\em joueur} & \-Coordonnée y de la case \\
+\hline
+{\em score} & \-Pointeur sur le coordonnée x de la case \\
+\hline
+\end{DoxyParams}
+
+
+\-Définition à la ligne 110 du fichier fonctions.\-c.
+
+\hypertarget{fonctions_8h_ac37f804d2f7e9671be90f817f2db4141}{\index{fonctions.\-h@{fonctions.\-h}!non\-\_\-affame@{non\-\_\-affame}}
+\index{non\-\_\-affame@{non\-\_\-affame}!fonctions.h@{fonctions.\-h}}
+\subsubsection[{non\-\_\-affame}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf non\-\_\-affame} (
+\begin{DoxyParamCaption}
+\item[{int}]{nb\-\_\-graines, }
+\item[{int}]{matrice\mbox{[}\-L\mbox{]}\mbox{[}\-C\mbox{]}, }
+\item[{int}]{clan, }
+\item[{int}]{joueur, }
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{fonctions_8h_ac37f804d2f7e9671be90f817f2db4141}
+
+
+\-Permet de connaitre si un joueur sera affamé si l'adversaire joue un coup permettant de ramasser des graines. 
+
+
+\begin{DoxyParams}{\-Paramètres}
+{\em nb\-\_\-graines} & \-Nombre de graine dans la case à deplacer \\
+\hline
+{\em matrice\mbox{[}\-L\mbox{]}\mbox{[}\-C\mbox{]}} & \-Plateau du jeu \\
+\hline
+{\em clan} & \-Ligne du joueur \\
+\hline
+{\em joueur} & \-Representant la ligne du joueur \\
+\hline
+{\em x} & \-Corrdonnée x de la case \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Renvoie}
+1 si l'adversaire est affame apres le coup, 0 sinon 
+\end{DoxyReturn}
+
+
+\-Définition à la ligne 163 du fichier fonctions.\-c.
+
+\hypertarget{fonctions_8h_a1daad9db268f5b0306091d48a599f4dd}{\index{fonctions.\-h@{fonctions.\-h}!nourir@{nourir}}
+\index{nourir@{nourir}!fonctions.h@{fonctions.\-h}}
+\subsubsection[{nourir}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf nourir} (
+\begin{DoxyParamCaption}
+\item[{int}]{matrice\mbox{[}\-L\mbox{]}\mbox{[}\-C\mbox{]}, }
+\item[{int}]{joueur}
+\end{DoxyParamCaption}
+)}}\label{fonctions_8h_a1daad9db268f5b0306091d48a599f4dd}
+
+
+\-Est-\/ce que le joueur j peut nourir son adversaie qui est affame ? 
+
+
+\begin{DoxyParams}{\-Paramètres}
+{\em matrice} & \-Plateau du jeu \\
+\hline
+{\em joueur} & \-Joueur dont la capacité de nourir est testé \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Renvoie}
+0 si on ne peut pas le nourir, 1 si oui 
+\end{DoxyReturn}
+
+
+\-Définition à la ligne 342 du fichier fonctions.\-c.
+
+\hypertarget{fonctions_8h_aa89e568c538461a9709196085af01961}{\index{fonctions.\-h@{fonctions.\-h}!nourir\-\_\-case@{nourir\-\_\-case}}
+\index{nourir\-\_\-case@{nourir\-\_\-case}!fonctions.h@{fonctions.\-h}}
+\subsubsection[{nourir\-\_\-case}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf nourir\-\_\-case} (
+\begin{DoxyParamCaption}
+\item[{int}]{matrice\mbox{[}\-L\mbox{]}\mbox{[}\-C\mbox{]}, }
+\item[{int}]{joueur, }
+\item[{int}]{coord\-\_\-x}
+\end{DoxyParamCaption}
+)}}\label{fonctions_8h_aa89e568c538461a9709196085af01961}
+
+
+\-Est-\/ce que le joueur \char`\"{}joueur\char`\"{} peut nourir son adversaie qui est affame en jouant la case coord\-\_\-x? 
+
+
+\begin{DoxyParams}{\-Paramètres}
+{\em matrice} & \-Plateau de jeu \\
+\hline
+{\em joueur} & \-Representant la ligne du joueur \\
+\hline
+{\em coord\-\_\-x} & \-Coordonnée x de la case \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Renvoie}
+0 si on ne peut pas le nourir, 1 si oui 
+\end{DoxyReturn}
+
+
+\-Définition à la ligne 369 du fichier fonctions.\-c.
+
+\hypertarget{fonctions_8h_aed36295a355e61d266e2553626d4b581}{\index{fonctions.\-h@{fonctions.\-h}!partie\-\_\-finie@{partie\-\_\-finie}}
+\index{partie\-\_\-finie@{partie\-\_\-finie}!fonctions.h@{fonctions.\-h}}
+\subsubsection[{partie\-\_\-finie}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf partie\-\_\-finie} (
+\begin{DoxyParamCaption}
+\item[{int}]{matrice\mbox{[}\-L\mbox{]}\mbox{[}\-C\mbox{]}, }
+\item[{int}]{score1, }
+\item[{int}]{score2}
+\end{DoxyParamCaption}
+)}}\label{fonctions_8h_aed36295a355e61d266e2553626d4b581}
+
+
+\-Permet de verifier si une partie est terminée ou pas en verifiant si l'un des score est superieure ou egale à 25. 
+
+
+\begin{DoxyParams}{\-Paramètres}
+{\em matrice} & \-Plateau de jeu \\
+\hline
+{\em score1} & \-Score du joueur 1 \\
+\hline
+{\em score2} & \-Score du joueur 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Renvoie}
+1 si la partie est finie, 0 sinon 
+\end{DoxyReturn}
+
+
+\-Définition à la ligne 430 du fichier fonctions.\-c.
+
+\hypertarget{fonctions_8h_ad7de1ef74c78ad466c833df118a69a56}{\index{fonctions.\-h@{fonctions.\-h}!plateau\-\_\-vide@{plateau\-\_\-vide}}
+\index{plateau\-\_\-vide@{plateau\-\_\-vide}!fonctions.h@{fonctions.\-h}}
+\subsubsection[{plateau\-\_\-vide}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf plateau\-\_\-vide} (
+\begin{DoxyParamCaption}
+\item[{int}]{matrice\mbox{[}\-L\mbox{]}\mbox{[}\-C\mbox{]}, }
+\item[{int}]{joueur}
+\end{DoxyParamCaption}
+)}}\label{fonctions_8h_ad7de1ef74c78ad466c833df118a69a56}
+
+
+\-Est-\/ce que le plateau du joueur \char`\"{}joueur\char`\"{} est vide? 
+
+
+\begin{DoxyParams}{\-Paramètres}
+{\em matrice} & \-Plateau de jeu \\
+\hline
+{\em joueur} & \-Represente la ligne du joueur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Renvoie}
+1 si le platau est vide, 0 sinon 
+\end{DoxyReturn}
+
+
+\-Définition à la ligne 393 du fichier fonctions.\-c.
+

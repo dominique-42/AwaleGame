@@ -16,6 +16,9 @@
 
 #include "fonctions.h"
 #include "jeu.h"
+/**
+*\def M 
+*\brief Taille du tableau de type t_joueur contenant le score des joueurs*/
 #define M 100
 
 /**
@@ -52,7 +55,7 @@ int main(void){
 		scanf("%i",&choix);
 	
 	switch(choix)
-		{	case 1 : /** On demare une nouvelle partie*/
+		{	case 1 : /*On demare une nouvelle partie*/
 				
 				printf("\t\t\t 1 - Jeu à deux\n");
 				printf("\t\t\t 2 - Jeu avec l'ordinateur\n");
@@ -62,7 +65,7 @@ int main(void){
 
 				switch(choix2){
 					
-					case 1 :/**Le jeu est entre deux joueurs*/
+					case 1 :/*Le jeu est entre deux joueurs*/
 							
 							
 							printf("Joueur 1\nVeuillez saisir votre pseudonyme ?\n");
@@ -81,7 +84,7 @@ int main(void){
 			
 			
 				
-					case 2: /**Le jeu est avec l'ordinateur*/
+					case 2: /*Le jeu est avec l'ordinateur*/
 							printf("Joueur 1\nVeuillez saisir votre pseudonyme ?\n");
 							scanf("%s", pseudo1);
 							printf("\nQue la partie commence !\n");
@@ -103,7 +106,7 @@ int main(void){
 			
 		
 		
-		/**Reprendre la partie deja enregistré*/
+		/*Reprendre la partie deja enregistré*/
 		case 2: 
 				if(charger_partie(fic_save)){
 					jouer(fic_save, fic_records);
@@ -113,14 +116,14 @@ int main(void){
 				
 		break;
 		
-		/**Afficher la liste des scores*/
+		/*Afficher la liste des scores*/
 		case 3:
 				classer_records(fic_records, record_score, &nb_score);
 				fclose(fic_records);
 		
 		break;
 		
-		/**Afficher les regles du jeu*/
+		/*Afficher les regles du jeu*/
 		case 4:
 				regles_jeu();
 		break;

@@ -1,6 +1,17 @@
 #ifndef __FONCTIONS_H__
 #define __FONCTIONS_H__
 
+/**
+ * \file fonctions.h
+ * \brief Fichier contenant les en-tête des fonctions qui sont necessaires à la construction du jeu.
+ * \author Okrou Poda, Souleiman Iman Choukri		
+ * \version 0.1
+ * \date 19 novembre 2014
+ *
+ * Projet d'etude L2 SPI : Programmation du Jeu Awale
+ *
+ */
+
 #include<stdlib.h>
 #include<stdio.h>
 #include<string.h>

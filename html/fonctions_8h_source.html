@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>AwaleGame:  Fichier source de fonctions.h</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">AwaleGame
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Projet d&#39;etude en L2 SPI Okrou Poda Souleiman Iman Choukri</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('fonctions_8h.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">fonctions.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="fonctions_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef __FONCTIONS_H__</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define __FONCTIONS_H__</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include&lt;stdlib.h&gt;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include&lt;stdio.h&gt;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include&lt;string.h&gt;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include&lt;assert.h&gt;</span>
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;<a class="code" href="jeu_8h.html" title="Fichier contenant les en-tête des fonctions qui déroule le jeu.">jeu.h</a>&quot;</span> 
+<a name="l00022"></a>00022 <span class="keywordtype">void</span> <a class="code" href="fonctions_8c.html#ae3ec776570c8f5eb533d3bdce41c9047" title="Permet d&#39;initialiser la matrice avec 4 graines dans chaque case.">init_matrice</a>(<span class="keywordtype">int</span> matrice[<a class="code" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53" title="Represente le nombre de ligne de la matrice.">L</a>][<a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a>]);
+<a name="l00023"></a>00023 <span class="keywordtype">void</span> <a class="code" href="fonctions_8c.html#ab19c01649425ea408ee2e9b25488ebd4" title="Permet d&#39;afficher la matrice representant le plateau du jeu.">affiche_matrice</a>(<span class="keywordtype">int</span> matrice[<a class="code" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53" title="Represente le nombre de ligne de la matrice.">L</a>][<a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a>]) ;
+<a name="l00024"></a>00024 <span class="keywordtype">void</span> <a class="code" href="fonctions_8c.html#add5428be2cf96e89acc765eee569afdf" title="Permet de se deplacer sur la grille en arriere.">dpl_arriere</a>(<span class="keywordtype">int</span>*x, <span class="keywordtype">int</span>*y);
+<a name="l00025"></a>00025 <span class="keywordtype">void</span> <a class="code" href="fonctions_8c.html#aaa6e52410ede7e56d1e8c9386696f0e3" title="Permet de se deplacer dans la grille en avant.">dpl_avant</a>(<span class="keywordtype">int</span> *x, <span class="keywordtype">int</span> *y);
+<a name="l00026"></a>00026 <span class="keywordtype">void</span> <a class="code" href="fonctions_8c.html#ad49a599d350f73c9cc202ef3201cdeec" title="Permet jouer en se deplacant sur le plateau et en mangeant les graines qui se presentent et increment...">manger_graines</a>(<span class="keywordtype">int</span> nb_graines, <span class="keywordtype">int</span> matrice[<a class="code" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53" title="Represente le nombre de ligne de la matrice.">L</a>][<a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a>], <span class="keywordtype">int</span> joueur, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> *score);
+<a name="l00027"></a>00027 <span class="keywordtype">int</span> <a class="code" href="fonctions_8c.html#a3ccefa8bf9d384d34a69ed29e53110d2" title="Permet de simuler le jeu de l&#39;ordinateur.">jeu_ordi</a>(<span class="keywordtype">int</span> matrice[<a class="code" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53" title="Represente le nombre de ligne de la matrice.">L</a>][<a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a>]);
+<a name="l00028"></a>00028 <span class="keywordtype">int</span> <a class="code" href="fonctions_8c.html#a04919928f4159bf20368a095ea7c3996" title="Quelle case bouger pour avoir le plus de graines à un coup à jouer?">aide</a>(<span class="keywordtype">int</span> joueur, <span class="keywordtype">int</span> matrice[<a class="code" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53" title="Represente le nombre de ligne de la matrice.">L</a>][<a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a>], <span class="keywordtype">int</span> * case_aide);
+<a name="l00029"></a>00029 <span class="keywordtype">int</span> <a class="code" href="fonctions_8c.html#a1daad9db268f5b0306091d48a599f4dd" title="Est-ce que le joueur j peut nourir son adversaie qui est affame ?">nourir</a>(<span class="keywordtype">int</span> matrice[<a class="code" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53" title="Represente le nombre de ligne de la matrice.">L</a>][<a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a>], <span class="keywordtype">int</span> joueur);
+<a name="l00030"></a>00030 <span class="keywordtype">int</span> <a class="code" href="fonctions_8c.html#aed36295a355e61d266e2553626d4b581" title="Permet de verifier si une partie est terminée ou pas en verifiant si l&#39;un des score est superieure ou...">partie_finie</a>(<span class="keywordtype">int</span> matrice[<a class="code" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53" title="Represente le nombre de ligne de la matrice.">L</a>][<a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a>], <span class="keywordtype">int</span> score1, <span class="keywordtype">int</span> score2 ) ;
+<a name="l00031"></a>00031 <span class="keywordtype">void</span> <a class="code" href="fonctions_8c.html#a428b0322e777eb8e676248c564f08f3f" title="Permet d&#39;afficher le score du joueur en indiquant son pseudo.">afficher_score</a>(<span class="keywordtype">int</span> score, <span class="keywordtype">char</span> joueur[20]);
+<a name="l00032"></a>00032 <span class="keywordtype">int</span> <a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(<span class="keywordtype">int</span> matrice[<a class="code" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53" title="Represente le nombre de ligne de la matrice.">L</a>][<a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a>], <span class="keywordtype">int</span> joueur);
+<a name="l00033"></a>00033 <span class="keywordtype">int</span> <a class="code" href="fonctions_8c.html#aa89e568c538461a9709196085af01961" title="Est-ce que le joueur &quot;joueur&quot; peut nourir son adversaie qui est affame en jouant la case coord_x...">nourir_case</a>(<span class="keywordtype">int</span> matrice[<a class="code" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53" title="Represente le nombre de ligne de la matrice.">L</a>][<a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a>], <span class="keywordtype">int</span> joueur, <span class="keywordtype">int</span> coord_x);
+<a name="l00034"></a>00034 <span class="keywordtype">int</span> <a class="code" href="fonctions_8c.html#a1bb3aeb743ad104b7ed0c863d15d3ef0" title="Compter le nombre de graines dans le plateau de jeu pour chaque joueur.">graines_restantes</a>(<span class="keywordtype">int</span> matrice[<a class="code" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53" title="Represente le nombre de ligne de la matrice.">L</a>][<a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a>], <span class="keywordtype">int</span> joueur);
+<a name="l00035"></a>00035 <span class="keywordtype">int</span> <a class="code" href="fonctions_8c.html#ac37f804d2f7e9671be90f817f2db4141" title="Permet de connaitre si un joueur sera affamé si l&#39;adversaire joue un coup permettant de ramasser des ...">non_affame</a>(<span class="keywordtype">int</span> nb_graines, <span class="keywordtype">int</span> matrice[<a class="code" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53" title="Represente le nombre de ligne de la matrice.">L</a>][<a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a>], <span class="keywordtype">int</span> clan, <span class="keywordtype">int</span> joueur, <span class="keywordtype">int</span> x);
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 <span class="preprocessor">#endif</span>
+</pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="fonctions_8h.html">fonctions.h</a>      </li>
+
+    <li class="footer">Généré le Jeudi Janvier 1 2015 21:43:09 pour AwaleGame par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

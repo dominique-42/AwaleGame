@@ -1,3 +1,13 @@
+/**
+ * \file fonctions.c
+ * \brief Fichier contenant les fonctions necessaire à la construction du jeu.
+ * \author Okrou Poda, Souleiman Iman Choukri		
+ * \version 0.1
+ * \date 19 novembre 2014
+ *
+ * Projet d'etude L2 SPI : Programmation du Jeu Awale
+ *
+ */
 #include<stdlib.h>
 #include<stdio.h>
 #include<string.h>
@@ -107,7 +117,7 @@ void manger_graines(int nb_graines, int matrice[L][C], int joueur, int x, int *s
 	graine_dbt.x = x;
 	clan = joueur;
 	
-	/**Distribution des graines */
+	/*Distribution des graines */
 	for(i = 0; i<nb_graines;i++) {
 	
 		dpl_avant(&x,&joueur);
@@ -122,13 +132,13 @@ void manger_graines(int nb_graines, int matrice[L][C], int joueur, int x, int *s
 	}
 	matrice[graine_dbt.ligne][graine_dbt.x] = 0;
 	
-	/**Ramassage des graines lors d'un coup gagnant, si ce coup n'affame pas l'adversaire*/
+	/*Ramassage des graines lors d'un coup gagnant, si ce coup n'affame pas l'adversaire*/
 	if(!non_affame(nb_graines, matrice, clan, joueur, x)){
 		i = nb_graines;
 		if((matrice[joueur][x] == 2 || matrice[joueur][x] == 3 ) && clan != joueur) {
 			(*score) = (*score)+matrice[joueur][x];
 			matrice[joueur][x] = 0;
-			while( i>0 && nb_gr_fin<=3 && nb_gr_fin > 1 && clan != joueur) {	/**Initialise le score selon le nb de graines mangées*/
+			while( i>0 && nb_gr_fin<=3 && nb_gr_fin > 1 && clan != joueur) {	/*Initialise le score selon le nb de graines mangées*/
 				(*score) = (*score)+matrice[joueur][x];
 				matrice[joueur][x] = 0;
 				dpl_arriere(&x, &joueur);
@@ -156,25 +166,25 @@ int non_affame(int nb_graines, int matrice[L][C], int clan, int joueur, int x) {
 	int i, j;
 	int nb_gr_fin;
 	
-	/**Actualiser la matrice temporaire avec la disposition du plateau*/
+	/*Actualiser la matrice temporaire avec la disposition du plateau*/
 	for(i = 0; i<L; i++) {		
 		for(j=0; j<C; j++) {
 			mat_tmp[i][j] = matrice[i][j];
 		}
 	}
-	/**Jouer le coup gagnant si il existe*/
+	/*Jouer le coup gagnant si il existe*/
 	i = nb_graines;
 	if((mat_tmp[joueur][x] == 2 || mat_tmp[joueur][x] == 3) && clan != joueur) {
 		nb_gr_fin = mat_tmp[joueur][x];
 		mat_tmp[joueur][x] = 0;
-		while( i>0 && nb_gr_fin<=3 && nb_gr_fin > 1 && clan != joueur) {	/**initialise le score selon le nb de graines mangées*/
+		while( i>0 && nb_gr_fin<=3 && nb_gr_fin > 1 && clan != joueur) {	/*initialise le score selon le nb de graines mangées*/
 			mat_tmp[joueur][x] = 0;
 			dpl_arriere(&x, &joueur);
 			nb_gr_fin = mat_tmp[joueur][x];
 			i--;
 		}	
-	} 	
-	/**Verifier si le plateau de l'adversaire devient vide après ce jeu*/
+	}	
+	/*Verifier si le plateau de l'adversaire devient vide après ce jeu*/
 	if(clan == JOUEUR1){
 		if(plateau_vide(mat_tmp, JOUEUR2))
 			return 1;
@@ -204,38 +214,38 @@ int jeu_ordi(int matrice[L][C]){
 	int mat_tmp[L][C];
 	int case_mat;
 	
-	/**Init scores pour chaque case*/
+	/*Init scores pour chaque case*/
     for(j=0; j<C; j++)
 		score[j] = 0;
 
-	/**On essaye de jouer dans chaque case, et on regarde le score de chaque case*/
+	/*On essaye de jouer dans chaque case, et on regarde le score de chaque case*/
 	for(case_mat = 0; case_mat<C ;case_mat++) {
 		
 
-		/**Actualiser la matrice aide avec la disposition du plateau*/
+		/*Actualiser la matrice aide avec la disposition du plateau*/
 		for(k = 0; k<L; k++) {		
 			for(j=0; j<C; j++) {
 				mat_tmp[k][j] = matrice[k][j];
 			}
 		}
 				
-		if(mat_tmp[ORDINATEUR][case_mat] != 0){ /**S'il y a au mons 1 graine dans la case, on essaye de jouer à partir de cette case*/
+		if(mat_tmp[ORDINATEUR][case_mat] != 0){ /*S'il y a au mons 1 graine dans la case, on essaye de jouer à partir de cette case*/
 			manger_graines(mat_tmp[ORDINATEUR][case_mat], mat_tmp ,ORDINATEUR, case_mat, &score[case_mat]);
 		} 
 		
 		else {
-			score[case_mat] = -1; /**On ne doit pas choisir cette case*/
+			score[case_mat] = -1; /*On ne doit pas choisir cette case*/
 		}
 	}
 	
-	/**Actualiser la matrice aide avec la disposition du plateau*/
+	/*Actualiser la matrice aide avec la disposition du plateau*/
 		for(k = 0; k<L; k++) {		
 			for(j=0; j<C; j++) {
 				mat_tmp[k][j] = matrice[k][j];
 			}
 		}
 		
-	/**Détecter la case qui permet de manger le plus de graines*/
+	/*Détecter la case qui permet de manger le plus de graines*/
 		max = score[0];
 		case_ordi = 0;
 		for(j=1; j<C; j++) {
@@ -246,7 +256,7 @@ int jeu_ordi(int matrice[L][C]){
 			}
 		
 		}
-	/**Si l'adversaire est affamé choisir une case qui le nourri*/
+	/*Si l'adversaire est affamé choisir une case qui le nourri*/
 	if(plateau_vide(matrice, JOUEUR1)) {	
 		for(j=0; j<C; j++) {
 			if(nourir_case(mat_tmp, ORDINATEUR, j)){
@@ -260,7 +270,7 @@ int jeu_ordi(int matrice[L][C]){
     
 /**
 *\fn int aide(int joueur, int matrice[L][C], int * case_aide)
-*\brief  Quelle case bouger pour avoir plus de graines ?
+*\brief  Quelle case bouger pour avoir le plus de graines à un coup à jouer?
 *\param joueur Joueur pour lequel l'aide est recherchee
 *\param matrice Plateau du jeu
 *\param case_aide Pointeur sur la case à bouger pour obtenir l'aide
@@ -276,47 +286,47 @@ int aide(int joueur, int matrice[L][C], int * case_aide){
 	int case_mat;
 	int detecteur_aide = 0;
 	
-	/**Init scores pour chaque case*/
+	/*Init scores pour chaque case*/
     for(j=0; j<C; j++)
 		score[j] = 0;
 
-	/**On essaye de jouer dans chaque case, et on regarde le score de chaque case*/
+	/*On essaye de jouer dans chaque case, et on regarde le score de chaque case*/
 	for(case_mat = 0; case_mat<C ;case_mat++) {
-		/**Actualiser la matrice aide avec la disposition du plateau*/
+		/*Actualiser la matrice aide avec la disposition du plateau*/
 		for(k = 0; k<L; k++) {		
 			for(j=0; j<C; j++) {
 				mat_tmp[k][j] = matrice[k][j];
 			}
 		}
 				
-		if(mat_tmp[joueur][case_mat] != 0){ /**S'il y a au mons 1 graine dans la case, on essaye de jouer à partir de cette case*/
+		if(mat_tmp[joueur][case_mat] != 0){ /*S'il y a au mons 1 graine dans la case, on essaye de jouer à partir de cette case*/
 			manger_graines(mat_tmp[joueur][case_mat], mat_tmp ,joueur, case_mat, &score[case_mat]);
 			if(score[case_mat] > 0) {
-				detecteur_aide++; /**Incrementer le compteur qui permet de signaler si l'aide est necessaire ou pas*/
+				detecteur_aide++; /*Incrementer le compteur qui permet de signaler si l'aide est necessaire ou pas*/
 			}
 		} 
 		else {
-			score[case_mat] = -1; /**On ne doit pas choisir cette case*/
+			score[case_mat] = -1; /*On ne doit pas choisir cette case*/
 		}
 	}
 	
 	
-	/**Détecter la case qui permet de manger le plus de graines*/
+	/*Détecter la case qui permet de manger le plus de graines*/
 		max = score[0];
 		*case_aide = 0;
 		for(j=1; j<C; j++) {
 			
 			if(max < score[j]){
 				max = score[j];
-				*case_aide = j; /**On actualise la variable case_aide*/
+				*case_aide = j; /*On actualise la variable case_aide*/
 			}
 		
 		}
-	if(detecteur_aide > 0) { /**Si l'aide est necessaire alors on envoie vraie*/ 
-		*case_aide = *case_aide + 1; /**On adapte l'indice de la case à l'affichage du plateau qui est de 1 à 6*/
+	if(detecteur_aide > 0) { /*Si l'aide est necessaire alors on envoie vraie*/ 
+		*case_aide = *case_aide + 1; /*On adapte l'indice de la case à l'affichage du plateau qui est de 1 à 6*/
 		return 1;
 	}
-	else if(detecteur_aide == 0){/**Si l'aide n'est pas necessaire on envoie 0*/
+	else if(detecteur_aide == 0){/*Si l'aide n'est pas necessaire on envoie 0*/
 		return 0;
 	}
 	return 0;
@@ -331,18 +341,18 @@ int aide(int joueur, int matrice[L][C], int * case_aide){
 **/
 int nourir(int matrice[L][C], int joueur) {
 	
-	int x;			/**Coordonnée de la case du plateau du joueur*/
+	int x;			/*Coordonnée de la case du plateau du joueur*/
 
 	if(joueur == JOUEUR2 || joueur == ORDINATEUR) {
 		for(x = C-1; x>=0; x--) {
-			if(matrice[joueur][x] > x) /**Dans la case x, pour le JOUEUR2, il faut au moins x+1 graines (ex: case 0 -> 1 graine minimum, case 5 -> 6 graines)*/
-				return 1;	/**Retourne 1 si nourir l'adversaire est possible*/
+			if(matrice[joueur][x] > x) /*Dans la case x, pour le JOUEUR2, il faut au moins x+1 graines (ex: case 0 -> 1 graine minimum, case 5 -> 6 graines)*/
+				return 1;	/*Retourne 1 si nourir l'adversaire est possible*/
 		}
 	}
 	else if(joueur == JOUEUR1) {
 		for(x = 0; x<C; x++ ){
-			if(matrice[joueur][x] >= C-x) /**Dans la case x, pour le JOUEUR1, il faut au moins C-x graines (ex: case 0 -> 6 graine minimum, case 5 -> 1 graines)*/
-				return 1;	/**Retourne 1 si nourir l'adversaire est possible*/
+			if(matrice[joueur][x] >= C-x) /*Dans la case x, pour le JOUEUR1, il faut au moins C-x graines (ex: case 0 -> 6 graine minimum, case 5 -> 1 graines)*/
+				return 1;	/*Retourne 1 si nourir l'adversaire est possible*/
 		}
 	}
 	return 0;	
@@ -359,13 +369,13 @@ int nourir(int matrice[L][C], int joueur) {
 int nourir_case(int matrice[L][C], int joueur, int coord_x) {
 	
 	if(joueur == JOUEUR2 || joueur == ORDINATEUR) {
-		if(matrice[joueur][coord_x] > coord_x){ /**Dans la case x, il faut au moins x+1 graines (ex: case 0 -> 1 graine minimum, case 5 -> 6 graines)*/
-			return 1;	/**Retourne 1 si nourir l'adversaire est possible*/
+		if(matrice[joueur][coord_x] > coord_x){ /*Dans la case x, il faut au moins x+1 graines (ex: case 0 -> 1 graine minimum, case 5 -> 6 graines)*/
+			return 1;	
 		}
 	}
 	else if(joueur == JOUEUR1) {
-		if(matrice[joueur][coord_x] >= C-coord_x){
-			return 1;	/**Retourne 1 si nourir l'adversaire est possible*/
+		if(matrice[joueur][coord_x] >= C-coord_x){ /*Dans la case x, il faut au moins C-x graines (ex: case 0 -> 6 graine minimum, case 5 -> 1 graines)*/
+			return 1;	
 		}
 	}
 	return 0;	
@@ -375,7 +385,7 @@ int nourir_case(int matrice[L][C], int joueur, int coord_x) {
    
 /**
 *\fn int plateau_vide(int matrice[L][C], int joueur)
-*\brief Est-ce que le plateau du joueur 3joueur" est vide?
+*\brief Est-ce que le plateau du joueur "joueur" est vide?
 *\param matrice Plateau de jeu
 *\param joueur Represente la ligne du joueur
 *\return 1 si le platau est vide, 0 sinon

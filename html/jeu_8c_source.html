@@ -1,0 +1,651 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>AwaleGame:  Fichier source de jeu.c</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">AwaleGame
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Projet d&#39;etude en L2 SPI Okrou Poda Souleiman Iman Choukri</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('jeu_8c.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">jeu.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="jeu_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00011"></a>00011 <span class="preprocessor">#include&lt;stdlib.h&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include&lt;stdio.h&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include&lt;string.h&gt;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include&lt;assert.h&gt;</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="fonctions_8h.html" title="Fichier contenant les en-tête des fonctions qui sont necessaires à la construction du jeu...">fonctions.h</a>&quot;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="jeu_8h.html" title="Fichier contenant les en-tête des fonctions qui déroule le jeu.">jeu.h</a>&quot;</span>
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 
+<a name="l00020"></a><a class="code" href="jeu_8c.html#a5a8037325d2d08c3fb5740af57f143d1">00020</a> <span class="keywordtype">int</span> <a class="code" href="jeu_8c.html#a5a8037325d2d08c3fb5740af57f143d1">faux</a> = 0; 
+<a name="l00021"></a><a class="code" href="jeu_8c.html#abdd213f579da8124619963971cdc2830">00021</a> <span class="keywordtype">int</span> <a class="code" href="jeu_8c.html#abdd213f579da8124619963971cdc2830">vrai</a> = 1; 
+<a name="l00023"></a><a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">00023</a> <span class="keywordtype">int</span> <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a> = 0; 
+<a name="l00024"></a><a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">00024</a> <span class="keywordtype">int</span> <a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a> = 0; 
+<a name="l00025"></a><a class="code" href="jeu_8c.html#a181fbca82e37c16ba51311694f0cbbe8">00025</a> <span class="keywordtype">int</span> <a class="code" href="jeu_8c.html#a181fbca82e37c16ba51311694f0cbbe8">nb_tours</a> = 0; 
+<a name="l00034"></a><a class="code" href="jeu_8h.html#a74fc2dac8f195aab3a01564e1449abd8">00034</a> <span class="keywordtype">void</span>  <a class="code" href="jeu_8c.html#a74fc2dac8f195aab3a01564e1449abd8" title="Permet d&#39;afficher le score et le pseudo du joueur victorieux et de l&#39;enregistrer dans le record des s...">victoire</a>(FILE * fichier){
+<a name="l00035"></a>00035         
+<a name="l00036"></a>00036         <span class="keywordflow">if</span> (<a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>&gt;<a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a> ){
+<a name="l00037"></a>00037                 printf(<span class="stringliteral">&quot;\n %s, A toi la VICTOIRE !!\n Score : %i\n&quot;</span>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>, <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>);
+<a name="l00038"></a>00038                 fprintf(fichier, <span class="stringliteral">&quot;%s\n&quot;</span>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>);
+<a name="l00039"></a>00039                 fprintf(fichier, <span class="stringliteral">&quot;%i\n&quot;</span>, <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>);
+<a name="l00040"></a>00040                 
+<a name="l00041"></a>00041         }
+<a name="l00042"></a>00042         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a>&gt;<a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>){
+<a name="l00043"></a>00043                 printf(<span class="stringliteral">&quot;\n %s, A toi la VICTOIRE !!\n Score : %i\n&quot;</span>, <a class="code" href="jeu_8h.html#abe9579a4a2aed1b038e71987678c9969">pseudo2</a>, <a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a>);
+<a name="l00044"></a>00044                 fprintf(fichier, <span class="stringliteral">&quot;%s\n&quot;</span>, <a class="code" href="jeu_8h.html#abe9579a4a2aed1b038e71987678c9969">pseudo2</a>);
+<a name="l00045"></a>00045                 fprintf(fichier, <span class="stringliteral">&quot;%i\n&quot;</span>, <a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a>);
+<a name="l00046"></a>00046         }       
+<a name="l00047"></a>00047 }
+<a name="l00048"></a>00048 
+<a name="l00057"></a><a class="code" href="jeu_8h.html#a1387ba500711984dfa8124c4f80e439b">00057</a> <span class="keywordtype">int</span> <a class="code" href="jeu_8c.html#a2c3520fc9ff89bd6b4a087e0d84698cd" title="Permet de detecter si un tour est difficile à jouer et incremente le nombre de tour où ce cas est ren...">gain_difficile</a>(<span class="keywordtype">int</span> matrice[<a class="code" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53" title="Represente le nombre de ligne de la matrice.">L</a>][<a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a>], <span class="keywordtype">int</span> * nb_tour) {
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059         <span class="keywordflow">if</span>(!<a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>) &amp;&amp; !<a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>) &amp;&amp; !<a class="code" href="fonctions_8c.html#a1daad9db268f5b0306091d48a599f4dd" title="Est-ce que le joueur j peut nourir son adversaie qui est affame ?">nourir</a>(matrice, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>) &amp;&amp; !<a class="code" href="fonctions_8c.html#a1daad9db268f5b0306091d48a599f4dd" title="Est-ce que le joueur j peut nourir son adversaie qui est affame ?">nourir</a>(matrice, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>)){
+<a name="l00060"></a>00060                 (*nb_tour)++;
+<a name="l00061"></a>00061                 <span class="keywordflow">return</span> 1;
+<a name="l00062"></a>00062         }
+<a name="l00063"></a>00063         <span class="keywordflow">return</span> 0;
+<a name="l00064"></a>00064 }
+<a name="l00065"></a>00065 
+<a name="l00081"></a><a class="code" href="jeu_8h.html#a188fe244372c8d4e8420df3414195b6f">00081</a> <span class="keywordtype">int</span> <a class="code" href="jeu_8c.html#acf96a95ac5fbcf5e4e5d6d4e33f6c4d5" title="Est-ce que le joueur &quot;joueur&quot; peut-il jouer ?">jeu_possible</a>(<span class="keywordtype">int</span> matrice[<a class="code" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53" title="Represente le nombre de ligne de la matrice.">L</a>][<a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a>], <span class="keywordtype">int</span> joueur){
+<a name="l00082"></a>00082         
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084         <span class="keywordflow">if</span>(!<a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice, joueur)){ <span class="comment">/*Si le plateau du joueur n&#39;est pas vide*/</span>
+<a name="l00085"></a>00085                 
+<a name="l00086"></a>00086                 <span class="keywordflow">if</span>(joueur == <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a> &amp;&amp; <a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>) &amp;&amp; <a class="code" href="fonctions_8c.html#a1daad9db268f5b0306091d48a599f4dd" title="Est-ce que le joueur j peut nourir son adversaie qui est affame ?">nourir</a>(matrice, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>)) 
+<a name="l00087"></a>00087                         <span class="keywordflow">return</span> 1; 
+<a name="l00088"></a>00088                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>(joueur == <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a> &amp;&amp; !<a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>) &amp;&amp; <a class="code" href="fonctions_8c.html#a1daad9db268f5b0306091d48a599f4dd" title="Est-ce que le joueur j peut nourir son adversaie qui est affame ?">nourir</a>(matrice, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>))
+<a name="l00089"></a>00089                         <span class="keywordflow">return</span> 1;
+<a name="l00090"></a>00090                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>(joueur == <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a> &amp;&amp; !<a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>) &amp;&amp; !<a class="code" href="fonctions_8c.html#a1daad9db268f5b0306091d48a599f4dd" title="Est-ce que le joueur j peut nourir son adversaie qui est affame ?">nourir</a>(matrice, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>))
+<a name="l00091"></a>00091                         <span class="keywordflow">return</span> 1;
+<a name="l00092"></a>00092                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>(joueur == <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a> &amp;&amp; <a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>) &amp;&amp; !<a class="code" href="fonctions_8c.html#a1daad9db268f5b0306091d48a599f4dd" title="Est-ce que le joueur j peut nourir son adversaie qui est affame ?">nourir</a>(matrice, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>))
+<a name="l00093"></a>00093                         <span class="keywordflow">return</span> 0;
+<a name="l00094"></a>00094                 
+<a name="l00095"></a>00095                 <span class="keywordflow">if</span>(joueur == <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a> &amp;&amp; <a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>) &amp;&amp; <a class="code" href="fonctions_8c.html#a1daad9db268f5b0306091d48a599f4dd" title="Est-ce que le joueur j peut nourir son adversaie qui est affame ?">nourir</a>(matrice, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>)) 
+<a name="l00096"></a>00096                         <span class="keywordflow">return</span> 1; 
+<a name="l00097"></a>00097                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>(joueur == <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a> &amp;&amp; !<a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>) &amp;&amp; <a class="code" href="fonctions_8c.html#a1daad9db268f5b0306091d48a599f4dd" title="Est-ce que le joueur j peut nourir son adversaie qui est affame ?">nourir</a>(matrice, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>))
+<a name="l00098"></a>00098                         <span class="keywordflow">return</span> 1;
+<a name="l00099"></a>00099                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>(joueur == <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a> &amp;&amp; !<a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>) &amp;&amp; !<a class="code" href="fonctions_8c.html#a1daad9db268f5b0306091d48a599f4dd" title="Est-ce que le joueur j peut nourir son adversaie qui est affame ?">nourir</a>(matrice, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>))
+<a name="l00100"></a>00100                         <span class="keywordflow">return</span> 1;
+<a name="l00101"></a>00101                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>(joueur == <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a> &amp;&amp; <a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>) &amp;&amp; !<a class="code" href="fonctions_8c.html#a1daad9db268f5b0306091d48a599f4dd" title="Est-ce que le joueur j peut nourir son adversaie qui est affame ?">nourir</a>(matrice, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>))
+<a name="l00102"></a>00102                         <span class="keywordflow">return</span> 0;
+<a name="l00103"></a>00103         }
+<a name="l00104"></a>00104         <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice, joueur)) {<span class="comment">/*Si le plateau du joueur est vide*/</span>
+<a name="l00105"></a>00105                 <span class="keywordflow">if</span>(joueur == <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a> &amp;&amp; <a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>) &amp;&amp; !<a class="code" href="fonctions_8c.html#a1daad9db268f5b0306091d48a599f4dd" title="Est-ce que le joueur j peut nourir son adversaie qui est affame ?">nourir</a>(matrice, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>)) 
+<a name="l00106"></a>00106                         <span class="keywordflow">return</span> 0; 
+<a name="l00107"></a>00107                 <span class="keywordflow">else</span> <span class="keywordflow">if</span>(joueur == <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a> &amp;&amp; <a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>) &amp;&amp; <a class="code" href="fonctions_8c.html#a1daad9db268f5b0306091d48a599f4dd" title="Est-ce que le joueur j peut nourir son adversaie qui est affame ?">nourir</a>(matrice, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>)) 
+<a name="l00108"></a>00108                         <span class="keywordflow">return</span> 1; 
+<a name="l00109"></a>00109                 <span class="keywordflow">if</span>(joueur == <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a> &amp;&amp; <a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>) &amp;&amp; !<a class="code" href="fonctions_8c.html#a1daad9db268f5b0306091d48a599f4dd" title="Est-ce que le joueur j peut nourir son adversaie qui est affame ?">nourir</a>(matrice, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>)) 
+<a name="l00110"></a>00110                         <span class="keywordflow">return</span> 0; 
+<a name="l00111"></a>00111                 <span class="keywordflow">if</span>(joueur == <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a> &amp;&amp; <a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>) &amp;&amp; <a class="code" href="fonctions_8c.html#a1daad9db268f5b0306091d48a599f4dd" title="Est-ce que le joueur j peut nourir son adversaie qui est affame ?">nourir</a>(matrice, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>)) 
+<a name="l00112"></a>00112                         <span class="keywordflow">return</span> 1;       
+<a name="l00113"></a>00113         }
+<a name="l00114"></a>00114         <span class="keywordflow">return</span> 0;
+<a name="l00115"></a>00115 }
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118 
+<a name="l00128"></a><a class="code" href="jeu_8h.html#a87a8c018fa7c064d9bb41dfa7180ba79">00128</a> <span class="keywordtype">int</span> <a class="code" href="jeu_8c.html#a87a8c018fa7c064d9bb41dfa7180ba79" title="Est-ce que le joueur j peut jouer à la case de coord_x ?">coup_possible</a>(<span class="keywordtype">int</span> coord_x, <span class="keywordtype">int</span> matrice [<a class="code" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53" title="Represente le nombre de ligne de la matrice.">L</a>][<a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a>], <span class="keywordtype">int</span> joueur){
+<a name="l00129"></a>00129         
+<a name="l00130"></a>00130         <span class="comment">/*Si l&#39;adversaire est affamé est ce que cette case peut le nourir*/</span>
+<a name="l00131"></a>00131         <span class="keywordflow">if</span>(joueur == <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a> &amp;&amp; <a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice,<a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>)) {
+<a name="l00132"></a>00132         
+<a name="l00133"></a>00133                 <span class="keywordflow">if</span>(<a class="code" href="fonctions_8c.html#aa89e568c538461a9709196085af01961" title="Est-ce que le joueur &quot;joueur&quot; peut nourir son adversaie qui est affame en jouant la case coord_x...">nourir_case</a>(matrice, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>, coord_x))
+<a name="l00134"></a>00134                         <span class="keywordflow">return</span> 1;
+<a name="l00135"></a>00135                 <span class="keywordflow">else</span>
+<a name="l00136"></a>00136                         <span class="keywordflow">return</span> 0; <span class="comment">/*On ne peut pas jouer ici*/</span>
+<a name="l00137"></a>00137         }
+<a name="l00138"></a>00138         <span class="keywordflow">else</span> <span class="keywordflow">if</span>((joueur == <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a> || joueur == <a class="code" href="jeu_8h.html#aed9e4dbf250a6c8bdea8a0d3acb732e4" title="Represente le territoire de l&#39;ORDINATEUR sur le plateau.">ORDINATEUR</a>) &amp;&amp; <a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(matrice,<a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>)) {
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140                 <span class="keywordflow">if</span>(<a class="code" href="fonctions_8c.html#aa89e568c538461a9709196085af01961" title="Est-ce que le joueur &quot;joueur&quot; peut nourir son adversaie qui est affame en jouant la case coord_x...">nourir_case</a>(matrice, joueur, coord_x)) 
+<a name="l00141"></a>00141                         <span class="keywordflow">return</span> 1;
+<a name="l00142"></a>00142                 <span class="keywordflow">else</span> 
+<a name="l00143"></a>00143                         <span class="keywordflow">return</span> 0; <span class="comment">/*On ne peut pas jouer ici*/</span>
+<a name="l00144"></a>00144         }       
+<a name="l00145"></a>00145         <span class="keywordflow">return</span> 1;
+<a name="l00146"></a>00146 }
+<a name="l00147"></a>00147 
+<a name="l00153"></a><a class="code" href="jeu_8h.html#a9f53b6fb81145a5f2275d19576b95a53">00153</a> <span class="keywordtype">void</span> <a class="code" href="jeu_8c.html#a895c618d619bd79f7e7d533b0fb5b39e" title="Permet d&#39;afficher les regles du jeu.">regles_jeu</a>(<span class="keywordtype">void</span>) {
+<a name="l00154"></a>00154         fprintf(stderr, <span class="stringliteral">&quot;Les règles de l&#39;Awalé.\n&quot;</span>);
+<a name="l00155"></a>00155 
+<a name="l00156"></a>00156         fprintf(stderr,<span class="stringliteral">&quot;\nRègle 1 : Le terrain de jeu .\nLe but du jeu est de s&#39;emparer d&#39;un maximum de graines. Le terrain de jeu est divisé en deux territoires de 6 trous chacun. Le territoire du joueur 1 est le territoire Sud; celui du Joueur 2 est le territoire Nord.\n&quot;</span>); 
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158         fprintf(stderr,<span class="stringliteral">&quot;\nRègle 2 : Le tour de jeu.\n&quot;</span>); 
+<a name="l00159"></a>00159         fprintf(stderr,<span class="stringliteral">&quot;Prendre l&#39;ensemble des graines présentes en entrant les nombre de 1 à 6 puis entrez votre choix.\n&quot;</span>);
+<a name="l00160"></a>00160         fprintf(stderr,<span class="stringliteral">&quot;Si la dernière graine semée tombe dans un trou de l&#39;adversaire comportant déjà 1 ou 2 graines, le joueur capture les 2 ou 3 graines résultantes.\n&quot;</span>);
+<a name="l00161"></a>00161 
+<a name="l00162"></a>00162         fprintf(stderr,<span class="stringliteral">&quot;\nRègle 4: Capture multiple\n&quot;</span>);
+<a name="l00163"></a>00163         fprintf(stderr,<span class="stringliteral">&quot;Lorsqu&#39;un joueur s&#39;empare de deux ou trois graines, si la case précédente contient également deux ou trois graines, elles sont capturées aussi et ainsi de suite.\n&quot;</span>);
+<a name="l00164"></a>00164 
+<a name="l00165"></a>00165         fprintf(stderr,<span class="stringliteral">&quot;\nRègle 5: Donner à manger\n&quot;</span>);
+<a name="l00166"></a>00166         fprintf(stderr,<span class="stringliteral">&quot;On n&#39;a pas le droit d&#39;affamer l&#39;adversaire en capturant toutes ses graines ou en refusant de le nourir si il est affamé, on doit le nourir.\n&quot;</span>);
+<a name="l00167"></a>00167 
+<a name="l00168"></a>00168         fprintf(stderr,<span class="stringliteral">&quot;\nRègle 6: Fin de jeu\n&quot;</span>);
+<a name="l00169"></a>00169         fprintf(stderr,<span class="stringliteral">&quot;Le jeu se termine lorsque un joueur n&#39;a plus de graines dans son camp et que l&#39;adversaire ne peut pas le nourir.\n&quot;</span>);
+<a name="l00170"></a>00170 }
+<a name="l00176"></a><a class="code" href="jeu_8h.html#acc82d0a24a8d141c83e5f2891d1d6310">00176</a> <span class="keywordtype">void</span> <a class="code" href="jeu_8c.html#acc82d0a24a8d141c83e5f2891d1d6310" title="Permet de sauvegarder une partie en cours, les scores et le pseudo du JOUEUR2 de la partie...">sauvegarder</a>(FILE * fichier) {
+<a name="l00177"></a>00177         
+<a name="l00178"></a>00178         <span class="keywordtype">int</span> i, j;       
+<a name="l00179"></a>00179         fprintf(fichier, <span class="stringliteral">&quot;%s\n&quot;</span>, <a class="code" href="jeu_8h.html#abe9579a4a2aed1b038e71987678c9969">pseudo2</a>);
+<a name="l00180"></a>00180         fprintf(fichier, <span class="stringliteral">&quot;%i\n&quot;</span>, <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>);
+<a name="l00181"></a>00181         fprintf(fichier, <span class="stringliteral">&quot;%i\n&quot;</span>, <a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a>);
+<a name="l00182"></a>00182         <span class="keywordflow">for</span>(i = 0; i&lt;<a class="code" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53" title="Represente le nombre de ligne de la matrice.">L</a>; i++) {
+<a name="l00183"></a>00183                 <span class="keywordflow">for</span>(j=0; j&lt;<a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a>; j++) {
+<a name="l00184"></a>00184                         fprintf(fichier, <span class="stringliteral">&quot;%i\n&quot;</span>, <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>[i][j]);
+<a name="l00185"></a>00185                 }
+<a name="l00186"></a>00186         }
+<a name="l00187"></a>00187          
+<a name="l00188"></a>00188 }
+<a name="l00189"></a>00189 
+<a name="l00197"></a><a class="code" href="jeu_8h.html#ad8c2c40a19bd92f67c1048db215f2965">00197</a> <span class="keywordtype">void</span> <a class="code" href="jeu_8c.html#ad7b9f7ffaba2018585f1ddf03bab4933" title="Permet d&#39;afficher les 10 meilleures scores enregistrés du jeu.">classer_records</a>(FILE * fichier, <a class="code" href="structt__joueur.html" title="Structure definissant le score et le pseudonyme du joueur.">t_joueur</a> * record_score, <span class="keywordtype">int</span> * nb_score) {
+<a name="l00198"></a>00198         
+<a name="l00199"></a>00199         <span class="keywordtype">int</span> i, j;
+<a name="l00200"></a>00200         <span class="keywordtype">int</span> bien_place;
+<a name="l00201"></a>00201         <a class="code" href="structt__joueur.html" title="Structure definissant le score et le pseudonyme du joueur.">t_joueur</a> tmp;
+<a name="l00202"></a>00202         
+<a name="l00203"></a>00203         
+<a name="l00204"></a>00204         <span class="comment">/*Verifier si aucun score est enregistré*/</span>
+<a name="l00205"></a>00205         fscanf(fichier, <span class="stringliteral">&quot;%s&quot;</span>, record_score[*nb_score].pseudo);
+<a name="l00206"></a>00206         <span class="keywordflow">if</span>(feof(fichier)) {
+<a name="l00207"></a>00207                 printf(<span class="stringliteral">&quot;Aucun score a été enregistré\n&quot;</span>);
+<a name="l00208"></a>00208         }
+<a name="l00209"></a>00209         <span class="keywordflow">else</span> {
+<a name="l00210"></a>00210                 fscanf(fichier, <span class="stringliteral">&quot;%i&quot;</span>, &amp;(record_score[*nb_score].score));
+<a name="l00211"></a>00211                 (*nb_score)++;
+<a name="l00212"></a>00212                 <span class="comment">/*Stocker les scores du fichiers dans un tableau*/</span>
+<a name="l00213"></a>00213                 <span class="keywordflow">while</span>(!feof(fichier)) {
+<a name="l00214"></a>00214                         fscanf(fichier, <span class="stringliteral">&quot;%s&quot;</span>, record_score[*nb_score].pseudo);
+<a name="l00215"></a>00215                         fscanf(fichier, <span class="stringliteral">&quot;%i&quot;</span>, &amp;(record_score[*nb_score].score));
+<a name="l00216"></a>00216                         (*nb_score)++;
+<a name="l00217"></a>00217 
+<a name="l00218"></a>00218                 }
+<a name="l00219"></a>00219                 (*nb_score)--;
+<a name="l00220"></a>00220 
+<a name="l00221"></a>00221                 <span class="comment">/*Trier le tableau des scores dans l&#39;ordre decroissant*/</span>
+<a name="l00222"></a>00222                 <span class="keywordflow">if</span>((*nb_score) &gt; 1){
+<a name="l00223"></a>00223                         <span class="keywordflow">for</span>(i =0; i&lt;(*nb_score); i++) {
+<a name="l00224"></a>00224                                 j=i;
+<a name="l00225"></a>00225                                 bien_place = <a class="code" href="jeu_8c.html#a5a8037325d2d08c3fb5740af57f143d1">faux</a>;
+<a name="l00226"></a>00226                                 <span class="keywordflow">while</span>(j&gt;0 &amp;&amp; !bien_place) {
+<a name="l00227"></a>00227                                         bien_place = (record_score[j].<a class="code" href="structt__joueur.html#aef160b7437d94056f1dc59646cd5b87d">score</a> &lt;= record_score[j-1].<a class="code" href="structt__joueur.html#aef160b7437d94056f1dc59646cd5b87d">score</a>);
+<a name="l00228"></a>00228                                         <span class="keywordflow">if</span> (!bien_place) {
+<a name="l00229"></a>00229                                                 tmp = record_score[j-1];
+<a name="l00230"></a>00230                                                 record_score[j-1] = record_score[j];
+<a name="l00231"></a>00231                                                 record_score[j] = tmp;
+<a name="l00232"></a>00232                                                 j--;    
+<a name="l00233"></a>00233                                         }
+<a name="l00234"></a>00234                                 }
+<a name="l00235"></a>00235                         }       
+<a name="l00236"></a>00236                 }
+<a name="l00237"></a>00237                 
+<a name="l00238"></a>00238                 <span class="comment">/*Afficher les scores dans l&#39;ordre*/</span>
+<a name="l00239"></a>00239                 printf(<span class="stringliteral">&quot;\nLes 10 meilleures scores\n&quot;</span>);
+<a name="l00240"></a>00240                 <span class="keywordflow">for</span>(i = 0; i&lt;(*nb_score) &amp;&amp; i&lt;10; i++) {
+<a name="l00241"></a>00241                         printf(<span class="stringliteral">&quot;%s\t&quot;</span>, record_score[i].pseudo);
+<a name="l00242"></a>00242                         printf(<span class="stringliteral">&quot;%i\n&quot;</span>, record_score[i].score);
+<a name="l00243"></a>00243                 }
+<a name="l00244"></a>00244         }
+<a name="l00245"></a>00245 }
+<a name="l00246"></a>00246 
+<a name="l00253"></a><a class="code" href="jeu_8h.html#a65d1300c1e90d794185bd1710cd41339">00253</a> <span class="keywordtype">int</span> <a class="code" href="jeu_8c.html#a65d1300c1e90d794185bd1710cd41339" title="Permet de charger une partie sauvegarder.">charger_partie</a>(FILE * fichier) {
+<a name="l00254"></a>00254         
+<a name="l00255"></a>00255         <span class="keywordtype">int</span> i, j;
+<a name="l00256"></a>00256         <span class="keywordtype">int</span> valeur;
+<a name="l00257"></a>00257         <span class="keywordflow">if</span>(feof(fichier)) {
+<a name="l00258"></a>00258                 printf(<span class="stringliteral">&quot;Aucune partie est sauvegardée\n&quot;</span>);
+<a name="l00259"></a>00259                 <span class="keywordflow">return</span> 0;
+<a name="l00260"></a>00260         }
+<a name="l00261"></a>00261         <span class="keywordflow">else</span> {
+<a name="l00262"></a>00262                 fscanf(fichier, <span class="stringliteral">&quot;%s&quot;</span>, <a class="code" href="jeu_8h.html#abe9579a4a2aed1b038e71987678c9969">pseudo2</a>);
+<a name="l00263"></a>00263                 fscanf(fichier, <span class="stringliteral">&quot;%i&quot;</span>, &amp;<a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>);
+<a name="l00264"></a>00264                 fscanf(fichier, <span class="stringliteral">&quot;%i&quot;</span>, &amp;<a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a>);
+<a name="l00265"></a>00265                 fscanf(fichier, <span class="stringliteral">&quot;%i&quot;</span>, &amp;valeur);
+<a name="l00266"></a>00266                 <span class="keywordflow">for</span>(i = 0; i&lt;<a class="code" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53" title="Represente le nombre de ligne de la matrice.">L</a>; i++) {
+<a name="l00267"></a>00267                         <span class="keywordflow">for</span>(j=0; j&lt;<a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a>; j++) {
+<a name="l00268"></a>00268                                 <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>[i][j] = valeur;
+<a name="l00269"></a>00269                                 fscanf(fichier, <span class="stringliteral">&quot;%i&quot;</span>, &amp;valeur);
+<a name="l00270"></a>00270                         }
+<a name="l00271"></a>00271                 }
+<a name="l00272"></a>00272         }
+<a name="l00273"></a>00273         <span class="keywordflow">return</span> 1;
+<a name="l00274"></a>00274 }
+<a name="l00281"></a><a class="code" href="jeu_8h.html#a97f7d4b3a559a9cf4b49c0595c228e92">00281</a>  <span class="keywordtype">void</span> <a class="code" href="jeu_8c.html#a97f7d4b3a559a9cf4b49c0595c228e92" title="Permet de joueur une partie entre deux joueurs.">jouer_a_deux</a>(FILE * fichier, FILE * fic_records) {
+<a name="l00282"></a>00282         
+<a name="l00283"></a>00283         <span class="keywordtype">int</span> nb_graine;
+<a name="l00284"></a>00284         <span class="keywordtype">int</span> case_aide;
+<a name="l00285"></a>00285         <span class="keywordtype">int</span> coord_x;
+<a name="l00286"></a>00286         <span class="keywordtype">char</span> reponse;
+<a name="l00287"></a>00287         <span class="keywordtype">char</span> rep_aide;
+<a name="l00288"></a>00288         <span class="keywordtype">int</span> sc_tmp_j1 = 0;
+<a name="l00289"></a>00289         <span class="keywordtype">int</span> sc_tmp_j2 = 0;
+<a name="l00290"></a>00290         <span class="keywordtype">int</span> nb_jocker_j1 = 3;
+<a name="l00291"></a>00291         <span class="keywordtype">int</span> nb_jocker_j2 = 3;
+<a name="l00292"></a>00292         
+<a name="l00293"></a>00293                 <span class="keywordflow">while</span>(!<a class="code" href="fonctions_8c.html#aed36295a355e61d266e2553626d4b581" title="Permet de verifier si une partie est terminée ou pas en verifiant si l&#39;un des score est superieure ou...">partie_finie</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>, <a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a>) &amp;&amp; reponse != <span class="charliteral">&#39;q&#39;</span>){
+<a name="l00294"></a>00294                                 
+<a name="l00295"></a>00295                         <span class="comment">/*Tour du joueur 1*/</span>
+<a name="l00296"></a>00296                         <span class="keywordflow">if</span>(<a class="code" href="fonctions_8c.html#a04919928f4159bf20368a095ea7c3996" title="Quelle case bouger pour avoir le plus de graines à un coup à jouer?">aide</a>(<a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>, <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, &amp;case_aide) &amp;&amp; nb_jocker_j1 &lt;= 3 &amp;&amp; nb_jocker_j1 &gt; 0) {
+<a name="l00297"></a>00297                                 printf(<span class="stringliteral">&quot;\n%s, voulez vous une aide, y pour Oui, n pour Non ?\n&quot;</span>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>);
+<a name="l00298"></a>00298                                 <span class="keywordflow">if</span>(nb_jocker_j1 == 1)
+<a name="l00299"></a>00299                                                 printf(<span class="stringliteral">&quot;Attention c&#39;est votre dernier jocker !!\n&quot;</span>);
+<a name="l00300"></a>00300                                 scanf(<span class="stringliteral">&quot;%*c%c&quot;</span>, &amp;rep_aide);
+<a name="l00301"></a>00301                                 <span class="keywordflow">if</span>(rep_aide == <span class="charliteral">&#39;y&#39;</span>) {
+<a name="l00302"></a>00302                                         printf(<span class="stringliteral">&quot;Bougez la case %i !&quot;</span>, case_aide);
+<a name="l00303"></a>00303                                         nb_jocker_j1--;                                                 
+<a name="l00304"></a>00304                                 }
+<a name="l00305"></a>00305                         }
+<a name="l00306"></a>00306                                 
+<a name="l00307"></a>00307                         <span class="keywordflow">if</span>(<a class="code" href="jeu_8c.html#acf96a95ac5fbcf5e4e5d6d4e33f6c4d5" title="Est-ce que le joueur &quot;joueur&quot; peut-il jouer ?">jeu_possible</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>) == 0){ <span class="comment">/*On verifie si le jeu n&#39;est pas possible*/</span>
+<a name="l00308"></a>00308                                 <a class="code" href="jeu_8c.html#a74fc2dac8f195aab3a01564e1449abd8" title="Permet d&#39;afficher le score et le pseudo du joueur victorieux et de l&#39;enregistrer dans le record des s...">victoire</a>(fic_records);
+<a name="l00309"></a>00309                                 <span class="keywordflow">break</span>;
+<a name="l00310"></a>00310 
+<a name="l00311"></a>00311                         }
+<a name="l00312"></a>00312                         
+<a name="l00313"></a>00313                         <span class="comment">/*Permet d&#39;initiliser nb_tours à 0 si les tours non gagnants ne sont pas successives*/</span>
+<a name="l00314"></a>00314                         <span class="keywordflow">if</span>(!<a class="code" href="jeu_8c.html#a2c3520fc9ff89bd6b4a087e0d84698cd" title="Permet de detecter si un tour est difficile à jouer et incremente le nombre de tour où ce cas est ren...">gain_difficile</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, &amp;<a class="code" href="jeu_8c.html#a181fbca82e37c16ba51311694f0cbbe8">nb_tours</a>))
+<a name="l00315"></a>00315                                 <a class="code" href="jeu_8c.html#a181fbca82e37c16ba51311694f0cbbe8">nb_tours</a> = 0;
+<a name="l00316"></a>00316                                         
+<a name="l00317"></a>00317                         <span class="comment">/*Si les coups gagnants sont difficiles à jouer incrementer le nombre de tour </span>
+<a name="l00318"></a>00318 <span class="comment">                        * puis comparer les deux scores */</span>
+<a name="l00319"></a>00319                         <span class="keywordflow">if</span>(<a class="code" href="jeu_8c.html#a2c3520fc9ff89bd6b4a087e0d84698cd" title="Permet de detecter si un tour est difficile à jouer et incremente le nombre de tour où ce cas est ren...">gain_difficile</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, &amp;<a class="code" href="jeu_8c.html#a181fbca82e37c16ba51311694f0cbbe8">nb_tours</a>)) {
+<a name="l00320"></a>00320                                 <span class="keywordflow">if</span>(sc_tmp_j1 == 0)
+<a name="l00321"></a>00321                                         sc_tmp_j1 = <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>;
+<a name="l00322"></a>00322                                 <span class="keywordflow">if</span>(sc_tmp_j2 == 0)
+<a name="l00323"></a>00323                                         sc_tmp_j1 = <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>;
+<a name="l00324"></a>00324                                 <span class="keywordflow">if</span>(<a class="code" href="jeu_8c.html#a181fbca82e37c16ba51311694f0cbbe8">nb_tours</a> == 3) {
+<a name="l00325"></a>00325                                         <span class="keywordflow">if</span>(sc_tmp_j1 == <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a> &amp;&amp; sc_tmp_j2 == <a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a>)
+<a name="l00326"></a>00326                                                 printf(<span class="stringliteral">&quot;Il devient difficile de continuer, et de trouver des coups gagnants\n&quot;</span>);
+<a name="l00327"></a>00327                                                 printf(<span class="stringliteral">&quot;Que la,partie s&#39;arrête\n&quot;</span>);
+<a name="l00328"></a>00328                                                 <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a> = <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a> + <a class="code" href="fonctions_8c.html#a1bb3aeb743ad104b7ed0c863d15d3ef0" title="Compter le nombre de graines dans le plateau de jeu pour chaque joueur.">graines_restantes</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>);
+<a name="l00329"></a>00329                                                 <a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a> = <a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a> + <a class="code" href="fonctions_8c.html#a1bb3aeb743ad104b7ed0c863d15d3ef0" title="Compter le nombre de graines dans le plateau de jeu pour chaque joueur.">graines_restantes</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>);
+<a name="l00330"></a>00330                                                 <a class="code" href="jeu_8c.html#a74fc2dac8f195aab3a01564e1449abd8" title="Permet d&#39;afficher le score et le pseudo du joueur victorieux et de l&#39;enregistrer dans le record des s...">victoire</a>(fic_records);
+<a name="l00331"></a>00331                                                 <span class="keywordflow">break</span>;
+<a name="l00332"></a>00332 
+<a name="l00333"></a>00333                                 }
+<a name="l00334"></a>00334                         }
+<a name="l00335"></a>00335                         
+<a name="l00336"></a>00336                         printf(<span class="stringliteral">&quot;\n%s : Saisissez votre point de jeu: \n&quot;</span>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>);
+<a name="l00337"></a>00337                         scanf(<span class="stringliteral">&quot;%*c%i&quot;</span>, &amp;coord_x);
+<a name="l00338"></a>00338                         
+<a name="l00339"></a>00339                         <span class="comment">/*Si le joueur est affamé est qu&#39;on peut le nourir, on verifie si le coord_x saisie permet de le nourir </span>
+<a name="l00340"></a>00340 <span class="comment">                         * et on repete la saisie tant que la bonne case n&#39;est pas saisie</span>
+<a name="l00341"></a>00341 <span class="comment">                         */</span>
+<a name="l00342"></a>00342                         <span class="keywordflow">if</span>(<a class="code" href="jeu_8c.html#acf96a95ac5fbcf5e4e5d6d4e33f6c4d5" title="Est-ce que le joueur &quot;joueur&quot; peut-il jouer ?">jeu_possible</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>) &amp;&amp; <a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>) &amp;&amp; !<a class="code" href="jeu_8c.html#a87a8c018fa7c064d9bb41dfa7180ba79" title="Est-ce que le joueur j peut jouer à la case de coord_x ?">coup_possible</a>(coord_x-1, <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>)) {
+<a name="l00343"></a>00343                                 <span class="keywordflow">do</span>{
+<a name="l00344"></a>00344                                         printf(<span class="stringliteral">&quot;\n%s : Attention vous devez nourir votre adversaire !!\n&quot;</span>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>); 
+<a name="l00345"></a>00345                                         printf(<span class="stringliteral">&quot;\n%s : Saisissez votre point de jeu: \n&quot;</span>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>);
+<a name="l00346"></a>00346                                         scanf(<span class="stringliteral">&quot;%*c%i&quot;</span>, &amp;coord_x);
+<a name="l00347"></a>00347                                         
+<a name="l00348"></a>00348                                 }<span class="keywordflow">while</span>(!<a class="code" href="jeu_8c.html#a87a8c018fa7c064d9bb41dfa7180ba79" title="Est-ce que le joueur j peut jouer à la case de coord_x ?">coup_possible</a>(coord_x-1, <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>));
+<a name="l00349"></a>00349                         }
+<a name="l00350"></a>00350                         
+<a name="l00351"></a>00351                         <span class="keywordflow">do</span> {
+<a name="l00352"></a>00352                                 <span class="keywordflow">if</span>(coord_x &gt; <a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a> || coord_x &lt; 0){ <span class="comment">/*Si les coordonnées sont mauvaises*/</span>
+<a name="l00353"></a>00353                                 printf(<span class="stringliteral">&quot;\nVotre choix doit etre compris entre 1 et 6\n&quot;</span>);
+<a name="l00354"></a>00354                                 printf(<span class="stringliteral">&quot;\n%s : Saisissez votre point de jeu : \n&quot;</span>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>);
+<a name="l00355"></a>00355                                 scanf(<span class="stringliteral">&quot;%*c%i&quot;</span>, &amp;coord_x);
+<a name="l00356"></a>00356                                 nb_graine = <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>[<a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>][coord_x-1];
+<a name="l00357"></a>00357                                 }
+<a name="l00358"></a>00358                                 <span class="keywordflow">else</span> {
+<a name="l00359"></a>00359                                         nb_graine = <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>[<a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>][coord_x-1];
+<a name="l00360"></a>00360                                         <span class="keywordflow">if</span>(nb_graine == 0){ <span class="comment">/*si la case est vide*/</span>     
+<a name="l00361"></a>00361                                                 printf(<span class="stringliteral">&quot;\nLa case est vide !! On ne peut pas bouger la case !!\n&quot;</span>);
+<a name="l00362"></a>00362                                                 printf(<span class="stringliteral">&quot;\n%s : Saisissez votre point de jeu : \n&quot;</span>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>);
+<a name="l00363"></a>00363                                                 scanf(<span class="stringliteral">&quot;%*c%i&quot;</span>, &amp;coord_x);
+<a name="l00364"></a>00364 
+<a name="l00365"></a>00365                                         }
+<a name="l00366"></a>00366                                 }
+<a name="l00367"></a>00367                         
+<a name="l00368"></a>00368                         } <span class="keywordflow">while</span>(coord_x &gt; <a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a> || coord_x &lt; 0 || nb_graine == 0);                  
+<a name="l00369"></a>00369                         
+<a name="l00370"></a>00370                         nb_graine = <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>[<a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>][coord_x-1];
+<a name="l00371"></a>00371                         <a class="code" href="fonctions_8c.html#ad49a599d350f73c9cc202ef3201cdeec" title="Permet jouer en se deplacant sur le plateau et en mangeant les graines qui se presentent et increment...">manger_graines</a>(nb_graine, <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>, coord_x-1, &amp;<a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>);
+<a name="l00372"></a>00372                         <a class="code" href="fonctions_8c.html#ab19c01649425ea408ee2e9b25488ebd4" title="Permet d&#39;afficher la matrice representant le plateau du jeu.">affiche_matrice</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>);
+<a name="l00373"></a>00373                         <a class="code" href="fonctions_8c.html#a428b0322e777eb8e676248c564f08f3f" title="Permet d&#39;afficher le score du joueur en indiquant son pseudo.">afficher_score</a>(<a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>);
+<a name="l00374"></a>00374 
+<a name="l00375"></a>00375                         <span class="comment">/*Tour du joueur 2*/</span>
+<a name="l00376"></a>00376 
+<a name="l00377"></a>00377                         <span class="keywordflow">if</span>(<a class="code" href="fonctions_8c.html#a04919928f4159bf20368a095ea7c3996" title="Quelle case bouger pour avoir le plus de graines à un coup à jouer?">aide</a>(<a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>, <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, &amp;case_aide) &amp;&amp; nb_jocker_j2 &lt;= 3  &amp;&amp; nb_jocker_j2 &gt; 0) {
+<a name="l00378"></a>00378                                 printf(<span class="stringliteral">&quot;\n%s, voulez vous une aide, y pour Oui, n pour Non ?\n&quot;</span>, <a class="code" href="jeu_8h.html#abe9579a4a2aed1b038e71987678c9969">pseudo2</a>);
+<a name="l00379"></a>00379                                 <span class="keywordflow">if</span>(nb_jocker_j2 == 1)
+<a name="l00380"></a>00380                                                 printf(<span class="stringliteral">&quot;Attention c&#39;est votre dernier jocker !!\n&quot;</span>);
+<a name="l00381"></a>00381                                 scanf(<span class="stringliteral">&quot;%*c%c&quot;</span>, &amp;rep_aide);
+<a name="l00382"></a>00382                                         <span class="keywordflow">if</span>(rep_aide == <span class="charliteral">&#39;y&#39;</span>) {
+<a name="l00383"></a>00383                                                 printf(<span class="stringliteral">&quot;Bougez la case %i !&quot;</span>, case_aide);
+<a name="l00384"></a>00384                                                 nb_jocker_j2--;
+<a name="l00385"></a>00385 
+<a name="l00386"></a>00386                                         }
+<a name="l00387"></a>00387                         }
+<a name="l00388"></a>00388                         
+<a name="l00389"></a>00389                         <span class="keywordflow">if</span>(<a class="code" href="jeu_8c.html#acf96a95ac5fbcf5e4e5d6d4e33f6c4d5" title="Est-ce que le joueur &quot;joueur&quot; peut-il jouer ?">jeu_possible</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>) == 0){ <span class="comment">/*On verifie si le jeu n&#39;est pas possible*/</span>
+<a name="l00390"></a>00390                                 <a class="code" href="jeu_8c.html#a74fc2dac8f195aab3a01564e1449abd8" title="Permet d&#39;afficher le score et le pseudo du joueur victorieux et de l&#39;enregistrer dans le record des s...">victoire</a>(fic_records);
+<a name="l00391"></a>00391                                 <span class="keywordflow">break</span>;
+<a name="l00392"></a>00392                         }       
+<a name="l00393"></a>00393                         printf(<span class="stringliteral">&quot;\n%s : Saisissez votre point de jeu : \n&quot;</span>, <a class="code" href="jeu_8h.html#abe9579a4a2aed1b038e71987678c9969">pseudo2</a>);
+<a name="l00394"></a>00394                         scanf(<span class="stringliteral">&quot;%i&quot;</span>, &amp;coord_x);
+<a name="l00395"></a>00395                         
+<a name="l00396"></a>00396                         <span class="comment">/*Si le joueur est affamé est qu&#39;on peut le nourir, on verifie si le coord_x saisie permet de le nourir </span>
+<a name="l00397"></a>00397 <span class="comment">                         * et on repete la saisie tant que la bonne case n&#39;est pas saisie</span>
+<a name="l00398"></a>00398 <span class="comment">                         */</span>
+<a name="l00399"></a>00399                         <span class="keywordflow">if</span>(<a class="code" href="jeu_8c.html#acf96a95ac5fbcf5e4e5d6d4e33f6c4d5" title="Est-ce que le joueur &quot;joueur&quot; peut-il jouer ?">jeu_possible</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>) &amp;&amp; <a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>) &amp;&amp; !<a class="code" href="jeu_8c.html#a87a8c018fa7c064d9bb41dfa7180ba79" title="Est-ce que le joueur j peut jouer à la case de coord_x ?">coup_possible</a>(coord_x-1, <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>)) { 
+<a name="l00400"></a>00400                                 <span class="keywordflow">do</span>{
+<a name="l00401"></a>00401                                         printf(<span class="stringliteral">&quot;\n%s : Attention vous devez nourir votre adversaire !!\n&quot;</span>, <a class="code" href="jeu_8h.html#abe9579a4a2aed1b038e71987678c9969">pseudo2</a>); 
+<a name="l00402"></a>00402                                         printf(<span class="stringliteral">&quot;\n%s : Saisissez votre point de jeu: \n&quot;</span>, <a class="code" href="jeu_8h.html#abe9579a4a2aed1b038e71987678c9969">pseudo2</a>);
+<a name="l00403"></a>00403                                         scanf(<span class="stringliteral">&quot;%*c%i&quot;</span>, &amp;coord_x);
+<a name="l00404"></a>00404                                         
+<a name="l00405"></a>00405                                 }<span class="keywordflow">while</span>(!<a class="code" href="jeu_8c.html#a87a8c018fa7c064d9bb41dfa7180ba79" title="Est-ce que le joueur j peut jouer à la case de coord_x ?">coup_possible</a>(coord_x-1, <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>));
+<a name="l00406"></a>00406                         }
+<a name="l00407"></a>00407                         
+<a name="l00408"></a>00408                         <span class="keywordflow">do</span> {
+<a name="l00409"></a>00409                                 <span class="keywordflow">if</span>(coord_x &gt; <a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a> || coord_x &lt; 0){ <span class="comment">/*Si les coordonnées sont mauvaises*/</span>
+<a name="l00410"></a>00410                                 printf(<span class="stringliteral">&quot;\nVotre choix doit etre compris entre 1 et 6\n&quot;</span>);
+<a name="l00411"></a>00411                                 printf(<span class="stringliteral">&quot;\n%s : Saisissez votre point de jeu : \n&quot;</span>, <a class="code" href="jeu_8h.html#abe9579a4a2aed1b038e71987678c9969">pseudo2</a>);
+<a name="l00412"></a>00412                                 scanf(<span class="stringliteral">&quot;%*c%i&quot;</span>, &amp;coord_x);
+<a name="l00413"></a>00413                                 nb_graine = <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>[<a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>][coord_x-1];
+<a name="l00414"></a>00414                                 }
+<a name="l00415"></a>00415                                 <span class="keywordflow">else</span> {
+<a name="l00416"></a>00416                                         nb_graine = <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>[<a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>][coord_x-1];
+<a name="l00417"></a>00417                                         <span class="keywordflow">if</span>(nb_graine == 0){ <span class="comment">/*Si la case est vide*/</span>             
+<a name="l00418"></a>00418                                                 printf(<span class="stringliteral">&quot;\nLa case est vide !! On ne peut pas bouger la case !!\n&quot;</span>);
+<a name="l00419"></a>00419                                                 printf(<span class="stringliteral">&quot;\n%s : Saisissez votre point de jeu : \n&quot;</span>, <a class="code" href="jeu_8h.html#abe9579a4a2aed1b038e71987678c9969">pseudo2</a>);
+<a name="l00420"></a>00420                                                 scanf(<span class="stringliteral">&quot;%*c%i&quot;</span>, &amp;coord_x);
+<a name="l00421"></a>00421 
+<a name="l00422"></a>00422                                         }
+<a name="l00423"></a>00423                                 }
+<a name="l00424"></a>00424                         } <span class="keywordflow">while</span>(coord_x &gt; <a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a> || coord_x &lt; 0 || nb_graine == 0);                  
+<a name="l00425"></a>00425                           
+<a name="l00426"></a>00426                         <a class="code" href="fonctions_8c.html#ad49a599d350f73c9cc202ef3201cdeec" title="Permet jouer en se deplacant sur le plateau et en mangeant les graines qui se presentent et increment...">manger_graines</a>(nb_graine, <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>, coord_x-1, &amp;<a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a>);
+<a name="l00427"></a>00427                         <a class="code" href="fonctions_8c.html#ab19c01649425ea408ee2e9b25488ebd4" title="Permet d&#39;afficher la matrice representant le plateau du jeu.">affiche_matrice</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>);
+<a name="l00428"></a>00428                         <a class="code" href="fonctions_8c.html#a428b0322e777eb8e676248c564f08f3f" title="Permet d&#39;afficher le score du joueur en indiquant son pseudo.">afficher_score</a>(<a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a>, <a class="code" href="jeu_8h.html#abe9579a4a2aed1b038e71987678c9969">pseudo2</a>);
+<a name="l00429"></a>00429 
+<a name="l00430"></a>00430                         printf(<span class="stringliteral">&quot;Voulez quittez le jeu q pour quitter, s pour continuer\n&quot;</span>);
+<a name="l00431"></a>00431                         scanf(<span class="stringliteral">&quot;%*c%c&quot;</span>, &amp;reponse);
+<a name="l00432"></a>00432                         
+<a name="l00433"></a>00433                 }
+<a name="l00434"></a>00434                 <span class="comment">/*Afficher le gagnant de la partie si la partie est finie*/</span>
+<a name="l00435"></a>00435                 <span class="keywordflow">if</span>(<a class="code" href="fonctions_8c.html#aed36295a355e61d266e2553626d4b581" title="Permet de verifier si une partie est terminée ou pas en verifiant si l&#39;un des score est superieure ou...">partie_finie</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>, <a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a>)) {
+<a name="l00436"></a>00436                         <a class="code" href="jeu_8c.html#a74fc2dac8f195aab3a01564e1449abd8" title="Permet d&#39;afficher le score et le pseudo du joueur victorieux et de l&#39;enregistrer dans le record des s...">victoire</a>(fic_records);
+<a name="l00437"></a>00437                 }
+<a name="l00438"></a>00438                 <span class="comment">/*Demander si la partie devrait etre sauvegarder*/</span>
+<a name="l00439"></a>00439                 printf(<span class="stringliteral">&quot;\nVoulez vous sauvegarder la partie y pour Oui et n pour Non\n&quot;</span>);
+<a name="l00440"></a>00440                 scanf(<span class="stringliteral">&quot;%*c%c&quot;</span>, &amp;reponse);                                                                                   
+<a name="l00441"></a>00441                 <span class="keywordflow">if</span>(reponse == <span class="charliteral">&#39;y&#39;</span>) {
+<a name="l00442"></a>00442                         <a class="code" href="jeu_8c.html#acc82d0a24a8d141c83e5f2891d1d6310" title="Permet de sauvegarder une partie en cours, les scores et le pseudo du JOUEUR2 de la partie...">sauvegarder</a>(fichier);
+<a name="l00443"></a>00443                 }
+<a name="l00444"></a>00444                         
+<a name="l00445"></a>00445 }                       
+<a name="l00446"></a>00446                                 
+<a name="l00447"></a>00447                                 
+<a name="l00455"></a><a class="code" href="jeu_8h.html#afc75ac9015ba15325420fa8c5dec3799">00455</a> <span class="keywordtype">void</span> <a class="code" href="jeu_8c.html#afc75ac9015ba15325420fa8c5dec3799" title="Permet de joueur une partie avec l&#39;ordinateur.">jouer_avec_ordinateur</a>(FILE * fichier, FILE * fic_records) {
+<a name="l00456"></a>00456         
+<a name="l00457"></a>00457         <span class="keywordtype">int</span> nb_graine, coord_x;
+<a name="l00458"></a>00458         <span class="keywordtype">int</span> case_aide;
+<a name="l00459"></a>00459         <span class="keywordtype">int</span> case_ordi;
+<a name="l00460"></a>00460         <span class="keywordtype">char</span> reponse;
+<a name="l00461"></a>00461         <span class="keywordtype">char</span> rep_aide;
+<a name="l00462"></a>00462         <span class="keywordtype">int</span> nb_jocker_j1 = 3;
+<a name="l00463"></a>00463         <span class="keywordtype">int</span> sc_tmp_j1 = 0;
+<a name="l00464"></a>00464         <span class="keywordtype">int</span> sc_tmp_j2 = 0;
+<a name="l00465"></a>00465                 
+<a name="l00466"></a>00466                 <span class="keywordflow">while</span>(!<a class="code" href="fonctions_8c.html#aed36295a355e61d266e2553626d4b581" title="Permet de verifier si une partie est terminée ou pas en verifiant si l&#39;un des score est superieure ou...">partie_finie</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>, <a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a>) &amp;&amp; reponse != <span class="charliteral">&#39;q&#39;</span>){
+<a name="l00467"></a>00467                                         
+<a name="l00468"></a>00468                         <span class="keywordflow">if</span>(<a class="code" href="fonctions_8c.html#a04919928f4159bf20368a095ea7c3996" title="Quelle case bouger pour avoir le plus de graines à un coup à jouer?">aide</a>(<a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>, <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, &amp;case_aide) &amp;&amp; nb_jocker_j1 &lt;= 3  &amp;&amp; nb_jocker_j1 &gt; 0) {
+<a name="l00469"></a>00469                                 printf(<span class="stringliteral">&quot;\n%s, voulez vous une aide, y pour Oui, n pour Non ?\n&quot;</span>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>);
+<a name="l00470"></a>00470                                 <span class="keywordflow">if</span>(nb_jocker_j1 == 1)
+<a name="l00471"></a>00471                                         printf(<span class="stringliteral">&quot;Attention c&#39;est votre dernier jocker !!\n&quot;</span>);
+<a name="l00472"></a>00472                                 scanf(<span class="stringliteral">&quot;%*c%c&quot;</span>, &amp;rep_aide);
+<a name="l00473"></a>00473                                 <span class="keywordflow">if</span>(rep_aide == <span class="charliteral">&#39;y&#39;</span>) {
+<a name="l00474"></a>00474                                         printf(<span class="stringliteral">&quot;Bougez la case %i !&quot;</span>, case_aide);
+<a name="l00475"></a>00475                                         nb_jocker_j1--;
+<a name="l00476"></a>00476                                         }
+<a name="l00477"></a>00477                                 }
+<a name="l00478"></a>00478                         <span class="keywordflow">if</span>(<a class="code" href="jeu_8c.html#acf96a95ac5fbcf5e4e5d6d4e33f6c4d5" title="Est-ce que le joueur &quot;joueur&quot; peut-il jouer ?">jeu_possible</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>) == 0){ <span class="comment">/*On verifie si le jeu n&#39;est pas possible*/</span>
+<a name="l00479"></a>00479                                         <a class="code" href="jeu_8c.html#a74fc2dac8f195aab3a01564e1449abd8" title="Permet d&#39;afficher le score et le pseudo du joueur victorieux et de l&#39;enregistrer dans le record des s...">victoire</a>(fic_records);
+<a name="l00480"></a>00480                                         <span class="keywordflow">break</span>;
+<a name="l00481"></a>00481                         }
+<a name="l00482"></a>00482                                 
+<a name="l00483"></a>00483                         <span class="comment">/*Permet d&#39;initiliser nb_tours  à 0 si les tours non gagnants ne sont pas successives*/</span>
+<a name="l00484"></a>00484                         <span class="keywordflow">if</span>(!<a class="code" href="jeu_8c.html#a2c3520fc9ff89bd6b4a087e0d84698cd" title="Permet de detecter si un tour est difficile à jouer et incremente le nombre de tour où ce cas est ren...">gain_difficile</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, &amp;<a class="code" href="jeu_8c.html#a181fbca82e37c16ba51311694f0cbbe8">nb_tours</a>))
+<a name="l00485"></a>00485                                         <a class="code" href="jeu_8c.html#a181fbca82e37c16ba51311694f0cbbe8">nb_tours</a> = 0;   
+<a name="l00486"></a>00486                                         
+<a name="l00487"></a>00487                         <span class="comment">/*Si les coups gagnants sont difficiles à jouer incrementer le nombre de coups </span>
+<a name="l00488"></a>00488 <span class="comment">                         * puis comparer les deux scores */</span>
+<a name="l00489"></a>00489                         <span class="keywordflow">if</span>(<a class="code" href="jeu_8c.html#a2c3520fc9ff89bd6b4a087e0d84698cd" title="Permet de detecter si un tour est difficile à jouer et incremente le nombre de tour où ce cas est ren...">gain_difficile</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, &amp;<a class="code" href="jeu_8c.html#a181fbca82e37c16ba51311694f0cbbe8">nb_tours</a>)) {
+<a name="l00490"></a>00490                                         <span class="keywordflow">if</span>(sc_tmp_j1 == 0)
+<a name="l00491"></a>00491                                                 sc_tmp_j1 = <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>;
+<a name="l00492"></a>00492                                         <span class="keywordflow">if</span>(sc_tmp_j2 == 0)
+<a name="l00493"></a>00493                                                 sc_tmp_j1 = <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>;
+<a name="l00494"></a>00494                                         <span class="keywordflow">if</span>(<a class="code" href="jeu_8c.html#a181fbca82e37c16ba51311694f0cbbe8">nb_tours</a> == 3) {
+<a name="l00495"></a>00495                                                 <span class="keywordflow">if</span>(sc_tmp_j1 == <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a> &amp;&amp; sc_tmp_j2 == <a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a>)
+<a name="l00496"></a>00496                                                         printf(<span class="stringliteral">&quot;\nIl devient difficile de continuer, et de trouver des coups gagnants\n&quot;</span>);
+<a name="l00497"></a>00497                                                         printf(<span class="stringliteral">&quot;Que la partie s&#39;arrête\n&quot;</span>);
+<a name="l00498"></a>00498                                                         <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a> = <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a> + <a class="code" href="fonctions_8c.html#a1bb3aeb743ad104b7ed0c863d15d3ef0" title="Compter le nombre de graines dans le plateau de jeu pour chaque joueur.">graines_restantes</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>);
+<a name="l00499"></a>00499                                                         <a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a> = <a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a> + <a class="code" href="fonctions_8c.html#a1bb3aeb743ad104b7ed0c863d15d3ef0" title="Compter le nombre de graines dans le plateau de jeu pour chaque joueur.">graines_restantes</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#aed9e4dbf250a6c8bdea8a0d3acb732e4" title="Represente le territoire de l&#39;ORDINATEUR sur le plateau.">ORDINATEUR</a>);
+<a name="l00500"></a>00500                                                         <a class="code" href="jeu_8c.html#a74fc2dac8f195aab3a01564e1449abd8" title="Permet d&#39;afficher le score et le pseudo du joueur victorieux et de l&#39;enregistrer dans le record des s...">victoire</a>(fic_records);
+<a name="l00501"></a>00501                                                         <span class="keywordflow">break</span>;
+<a name="l00502"></a>00502                                 }
+<a name="l00503"></a>00503                         }
+<a name="l00504"></a>00504                         
+<a name="l00505"></a>00505                         printf(<span class="stringliteral">&quot;\n%s : Saisissez votre point de jeu: \n&quot;</span>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>);
+<a name="l00506"></a>00506                         scanf(<span class="stringliteral">&quot;%i&quot;</span>, &amp;coord_x);
+<a name="l00507"></a>00507                         
+<a name="l00508"></a>00508                         <span class="comment">/*Si le joueur est affamé est qu&#39;on peut le nourir, on verifie si le coord_x saisie permet de le nourir </span>
+<a name="l00509"></a>00509 <span class="comment">                        * et on repete la saisie tant que la bonne case n&#39;est pas saisie</span>
+<a name="l00510"></a>00510 <span class="comment">                        */</span>
+<a name="l00511"></a>00511                         <span class="keywordflow">if</span>(<a class="code" href="jeu_8c.html#acf96a95ac5fbcf5e4e5d6d4e33f6c4d5" title="Est-ce que le joueur &quot;joueur&quot; peut-il jouer ?">jeu_possible</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>) &amp;&amp; <a class="code" href="fonctions_8c.html#ad7de1ef74c78ad466c833df118a69a56" title="Est-ce que le plateau du joueur &quot;joueur&quot; est vide?">plateau_vide</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a" title="Represente le territoire du joueur2 sur le plateau.">JOUEUR2</a>) &amp;&amp; !<a class="code" href="jeu_8c.html#a87a8c018fa7c064d9bb41dfa7180ba79" title="Est-ce que le joueur j peut jouer à la case de coord_x ?">coup_possible</a>(coord_x-1, <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>)) {
+<a name="l00512"></a>00512                                         <span class="keywordflow">do</span>{
+<a name="l00513"></a>00513                                                 printf(<span class="stringliteral">&quot;\n%s : Attention vous devez nourir votre adversaire !!\n&quot;</span>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>); 
+<a name="l00514"></a>00514                                                 printf(<span class="stringliteral">&quot;\n%s : Saisissez votre point de jeu: \n&quot;</span>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>);
+<a name="l00515"></a>00515                                                 scanf(<span class="stringliteral">&quot;%*c%i&quot;</span>, &amp;coord_x);
+<a name="l00516"></a>00516                                                 
+<a name="l00517"></a>00517                                         }<span class="keywordflow">while</span>(!<a class="code" href="jeu_8c.html#a87a8c018fa7c064d9bb41dfa7180ba79" title="Est-ce que le joueur j peut jouer à la case de coord_x ?">coup_possible</a>(coord_x-1, <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>));
+<a name="l00518"></a>00518                                 }
+<a name="l00519"></a>00519                         
+<a name="l00520"></a>00520                                 
+<a name="l00521"></a>00521                         <span class="keywordflow">do</span> {
+<a name="l00522"></a>00522                                         
+<a name="l00523"></a>00523                                         <span class="keywordflow">if</span>(coord_x &gt; <a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a> || coord_x &lt; 0){ <span class="comment">/*Si les coordonnées sont mauvaises*/</span>
+<a name="l00524"></a>00524                                         printf(<span class="stringliteral">&quot;\nVotre choix doit etre compris entre 1 et 6\n&quot;</span>);
+<a name="l00525"></a>00525                                         printf(<span class="stringliteral">&quot;\n%s : Saisissez votre point de jeu : \n&quot;</span>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>);
+<a name="l00526"></a>00526                                         scanf(<span class="stringliteral">&quot;%*c%i&quot;</span>, &amp;coord_x);
+<a name="l00527"></a>00527                                         nb_graine = <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>[<a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>][coord_x-1];
+<a name="l00528"></a>00528                                         }
+<a name="l00529"></a>00529                                         
+<a name="l00530"></a>00530                                         <span class="keywordflow">else</span> {
+<a name="l00531"></a>00531                                                 nb_graine = <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>[<a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>][coord_x-1];
+<a name="l00532"></a>00532                                                 <span class="keywordflow">if</span>(nb_graine == 0){ <span class="comment">/*Si la case est vide*/</span>             
+<a name="l00533"></a>00533                                                         printf(<span class="stringliteral">&quot;\nLa case est vide !! On ne peut pas bouger la case !!\n&quot;</span>);
+<a name="l00534"></a>00534                                                         printf(<span class="stringliteral">&quot;\n%s : Saisissez votre point de jeu : \n&quot;</span>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>);
+<a name="l00535"></a>00535                                                         scanf(<span class="stringliteral">&quot;%*c%i&quot;</span>, &amp;coord_x);
+<a name="l00536"></a>00536                                                         
+<a name="l00537"></a>00537 
+<a name="l00538"></a>00538                                                 }
+<a name="l00539"></a>00539                                         }
+<a name="l00540"></a>00540                                 
+<a name="l00541"></a>00541                         } <span class="keywordflow">while</span>(coord_x &gt; <a class="code" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b" title="Represente le nombre de colonne de la matrice.">C</a> || coord_x &lt; 0 || nb_graine == 0);  
+<a name="l00542"></a>00542                         
+<a name="l00543"></a>00543                         
+<a name="l00544"></a>00544                         
+<a name="l00545"></a>00545                                 
+<a name="l00546"></a>00546                         nb_graine = <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>[<a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>][coord_x-1];
+<a name="l00547"></a>00547                         <a class="code" href="fonctions_8c.html#ad49a599d350f73c9cc202ef3201cdeec" title="Permet jouer en se deplacant sur le plateau et en mangeant les graines qui se presentent et increment...">manger_graines</a>(nb_graine, <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18" title="Represente le territoire du joueur1 sur le plateau.">JOUEUR1</a>, coord_x-1, &amp;<a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>);
+<a name="l00548"></a>00548                         <a class="code" href="fonctions_8c.html#ab19c01649425ea408ee2e9b25488ebd4" title="Permet d&#39;afficher la matrice representant le plateau du jeu.">affiche_matrice</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>);
+<a name="l00549"></a>00549                                         
+<a name="l00550"></a>00550                         <a class="code" href="fonctions_8c.html#a428b0322e777eb8e676248c564f08f3f" title="Permet d&#39;afficher le score du joueur en indiquant son pseudo.">afficher_score</a>(<a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>);
+<a name="l00551"></a>00551                                                         
+<a name="l00552"></a>00552                         <span class="comment">/*Tour de l&#39;ordinateur*/</span>
+<a name="l00553"></a>00553                                                         
+<a name="l00554"></a>00554                         printf(<span class="stringliteral">&quot;\n Tour de l&#39; Ordinateur \n&quot;</span>);
+<a name="l00555"></a>00555                         strcpy(<a class="code" href="jeu_8h.html#abe9579a4a2aed1b038e71987678c9969">pseudo2</a>, <span class="stringliteral">&quot;Ordinateur&quot;</span>);
+<a name="l00556"></a>00556                         <span class="keywordflow">if</span>(<a class="code" href="jeu_8c.html#acf96a95ac5fbcf5e4e5d6d4e33f6c4d5" title="Est-ce que le joueur &quot;joueur&quot; peut-il jouer ?">jeu_possible</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#aed9e4dbf250a6c8bdea8a0d3acb732e4" title="Represente le territoire de l&#39;ORDINATEUR sur le plateau.">ORDINATEUR</a>) == 0){ <span class="comment">/*On verifie si le jeu est possible*/</span>
+<a name="l00557"></a>00557                                         <a class="code" href="jeu_8c.html#a74fc2dac8f195aab3a01564e1449abd8" title="Permet d&#39;afficher le score et le pseudo du joueur victorieux et de l&#39;enregistrer dans le record des s...">victoire</a>(fic_records);
+<a name="l00558"></a>00558                                         <span class="keywordflow">break</span>;
+<a name="l00559"></a>00559 
+<a name="l00560"></a>00560                                 }       
+<a name="l00561"></a>00561                         <span class="comment">/*Recuperer la case que l&#39;ordinateur va joué*/</span>                         
+<a name="l00562"></a>00562                         case_ordi = <a class="code" href="fonctions_8c.html#a3ccefa8bf9d384d34a69ed29e53110d2" title="Permet de simuler le jeu de l&#39;ordinateur.">jeu_ordi</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>);
+<a name="l00563"></a>00563                         printf(<span class="stringliteral">&quot;---&gt; ORDINATEUR va jouer %d\n&quot;</span>, case_ordi+1);
+<a name="l00564"></a>00564                         nb_graine = <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>[<a class="code" href="jeu_8h.html#aed9e4dbf250a6c8bdea8a0d3acb732e4" title="Represente le territoire de l&#39;ORDINATEUR sur le plateau.">ORDINATEUR</a>][case_ordi];
+<a name="l00565"></a>00565                         <a class="code" href="fonctions_8c.html#ad49a599d350f73c9cc202ef3201cdeec" title="Permet jouer en se deplacant sur le plateau et en mangeant les graines qui se presentent et increment...">manger_graines</a>(nb_graine, <a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8h.html#aed9e4dbf250a6c8bdea8a0d3acb732e4" title="Represente le territoire de l&#39;ORDINATEUR sur le plateau.">ORDINATEUR</a>, case_ordi, &amp;<a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a>);
+<a name="l00566"></a>00566                         <a class="code" href="fonctions_8c.html#ab19c01649425ea408ee2e9b25488ebd4" title="Permet d&#39;afficher la matrice representant le plateau du jeu.">affiche_matrice</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>);
+<a name="l00567"></a>00567                                         
+<a name="l00568"></a>00568                         <a class="code" href="fonctions_8c.html#a428b0322e777eb8e676248c564f08f3f" title="Permet d&#39;afficher le score du joueur en indiquant son pseudo.">afficher_score</a>(<a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a>, <a class="code" href="jeu_8h.html#abe9579a4a2aed1b038e71987678c9969">pseudo2</a>);
+<a name="l00569"></a>00569                                                         
+<a name="l00570"></a>00570                         printf(<span class="stringliteral">&quot;Voulez vous quittez le jeu q pour quitter, s pour continuer\n&quot;</span>);
+<a name="l00571"></a>00571                         scanf(<span class="stringliteral">&quot;%*c%c&quot;</span>, &amp;reponse);
+<a name="l00572"></a>00572                                 
+<a name="l00573"></a>00573                 }
+<a name="l00574"></a>00574                 <span class="comment">/*Afficher le gagnant de la partie si la partie est finie*/</span>
+<a name="l00575"></a>00575                 <span class="keywordflow">if</span>(<a class="code" href="fonctions_8c.html#aed36295a355e61d266e2553626d4b581" title="Permet de verifier si une partie est terminée ou pas en verifiant si l&#39;un des score est superieure ou...">partie_finie</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>, <a class="code" href="jeu_8c.html#aee4219d2e0a21bb4450d03a769631982">scorej1</a>, <a class="code" href="jeu_8c.html#aebbdab619bc8ed61e72e70a36ac5fe4d">scorej2</a>))
+<a name="l00576"></a>00576                         <a class="code" href="jeu_8c.html#a74fc2dac8f195aab3a01564e1449abd8" title="Permet d&#39;afficher le score et le pseudo du joueur victorieux et de l&#39;enregistrer dans le record des s...">victoire</a>(fic_records);
+<a name="l00577"></a>00577                 <span class="comment">/*Demander si la partie devrait etre sauvegarder*/</span>
+<a name="l00578"></a>00578                 printf(<span class="stringliteral">&quot;Voulez vous sauvegarder la partie y pour Oui et n pour Non\n&quot;</span>);
+<a name="l00579"></a>00579                 scanf(<span class="stringliteral">&quot;%*c%c&quot;</span>, &amp;reponse);                                                                                   
+<a name="l00580"></a>00580                 <span class="keywordflow">if</span>(reponse == <span class="charliteral">&#39;y&#39;</span>) {    
+<a name="l00581"></a>00581                         <a class="code" href="jeu_8c.html#acc82d0a24a8d141c83e5f2891d1d6310" title="Permet de sauvegarder une partie en cours, les scores et le pseudo du JOUEUR2 de la partie...">sauvegarder</a>(fichier);
+<a name="l00582"></a>00582                 }
+<a name="l00583"></a>00583 }
+<a name="l00584"></a>00584 
+<a name="l00585"></a>00585         
+<a name="l00586"></a>00586 
+<a name="l00593"></a><a class="code" href="jeu_8h.html#abf885104c5203b71aeb45e91d4f51487">00593</a> <span class="keywordtype">void</span> <a class="code" href="jeu_8c.html#abf885104c5203b71aeb45e91d4f51487" title="Permet de joueur.">jouer</a>(FILE * fichier, FILE * fic_records){
+<a name="l00594"></a>00594         
+<a name="l00595"></a>00595         <span class="keywordflow">if</span>(strcmp(<a class="code" href="jeu_8h.html#abe9579a4a2aed1b038e71987678c9969">pseudo2</a>, <span class="stringliteral">&quot;Ordinateur&quot;</span>) == 0) {
+<a name="l00596"></a>00596                 printf(<span class="stringliteral">&quot;Joueur 1\nVeuillez saisir votre pseudonyme ?\n&quot;</span>);
+<a name="l00597"></a>00597                 scanf(<span class="stringliteral">&quot;%s&quot;</span>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>);
+<a name="l00598"></a>00598                 printf(<span class="stringliteral">&quot;\nQue la partie commence !\n&quot;</span>);
+<a name="l00599"></a>00599                 <a class="code" href="fonctions_8c.html#ab19c01649425ea408ee2e9b25488ebd4" title="Permet d&#39;afficher la matrice representant le plateau du jeu.">affiche_matrice</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>);         
+<a name="l00600"></a>00600                 <a class="code" href="jeu_8c.html#afc75ac9015ba15325420fa8c5dec3799" title="Permet de joueur une partie avec l&#39;ordinateur.">jouer_avec_ordinateur</a>(fichier, fic_records);
+<a name="l00601"></a>00601         }
+<a name="l00602"></a>00602         <span class="keywordflow">else</span> {
+<a name="l00603"></a>00603                 printf(<span class="stringliteral">&quot;Joueur 1\nVeuillez saisir votre pseudonyme ?\n&quot;</span>);
+<a name="l00604"></a>00604                 scanf(<span class="stringliteral">&quot;%s&quot;</span>, <a class="code" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a>);
+<a name="l00605"></a>00605                 printf(<span class="stringliteral">&quot;Joueur 2\nVeuillez saisir votre pseudonyme ?\n&quot;</span>);
+<a name="l00606"></a>00606                 scanf(<span class="stringliteral">&quot;%s&quot;</span>, <a class="code" href="jeu_8h.html#abe9579a4a2aed1b038e71987678c9969">pseudo2</a>);
+<a name="l00607"></a>00607                 printf(<span class="stringliteral">&quot;\nQue la partie commence !\n&quot;</span>);
+<a name="l00608"></a>00608                 <a class="code" href="fonctions_8c.html#ab19c01649425ea408ee2e9b25488ebd4" title="Permet d&#39;afficher la matrice representant le plateau du jeu.">affiche_matrice</a>(<a class="code" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a>);         
+<a name="l00609"></a>00609                 <a class="code" href="jeu_8c.html#a97f7d4b3a559a9cf4b49c0595c228e92" title="Permet de joueur une partie entre deux joueurs.">jouer_a_deux</a>(fichier, fic_records);
+<a name="l00610"></a>00610         }
+<a name="l00611"></a>00611 }
+<a name="l00612"></a>00612 
+<a name="l00613"></a>00613        
+<a name="l00614"></a>00614 
+<a name="l00615"></a>00615 
+</pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="jeu_8c.html">jeu.c</a>      </li>
+
+    <li class="footer">Généré le Jeudi Janvier 1 2015 21:43:09 pour AwaleGame par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>
