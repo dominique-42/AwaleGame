@@ -3,11 +3,7 @@ AwaleGame
 
 - Okrou Poda
 - Souleiman Iman Choukri
-- Licence SPI 2eme année 
-
-#Depot Git du programme
-
-- git clone https://github.com/Soulei/AwaleGame.git
+Licence SPI 2eme année 
 
 #Compilation du programme principale
 
