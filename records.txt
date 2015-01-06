@@ -16,3 +16,5 @@ soso
 26
 doglama
 23
+Ordinateur
+27

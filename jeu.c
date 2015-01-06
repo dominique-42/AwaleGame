@@ -436,10 +436,12 @@ int charger_partie(FILE * fichier) {
 			victoire(fic_records);
 		}
 		/*Demander si la partie devrait etre sauvegarder*/
-		printf("\nVoulez vous sauvegarder la partie y pour Oui et n pour Non\n");
-		scanf("%*c%c", &reponse);                                                                                   
-		if(reponse == 'y') {
-			sauvegarder(fichier);
+		if(reponse == 'q') {
+			printf("\nVoulez vous sauvegarder la partie y pour Oui et n pour Non\n");
+			scanf("%*c%c", &reponse);                                                                                   
+			if(reponse == 'y') {
+				sauvegarder(fichier);
+			}
 		}
 			
 }			
@@ -575,10 +577,12 @@ void jouer_avec_ordinateur(FILE * fichier, FILE * fic_records) {
 		if(partie_finie(awale, scorej1, scorej2))
 			victoire(fic_records);
 		/*Demander si la partie devrait etre sauvegarder*/
-		printf("Voulez vous sauvegarder la partie y pour Oui et n pour Non\n");
-		scanf("%*c%c", &reponse);                                                                                   
-		if(reponse == 'y') {	
-			sauvegarder(fichier);
+		if(reponse == 'q') {
+			printf("Voulez vous sauvegarder la partie y pour Oui et n pour Non\n");
+			scanf("%*c%c", &reponse);                                                                                   
+			if(reponse == 'y') {	
+				sauvegarder(fichier);
+			}
 		}
 }
 

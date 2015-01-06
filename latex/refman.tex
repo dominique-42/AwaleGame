@@ -1,4 +1,5 @@
-\documentclass[a4paper]{book}
+\documentclass{book}
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm]{geometry}
 \usepackage{makeidx}
 \usepackage{natbib}
 \usepackage{graphicx}
@@ -34,9 +35,10 @@
 \usepackage[scaled=.90]{helvet}
 \usepackage{courier}
 \usepackage{sectsty}
+\usepackage{amssymb}
 \usepackage[titles]{tocloft}
 \usepackage{doxygen}
-\lstset{language=C++,inputencoding=utf8,basicstyle=\footnotesize,breaklines=true,breakatwhitespace=true,tabsize=8,numbers=left }
+\lstset{language=C++,inputencoding=utf8,basicstyle=\footnotesize,breaklines=true,breakatwhitespace=true,tabsize=4,numbers=left }
 \makeindex
 \setcounter{tocdepth}{3}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -50,11 +52,11 @@
 \begin{titlepage}
 \vspace*{7cm}
 \begin{center}
-{\Large \-Awale\-Game \\[1ex]\large 0.\-1 }\\
+{\Large Awale\-Game \\[1ex]\large 0.\-1 }\\
 \vspace*{1cm}
-{\large \-Généré par Doxygen 1.7.6.1}\\
+{\large Généré par Doxygen 1.8.3.1}\\
 \vspace*{0.5cm}
-{\small Jeudi Janvier 1 2015 21:43:10}\\
+{\small Mardi Janvier 6 2015 13:50:07}\\
 \end{center}
 \end{titlepage}
 \clearemptydoublepage
@@ -63,18 +65,24 @@
 \clearemptydoublepage
 \pagenumbering{arabic}
 \hypersetup{pageanchor=true,citecolor=blue}
-\chapter{\-Index des structures de données}
+\chapter{Awale\-Game}
+\label{md_README}
+\hypertarget{md_README}{}
+\input{md__r_e_a_d_m_e}
+\chapter{Index des structures de données}
 \input{annotated}
-\chapter{\-Index des fichiers}
+\chapter{Index des fichiers}
 \input{files}
-\chapter{\-Documentation des structures de données}
+\chapter{Documentation des structures de données}
 \input{structt__coord}
 \input{structt__joueur}
-\chapter{\-Documentation des fichiers}
+\chapter{Documentation des fichiers}
 \input{fonctions_8c}
 \input{fonctions_8h}
 \input{jeu_8c}
 \input{jeu_8h}
 \input{main_8c}
+\input{_r_e_a_d_m_e_8md}
+\addcontentsline{toc}{part}{Index}
 \printindex
 \end{document}

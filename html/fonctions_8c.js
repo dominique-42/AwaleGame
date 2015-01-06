@@ -1,5 +1,6 @@
 var fonctions_8c =
 [
+    [ "t_coord", "structt__coord.html", "structt__coord" ],
     [ "affiche_matrice", "fonctions_8c.html#ab19c01649425ea408ee2e9b25488ebd4", null ],
     [ "afficher_score", "fonctions_8c.html#a428b0322e777eb8e676248c564f08f3f", null ],
     [ "aide", "fonctions_8c.html#a04919928f4159bf20368a095ea7c3996", null ],

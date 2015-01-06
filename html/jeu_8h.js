@@ -1,5 +1,6 @@
 var jeu_8h =
 [
+    [ "t_joueur", "structt__joueur.html", "structt__joueur" ],
     [ "C", "jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b", null ],
     [ "JOUEUR1", "jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18", null ],
     [ "JOUEUR2", "jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a", null ],
