@@ -1,0 +1,731 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>AwaleGame: Référence du fichier jeu.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">AwaleGame
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">projet d&#39;étude en L2 SPI Okrou Poda, Souleiman Iman Choukri</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('jeu_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier jeu.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fichier contenant les en-tête des fonctions qui déroule le jeu.  
+<a href="#details">Plus de détails...</a></p>
+
+<p><a href="jeu_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structt__joueur.html">t_joueur</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure definissant le score et le pseudonyme du joueur.  <a href="structt__joueur.html#details">Plus de détails...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aa73214aa5f2f94f63d90bb4e3d99fe53"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:aa73214aa5f2f94f63d90bb4e3d99fe53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represente le nombre de ligne de la matrice.  <a href="#aa73214aa5f2f94f63d90bb4e3d99fe53">Plus de détails...</a><br/></td></tr>
+<tr class="separator:aa73214aa5f2f94f63d90bb4e3d99fe53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4cf4b2ab929bd23951a8676eeac086b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>&#160;&#160;&#160;6</td></tr>
+<tr class="memdesc:ac4cf4b2ab929bd23951a8676eeac086b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represente le nombre de colonne de la matrice.  <a href="#ac4cf4b2ab929bd23951a8676eeac086b">Plus de détails...</a><br/></td></tr>
+<tr class="separator:ac4cf4b2ab929bd23951a8676eeac086b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0240ac851181b84ac374872dc5434ee4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a0240ac851181b84ac374872dc5434ee4">N</a>&#160;&#160;&#160;12</td></tr>
+<tr class="memdesc:a0240ac851181b84ac374872dc5434ee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represente le nombre de case dans la matrice.  <a href="#a0240ac851181b84ac374872dc5434ee4">Plus de détails...</a><br/></td></tr>
+<tr class="separator:a0240ac851181b84ac374872dc5434ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a7ea67c88a53921f3118756fbdecc18"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a9a7ea67c88a53921f3118756fbdecc18">JOUEUR1</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a9a7ea67c88a53921f3118756fbdecc18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represente le territoire du joueur1 sur le plateau.  <a href="#a9a7ea67c88a53921f3118756fbdecc18">Plus de détails...</a><br/></td></tr>
+<tr class="separator:a9a7ea67c88a53921f3118756fbdecc18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40e9a3b595e138f7f6d614a4b427942a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a40e9a3b595e138f7f6d614a4b427942a">JOUEUR2</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a40e9a3b595e138f7f6d614a4b427942a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represente le territoire du joueur2 sur le plateau.  <a href="#a40e9a3b595e138f7f6d614a4b427942a">Plus de détails...</a><br/></td></tr>
+<tr class="separator:a40e9a3b595e138f7f6d614a4b427942a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed9e4dbf250a6c8bdea8a0d3acb732e4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#aed9e4dbf250a6c8bdea8a0d3acb732e4">ORDINATEUR</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:aed9e4dbf250a6c8bdea8a0d3acb732e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represente le territoire de l'ORDINATEUR sur le plateau.  <a href="#aed9e4dbf250a6c8bdea8a0d3acb732e4">Plus de détails...</a><br/></td></tr>
+<tr class="separator:aed9e4dbf250a6c8bdea8a0d3acb732e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:acc82d0a24a8d141c83e5f2891d1d6310"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#acc82d0a24a8d141c83e5f2891d1d6310">sauvegarder</a> (FILE *fichier)</td></tr>
+<tr class="memdesc:acc82d0a24a8d141c83e5f2891d1d6310"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de sauvegarder une partie en cours, les scores et le pseudo du JOUEUR2 de la partie.  <a href="#acc82d0a24a8d141c83e5f2891d1d6310">Plus de détails...</a><br/></td></tr>
+<tr class="separator:acc82d0a24a8d141c83e5f2891d1d6310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65d1300c1e90d794185bd1710cd41339"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a65d1300c1e90d794185bd1710cd41339">charger_partie</a> (FILE *fichier)</td></tr>
+<tr class="memdesc:a65d1300c1e90d794185bd1710cd41339"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de charger une partie sauvegarder.  <a href="#a65d1300c1e90d794185bd1710cd41339">Plus de détails...</a><br/></td></tr>
+<tr class="separator:a65d1300c1e90d794185bd1710cd41339"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97f7d4b3a559a9cf4b49c0595c228e92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a97f7d4b3a559a9cf4b49c0595c228e92">jouer_a_deux</a> (FILE *fichier, FILE *fic_records)</td></tr>
+<tr class="memdesc:a97f7d4b3a559a9cf4b49c0595c228e92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de joueur une partie entre deux joueurs.  <a href="#a97f7d4b3a559a9cf4b49c0595c228e92">Plus de détails...</a><br/></td></tr>
+<tr class="separator:a97f7d4b3a559a9cf4b49c0595c228e92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc75ac9015ba15325420fa8c5dec3799"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#afc75ac9015ba15325420fa8c5dec3799">jouer_avec_ordinateur</a> (FILE *fichier, FILE *fic_records)</td></tr>
+<tr class="memdesc:afc75ac9015ba15325420fa8c5dec3799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de joueur une partie avec l'ordinateur.  <a href="#afc75ac9015ba15325420fa8c5dec3799">Plus de détails...</a><br/></td></tr>
+<tr class="separator:afc75ac9015ba15325420fa8c5dec3799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf885104c5203b71aeb45e91d4f51487"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#abf885104c5203b71aeb45e91d4f51487">jouer</a> (FILE *fichier, FILE *fic_records)</td></tr>
+<tr class="memdesc:abf885104c5203b71aeb45e91d4f51487"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de joueur.  <a href="#abf885104c5203b71aeb45e91d4f51487">Plus de détails...</a><br/></td></tr>
+<tr class="separator:abf885104c5203b71aeb45e91d4f51487"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74fc2dac8f195aab3a01564e1449abd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a74fc2dac8f195aab3a01564e1449abd8">victoire</a> (FILE *fichier)</td></tr>
+<tr class="memdesc:a74fc2dac8f195aab3a01564e1449abd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'afficher le score et le pseudo du joueur victorieux et de l'enregistrer dans le record des scores.  <a href="#a74fc2dac8f195aab3a01564e1449abd8">Plus de détails...</a><br/></td></tr>
+<tr class="separator:a74fc2dac8f195aab3a01564e1449abd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87a8c018fa7c064d9bb41dfa7180ba79"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a87a8c018fa7c064d9bb41dfa7180ba79">coup_possible</a> (int coord_x, int matrice[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>], int joueur)</td></tr>
+<tr class="memdesc:a87a8c018fa7c064d9bb41dfa7180ba79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Est-ce que le joueur j peut jouer à la case de coord_x ?  <a href="#a87a8c018fa7c064d9bb41dfa7180ba79">Plus de détails...</a><br/></td></tr>
+<tr class="separator:a87a8c018fa7c064d9bb41dfa7180ba79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a188fe244372c8d4e8420df3414195b6f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a188fe244372c8d4e8420df3414195b6f">jeu_possible</a> (int matrice[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>], int j)</td></tr>
+<tr class="memdesc:a188fe244372c8d4e8420df3414195b6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Est-ce que le joueur "joueur" peut-il jouer ?  <a href="#a188fe244372c8d4e8420df3414195b6f">Plus de détails...</a><br/></td></tr>
+<tr class="separator:a188fe244372c8d4e8420df3414195b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1387ba500711984dfa8124c4f80e439b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a1387ba500711984dfa8124c4f80e439b">gain_difficile</a> (int matrice[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>], int *nb_coups)</td></tr>
+<tr class="memdesc:a1387ba500711984dfa8124c4f80e439b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de detecter si un tour est difficile à jouer et incremente le nombre de tour où ce cas est rencontré.  <a href="#a1387ba500711984dfa8124c4f80e439b">Plus de détails...</a><br/></td></tr>
+<tr class="separator:a1387ba500711984dfa8124c4f80e439b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8c2c40a19bd92f67c1048db215f2965"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#ad8c2c40a19bd92f67c1048db215f2965">classer_records</a> (FILE *fichier, <a class="el" href="structt__joueur.html">t_joueur</a> *record_score, int *nb_score)</td></tr>
+<tr class="memdesc:ad8c2c40a19bd92f67c1048db215f2965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'afficher les 10 meilleures scores enregistrés du jeu.  <a href="#ad8c2c40a19bd92f67c1048db215f2965">Plus de détails...</a><br/></td></tr>
+<tr class="separator:ad8c2c40a19bd92f67c1048db215f2965"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f53b6fb81145a5f2275d19576b95a53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#a9f53b6fb81145a5f2275d19576b95a53">regles_jeu</a> ()</td></tr>
+<tr class="memdesc:a9f53b6fb81145a5f2275d19576b95a53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'afficher les regles du jeu.  <a href="#a9f53b6fb81145a5f2275d19576b95a53">Plus de détails...</a><br/></td></tr>
+<tr class="separator:a9f53b6fb81145a5f2275d19576b95a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:abd850fb8d62eae24e086b6d0676c535b"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#abd850fb8d62eae24e086b6d0676c535b">pseudo1</a> [20]</td></tr>
+<tr class="separator:abd850fb8d62eae24e086b6d0676c535b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe9579a4a2aed1b038e71987678c9969"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#abe9579a4a2aed1b038e71987678c9969">pseudo2</a> [20]</td></tr>
+<tr class="separator:abe9579a4a2aed1b038e71987678c9969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab963150b8d2deca07e03645989ca64fa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jeu_8h.html#ab963150b8d2deca07e03645989ca64fa">awale</a> [<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>]</td></tr>
+<tr class="separator:ab963150b8d2deca07e03645989ca64fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fichier contenant les en-tête des fonctions qui déroule le jeu. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Okrou Poda, Souleiman Iman Choukri </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>19 novembre 2014</dd></dl>
+<p>Projet d'etude L2 SPI : Programmation du Jeu Awale </p>
+
+<p>Définition dans le fichier <a class="el" href="jeu_8h_source.html">jeu.h</a>.</p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a class="anchor" id="ac4cf4b2ab929bd23951a8676eeac086b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define C&#160;&#160;&#160;6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Represente le nombre de colonne de la matrice. </p>
+
+<p>Définition à la ligne <a class="el" href="jeu_8h_source.html#l00022">22</a> du fichier <a class="el" href="jeu_8h_source.html">jeu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9a7ea67c88a53921f3118756fbdecc18"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define JOUEUR1&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Represente le territoire du joueur1 sur le plateau. </p>
+
+<p>Définition à la ligne <a class="el" href="jeu_8h_source.html#l00032">32</a> du fichier <a class="el" href="jeu_8h_source.html">jeu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a40e9a3b595e138f7f6d614a4b427942a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define JOUEUR2&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Represente le territoire du joueur2 sur le plateau. </p>
+
+<p>Définition à la ligne <a class="el" href="jeu_8h_source.html#l00037">37</a> du fichier <a class="el" href="jeu_8h_source.html">jeu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa73214aa5f2f94f63d90bb4e3d99fe53"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define L&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Represente le nombre de ligne de la matrice. </p>
+
+<p>Définition à la ligne <a class="el" href="jeu_8h_source.html#l00017">17</a> du fichier <a class="el" href="jeu_8h_source.html">jeu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0240ac851181b84ac374872dc5434ee4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define N&#160;&#160;&#160;12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Represente le nombre de case dans la matrice. </p>
+
+<p>Définition à la ligne <a class="el" href="jeu_8h_source.html#l00027">27</a> du fichier <a class="el" href="jeu_8h_source.html">jeu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aed9e4dbf250a6c8bdea8a0d3acb732e4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ORDINATEUR&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Represente le territoire de l'ORDINATEUR sur le plateau. </p>
+
+<p>Définition à la ligne <a class="el" href="jeu_8h_source.html#l00042">42</a> du fichier <a class="el" href="jeu_8h_source.html">jeu.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="a65d1300c1e90d794185bd1710cd41339"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int charger_partie </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichier</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de charger une partie sauvegarder. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fichier</td><td>Le fichier de sauvegarde à recuperer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si aucune partie est sauvegardée, 1 si oui </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00253">253</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad8c2c40a19bd92f67c1048db215f2965"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void classer_records </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__joueur.html">t_joueur</a> *&#160;</td>
+          <td class="paramname"><em>record_score</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nb_score</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet d'afficher les 10 meilleures scores enregistrés du jeu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fichier</td><td>Le fichier de sauvegarde à recuperer </td></tr>
+    <tr><td class="paramname">record_score</td><td>Pointeur sur une structure de type <a class="el" href="structt__joueur.html" title="Structure definissant le score et le pseudonyme du joueur.">t_joueur</a> </td></tr>
+    <tr><td class="paramname">nb_score</td><td>Pointeur sur le nombre de score </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00197">197</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a87a8c018fa7c064d9bb41dfa7180ba79"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int coup_possible </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>coord_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrice</em>[L][C], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>joueur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Est-ce que le joueur j peut jouer à la case de coord_x ? </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coord_x</td><td>Coordonnée x à verifier </td></tr>
+    <tr><td class="paramname">matrice</td><td>Plateau du jeu </td></tr>
+    <tr><td class="paramname">joueur</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si la case saisie est joueable, 0 sinon </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00128">128</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1387ba500711984dfa8124c4f80e439b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gain_difficile </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrice</em>[L][C], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>nb_tour</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de detecter si un tour est difficile à jouer et incremente le nombre de tour où ce cas est rencontré. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrice</td><td>Plateau de jeu </td></tr>
+    <tr><td class="paramname">nb_tour</td><td>Pointeur sur le nombre de tour </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si il existe des coup gagnants, 1 si c'est difficile de trouver des coups gagnants </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00057">57</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a188fe244372c8d4e8420df3414195b6f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int jeu_possible </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrice</em>[L][C], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>joueur</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Est-ce que le joueur "joueur" peut-il jouer ? </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrice</td><td>Represente le plateau de jeu </td></tr>
+    <tr><td class="paramname">joueur</td><td>L'un des joueur </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Renvoi vraie (1) si : -le plateau du joueur n'est pas vide et que l'adversaire est affamé et le joueur j capable de le nourir -le plateau du joueur vide et son adversaire capable de le nourir -le plateau du joueur n'est pas vide Renvoie faux (0) si : -le jeu n'est pas possible si l'adversaire est affamé et le joueur incapable de le nourir -le plateau du joueur est vide et que l'adversaire est incapable de le nourir </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00081">81</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abf885104c5203b71aeb45e91d4f51487"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jouer </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fic_records</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de joueur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fichier</td><td>Le fichier de sauvegarde </td></tr>
+    <tr><td class="paramname">fic_records</td><td>Le fichier contenant les records </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00597">597</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a97f7d4b3a559a9cf4b49c0595c228e92"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jouer_a_deux </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fic_records</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de joueur une partie entre deux joueurs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fichier</td><td>Le fichier de sauvegarde </td></tr>
+    <tr><td class="paramname">fic_records</td><td>Le fichier contenant les records </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00281">281</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afc75ac9015ba15325420fa8c5dec3799"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jouer_avec_ordinateur </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fic_records</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de joueur une partie avec l'ordinateur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fichier</td><td>Le fichier de sauvegarde </td></tr>
+    <tr><td class="paramname">fic_records</td><td>Le fichier contenant les records </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00457">457</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9f53b6fb81145a5f2275d19576b95a53"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void regles_jeu </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet d'afficher les regles du jeu. </p>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00153">153</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acc82d0a24a8d141c83e5f2891d1d6310"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sauvegarder </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichier</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de sauvegarder une partie en cours, les scores et le pseudo du JOUEUR2 de la partie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fichier</td><td>Le fichier de sauvegarde </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00176">176</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a74fc2dac8f195aab3a01564e1449abd8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void victoire </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichier</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet d'afficher le score et le pseudo du joueur victorieux et de l'enregistrer dans le record des scores. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fichier</td><td>Fichier où les scores des joeuurs gagnants sont enregistrés </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="jeu_8c_source.html#l00034">34</a> du fichier <a class="el" href="jeu_8c_source.html">jeu.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a class="anchor" id="ab963150b8d2deca07e03645989ca64fa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int awale[<a class="el" href="jeu_8h.html#aa73214aa5f2f94f63d90bb4e3d99fe53">L</a>][<a class="el" href="jeu_8h.html#ac4cf4b2ab929bd23951a8676eeac086b">C</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Matrice représentant le plateau de jeu </p>
+
+<p>Définition à la ligne <a class="el" href="jeu_8h_source.html#l00046">46</a> du fichier <a class="el" href="jeu_8h_source.html">jeu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd850fb8d62eae24e086b6d0676c535b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char pseudo1[20]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pseudonyme du JOUEUR1 </p>
+
+<p>Définition à la ligne <a class="el" href="jeu_8h_source.html#l00044">44</a> du fichier <a class="el" href="jeu_8h_source.html">jeu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abe9579a4a2aed1b038e71987678c9969"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char pseudo2[20]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pseudonyme du JOUEUR2 </p>
+
+<p>Définition à la ligne <a class="el" href="jeu_8h_source.html#l00045">45</a> du fichier <a class="el" href="jeu_8h_source.html">jeu.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="jeu_8h.html">jeu.h</a></li>
+    <li class="footer">Généré le Mardi Janvier 6 2015 13:50:07 pour AwaleGame par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,428 @@
+\hypertarget{jeu_8h}{\section{Référence du fichier jeu.\-h}
+\label{jeu_8h}\index{jeu.\-h@{jeu.\-h}}
+}
+
+
+Fichier contenant les en-\/tête des fonctions qui déroule le jeu.  
+
+
+\subsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structt__joueur}{t\-\_\-joueur}
+\begin{DoxyCompactList}\small\item\em Structure definissant le score et le pseudonyme du joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}{L}~2
+\begin{DoxyCompactList}\small\item\em Represente le nombre de ligne de la matrice. \end{DoxyCompactList}\item 
+\#define \hyperlink{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}{C}~6
+\begin{DoxyCompactList}\small\item\em Represente le nombre de colonne de la matrice. \end{DoxyCompactList}\item 
+\#define \hyperlink{jeu_8h_a0240ac851181b84ac374872dc5434ee4}{N}~12
+\begin{DoxyCompactList}\small\item\em Represente le nombre de case dans la matrice. \end{DoxyCompactList}\item 
+\#define \hyperlink{jeu_8h_a9a7ea67c88a53921f3118756fbdecc18}{J\-O\-U\-E\-U\-R1}~1
+\begin{DoxyCompactList}\small\item\em Represente le territoire du joueur1 sur le plateau. \end{DoxyCompactList}\item 
+\#define \hyperlink{jeu_8h_a40e9a3b595e138f7f6d614a4b427942a}{J\-O\-U\-E\-U\-R2}~0
+\begin{DoxyCompactList}\small\item\em Represente le territoire du joueur2 sur le plateau. \end{DoxyCompactList}\item 
+\#define \hyperlink{jeu_8h_aed9e4dbf250a6c8bdea8a0d3acb732e4}{O\-R\-D\-I\-N\-A\-T\-E\-U\-R}~0
+\begin{DoxyCompactList}\small\item\em Represente le territoire de l'O\-R\-D\-I\-N\-A\-T\-E\-U\-R sur le plateau. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{jeu_8h_acc82d0a24a8d141c83e5f2891d1d6310}{sauvegarder} (F\-I\-L\-E $\ast$fichier)
+\begin{DoxyCompactList}\small\item\em Permet de sauvegarder une partie en cours, les scores et le pseudo du J\-O\-U\-E\-U\-R2 de la partie. \end{DoxyCompactList}\item 
+int \hyperlink{jeu_8h_a65d1300c1e90d794185bd1710cd41339}{charger\-\_\-partie} (F\-I\-L\-E $\ast$fichier)
+\begin{DoxyCompactList}\small\item\em Permet de charger une partie sauvegarder. \end{DoxyCompactList}\item 
+void \hyperlink{jeu_8h_a97f7d4b3a559a9cf4b49c0595c228e92}{jouer\-\_\-a\-\_\-deux} (F\-I\-L\-E $\ast$fichier, F\-I\-L\-E $\ast$fic\-\_\-records)
+\begin{DoxyCompactList}\small\item\em Permet de joueur une partie entre deux joueurs. \end{DoxyCompactList}\item 
+void \hyperlink{jeu_8h_afc75ac9015ba15325420fa8c5dec3799}{jouer\-\_\-avec\-\_\-ordinateur} (F\-I\-L\-E $\ast$fichier, F\-I\-L\-E $\ast$fic\-\_\-records)
+\begin{DoxyCompactList}\small\item\em Permet de joueur une partie avec l'ordinateur. \end{DoxyCompactList}\item 
+void \hyperlink{jeu_8h_abf885104c5203b71aeb45e91d4f51487}{jouer} (F\-I\-L\-E $\ast$fichier, F\-I\-L\-E $\ast$fic\-\_\-records)
+\begin{DoxyCompactList}\small\item\em Permet de joueur. \end{DoxyCompactList}\item 
+void \hyperlink{jeu_8h_a74fc2dac8f195aab3a01564e1449abd8}{victoire} (F\-I\-L\-E $\ast$fichier)
+\begin{DoxyCompactList}\small\item\em Permet d'afficher le score et le pseudo du joueur victorieux et de l'enregistrer dans le record des scores. \end{DoxyCompactList}\item 
+int \hyperlink{jeu_8h_a87a8c018fa7c064d9bb41dfa7180ba79}{coup\-\_\-possible} (int coord\-\_\-x, int matrice\mbox{[}\hyperlink{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}{L}\mbox{]}\mbox{[}\hyperlink{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}{C}\mbox{]}, int joueur)
+\begin{DoxyCompactList}\small\item\em Est-\/ce que le joueur j peut jouer à la case de coord\-\_\-x ? \end{DoxyCompactList}\item 
+int \hyperlink{jeu_8h_a188fe244372c8d4e8420df3414195b6f}{jeu\-\_\-possible} (int matrice\mbox{[}\hyperlink{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}{L}\mbox{]}\mbox{[}\hyperlink{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}{C}\mbox{]}, int j)
+\begin{DoxyCompactList}\small\item\em Est-\/ce que le joueur \char`\"{}joueur\char`\"{} peut-\/il jouer ? \end{DoxyCompactList}\item 
+int \hyperlink{jeu_8h_a1387ba500711984dfa8124c4f80e439b}{gain\-\_\-difficile} (int matrice\mbox{[}\hyperlink{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}{L}\mbox{]}\mbox{[}\hyperlink{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}{C}\mbox{]}, int $\ast$nb\-\_\-coups)
+\begin{DoxyCompactList}\small\item\em Permet de detecter si un tour est difficile à jouer et incremente le nombre de tour où ce cas est rencontré. \end{DoxyCompactList}\item 
+void \hyperlink{jeu_8h_ad8c2c40a19bd92f67c1048db215f2965}{classer\-\_\-records} (F\-I\-L\-E $\ast$fichier, \hyperlink{structt__joueur}{t\-\_\-joueur} $\ast$record\-\_\-score, int $\ast$nb\-\_\-score)
+\begin{DoxyCompactList}\small\item\em Permet d'afficher les 10 meilleures scores enregistrés du jeu. \end{DoxyCompactList}\item 
+void \hyperlink{jeu_8h_a9f53b6fb81145a5f2275d19576b95a53}{regles\-\_\-jeu} ()
+\begin{DoxyCompactList}\small\item\em Permet d'afficher les regles du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{jeu_8h_abd850fb8d62eae24e086b6d0676c535b}{pseudo1} \mbox{[}20\mbox{]}
+\item 
+char \hyperlink{jeu_8h_abe9579a4a2aed1b038e71987678c9969}{pseudo2} \mbox{[}20\mbox{]}
+\item 
+int \hyperlink{jeu_8h_ab963150b8d2deca07e03645989ca64fa}{awale} \mbox{[}\hyperlink{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}{L}\mbox{]}\mbox{[}\hyperlink{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}{C}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Fichier contenant les en-\/tête des fonctions qui déroule le jeu. \begin{DoxyAuthor}{Auteur}
+Okrou Poda, Souleiman Iman Choukri 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\-1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+19 novembre 2014
+\end{DoxyDate}
+Projet d'etude L2 S\-P\-I \-: Programmation du Jeu Awale 
+
+Définition dans le fichier \hyperlink{jeu_8h_source}{jeu.\-h}.
+
+
+
+\subsection{Documentation des macros}
+\hypertarget{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}{\index{jeu.\-h@{jeu.\-h}!C@{C}}
+\index{C@{C}!jeu.h@{jeu.\-h}}
+\subsubsection[{C}]{\setlength{\rightskip}{0pt plus 5cm}\#define C~6}}\label{jeu_8h_ac4cf4b2ab929bd23951a8676eeac086b}
+
+
+Represente le nombre de colonne de la matrice. 
+
+
+
+Définition à la ligne 22 du fichier jeu.\-h.
+
+\hypertarget{jeu_8h_a9a7ea67c88a53921f3118756fbdecc18}{\index{jeu.\-h@{jeu.\-h}!J\-O\-U\-E\-U\-R1@{J\-O\-U\-E\-U\-R1}}
+\index{J\-O\-U\-E\-U\-R1@{J\-O\-U\-E\-U\-R1}!jeu.h@{jeu.\-h}}
+\subsubsection[{J\-O\-U\-E\-U\-R1}]{\setlength{\rightskip}{0pt plus 5cm}\#define J\-O\-U\-E\-U\-R1~1}}\label{jeu_8h_a9a7ea67c88a53921f3118756fbdecc18}
+
+
+Represente le territoire du joueur1 sur le plateau. 
+
+
+
+Définition à la ligne 32 du fichier jeu.\-h.
+
+\hypertarget{jeu_8h_a40e9a3b595e138f7f6d614a4b427942a}{\index{jeu.\-h@{jeu.\-h}!J\-O\-U\-E\-U\-R2@{J\-O\-U\-E\-U\-R2}}
+\index{J\-O\-U\-E\-U\-R2@{J\-O\-U\-E\-U\-R2}!jeu.h@{jeu.\-h}}
+\subsubsection[{J\-O\-U\-E\-U\-R2}]{\setlength{\rightskip}{0pt plus 5cm}\#define J\-O\-U\-E\-U\-R2~0}}\label{jeu_8h_a40e9a3b595e138f7f6d614a4b427942a}
+
+
+Represente le territoire du joueur2 sur le plateau. 
+
+
+
+Définition à la ligne 37 du fichier jeu.\-h.
+
+\hypertarget{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}{\index{jeu.\-h@{jeu.\-h}!L@{L}}
+\index{L@{L}!jeu.h@{jeu.\-h}}
+\subsubsection[{L}]{\setlength{\rightskip}{0pt plus 5cm}\#define L~2}}\label{jeu_8h_aa73214aa5f2f94f63d90bb4e3d99fe53}
+
+
+Represente le nombre de ligne de la matrice. 
+
+
+
+Définition à la ligne 17 du fichier jeu.\-h.
+
+\hypertarget{jeu_8h_a0240ac851181b84ac374872dc5434ee4}{\index{jeu.\-h@{jeu.\-h}!N@{N}}
+\index{N@{N}!jeu.h@{jeu.\-h}}
+\subsubsection[{N}]{\setlength{\rightskip}{0pt plus 5cm}\#define N~12}}\label{jeu_8h_a0240ac851181b84ac374872dc5434ee4}
+
+
+Represente le nombre de case dans la matrice. 
+
+
+
+Définition à la ligne 27 du fichier jeu.\-h.
+
+\hypertarget{jeu_8h_aed9e4dbf250a6c8bdea8a0d3acb732e4}{\index{jeu.\-h@{jeu.\-h}!O\-R\-D\-I\-N\-A\-T\-E\-U\-R@{O\-R\-D\-I\-N\-A\-T\-E\-U\-R}}
+\index{O\-R\-D\-I\-N\-A\-T\-E\-U\-R@{O\-R\-D\-I\-N\-A\-T\-E\-U\-R}!jeu.h@{jeu.\-h}}
+\subsubsection[{O\-R\-D\-I\-N\-A\-T\-E\-U\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-R\-D\-I\-N\-A\-T\-E\-U\-R~0}}\label{jeu_8h_aed9e4dbf250a6c8bdea8a0d3acb732e4}
+
+
+Represente le territoire de l'O\-R\-D\-I\-N\-A\-T\-E\-U\-R sur le plateau. 
+
+
+
+Définition à la ligne 42 du fichier jeu.\-h.
+
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{jeu_8h_a65d1300c1e90d794185bd1710cd41339}{\index{jeu.\-h@{jeu.\-h}!charger\-\_\-partie@{charger\-\_\-partie}}
+\index{charger\-\_\-partie@{charger\-\_\-partie}!jeu.h@{jeu.\-h}}
+\subsubsection[{charger\-\_\-partie}]{\setlength{\rightskip}{0pt plus 5cm}int charger\-\_\-partie (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fichier}
+\end{DoxyParamCaption}
+)}}\label{jeu_8h_a65d1300c1e90d794185bd1710cd41339}
+
+
+Permet de charger une partie sauvegarder. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fichier} & Le fichier de sauvegarde à recuperer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si aucune partie est sauvegardée, 1 si oui 
+\end{DoxyReturn}
+
+
+Définition à la ligne 253 du fichier jeu.\-c.
+
+\hypertarget{jeu_8h_ad8c2c40a19bd92f67c1048db215f2965}{\index{jeu.\-h@{jeu.\-h}!classer\-\_\-records@{classer\-\_\-records}}
+\index{classer\-\_\-records@{classer\-\_\-records}!jeu.h@{jeu.\-h}}
+\subsubsection[{classer\-\_\-records}]{\setlength{\rightskip}{0pt plus 5cm}void classer\-\_\-records (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fichier, }
+\item[{{\bf t\-\_\-joueur} $\ast$}]{record\-\_\-score, }
+\item[{int $\ast$}]{nb\-\_\-score}
+\end{DoxyParamCaption}
+)}}\label{jeu_8h_ad8c2c40a19bd92f67c1048db215f2965}
+
+
+Permet d'afficher les 10 meilleures scores enregistrés du jeu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fichier} & Le fichier de sauvegarde à recuperer \\
+\hline
+{\em record\-\_\-score} & Pointeur sur une structure de type \hyperlink{structt__joueur}{t\-\_\-joueur} \\
+\hline
+{\em nb\-\_\-score} & Pointeur sur le nombre de score \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 197 du fichier jeu.\-c.
+
+\hypertarget{jeu_8h_a87a8c018fa7c064d9bb41dfa7180ba79}{\index{jeu.\-h@{jeu.\-h}!coup\-\_\-possible@{coup\-\_\-possible}}
+\index{coup\-\_\-possible@{coup\-\_\-possible}!jeu.h@{jeu.\-h}}
+\subsubsection[{coup\-\_\-possible}]{\setlength{\rightskip}{0pt plus 5cm}int coup\-\_\-possible (
+\begin{DoxyParamCaption}
+\item[{int}]{coord\-\_\-x, }
+\item[{int}]{matrice\mbox{[}\-L\mbox{]}\mbox{[}\-C\mbox{]}, }
+\item[{int}]{joueur}
+\end{DoxyParamCaption}
+)}}\label{jeu_8h_a87a8c018fa7c064d9bb41dfa7180ba79}
+
+
+Est-\/ce que le joueur j peut jouer à la case de coord\-\_\-x ? 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em coord\-\_\-x} & Coordonnée x à verifier \\
+\hline
+{\em matrice} & Plateau du jeu \\
+\hline
+{\em joueur} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si la case saisie est joueable, 0 sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 128 du fichier jeu.\-c.
+
+\hypertarget{jeu_8h_a1387ba500711984dfa8124c4f80e439b}{\index{jeu.\-h@{jeu.\-h}!gain\-\_\-difficile@{gain\-\_\-difficile}}
+\index{gain\-\_\-difficile@{gain\-\_\-difficile}!jeu.h@{jeu.\-h}}
+\subsubsection[{gain\-\_\-difficile}]{\setlength{\rightskip}{0pt plus 5cm}int gain\-\_\-difficile (
+\begin{DoxyParamCaption}
+\item[{int}]{matrice\mbox{[}\-L\mbox{]}\mbox{[}\-C\mbox{]}, }
+\item[{int $\ast$}]{nb\-\_\-tour}
+\end{DoxyParamCaption}
+)}}\label{jeu_8h_a1387ba500711984dfa8124c4f80e439b}
+
+
+Permet de detecter si un tour est difficile à jouer et incremente le nombre de tour où ce cas est rencontré. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em matrice} & Plateau de jeu \\
+\hline
+{\em nb\-\_\-tour} & Pointeur sur le nombre de tour \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si il existe des coup gagnants, 1 si c'est difficile de trouver des coups gagnants 
+\end{DoxyReturn}
+
+
+Définition à la ligne 57 du fichier jeu.\-c.
+
+\hypertarget{jeu_8h_a188fe244372c8d4e8420df3414195b6f}{\index{jeu.\-h@{jeu.\-h}!jeu\-\_\-possible@{jeu\-\_\-possible}}
+\index{jeu\-\_\-possible@{jeu\-\_\-possible}!jeu.h@{jeu.\-h}}
+\subsubsection[{jeu\-\_\-possible}]{\setlength{\rightskip}{0pt plus 5cm}int jeu\-\_\-possible (
+\begin{DoxyParamCaption}
+\item[{int}]{matrice\mbox{[}\-L\mbox{]}\mbox{[}\-C\mbox{]}, }
+\item[{int}]{joueur}
+\end{DoxyParamCaption}
+)}}\label{jeu_8h_a188fe244372c8d4e8420df3414195b6f}
+
+
+Est-\/ce que le joueur \char`\"{}joueur\char`\"{} peut-\/il jouer ? 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em matrice} & Represente le plateau de jeu \\
+\hline
+{\em joueur} & L'un des joueur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Renvoi vraie (1) si \-: -\/le plateau du joueur n'est pas vide et que l'adversaire est affamé et le joueur j capable de le nourir -\/le plateau du joueur vide et son adversaire capable de le nourir -\/le plateau du joueur n'est pas vide Renvoie faux (0) si \-: -\/le jeu n'est pas possible si l'adversaire est affamé et le joueur incapable de le nourir -\/le plateau du joueur est vide et que l'adversaire est incapable de le nourir 
+\end{DoxyReturn}
+
+
+Définition à la ligne 81 du fichier jeu.\-c.
+
+\hypertarget{jeu_8h_abf885104c5203b71aeb45e91d4f51487}{\index{jeu.\-h@{jeu.\-h}!jouer@{jouer}}
+\index{jouer@{jouer}!jeu.h@{jeu.\-h}}
+\subsubsection[{jouer}]{\setlength{\rightskip}{0pt plus 5cm}void jouer (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fichier, }
+\item[{F\-I\-L\-E $\ast$}]{fic\-\_\-records}
+\end{DoxyParamCaption}
+)}}\label{jeu_8h_abf885104c5203b71aeb45e91d4f51487}
+
+
+Permet de joueur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fichier} & Le fichier de sauvegarde \\
+\hline
+{\em fic\-\_\-records} & Le fichier contenant les records \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 597 du fichier jeu.\-c.
+
+\hypertarget{jeu_8h_a97f7d4b3a559a9cf4b49c0595c228e92}{\index{jeu.\-h@{jeu.\-h}!jouer\-\_\-a\-\_\-deux@{jouer\-\_\-a\-\_\-deux}}
+\index{jouer\-\_\-a\-\_\-deux@{jouer\-\_\-a\-\_\-deux}!jeu.h@{jeu.\-h}}
+\subsubsection[{jouer\-\_\-a\-\_\-deux}]{\setlength{\rightskip}{0pt plus 5cm}void jouer\-\_\-a\-\_\-deux (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fichier, }
+\item[{F\-I\-L\-E $\ast$}]{fic\-\_\-records}
+\end{DoxyParamCaption}
+)}}\label{jeu_8h_a97f7d4b3a559a9cf4b49c0595c228e92}
+
+
+Permet de joueur une partie entre deux joueurs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fichier} & Le fichier de sauvegarde \\
+\hline
+{\em fic\-\_\-records} & Le fichier contenant les records \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 281 du fichier jeu.\-c.
+
+\hypertarget{jeu_8h_afc75ac9015ba15325420fa8c5dec3799}{\index{jeu.\-h@{jeu.\-h}!jouer\-\_\-avec\-\_\-ordinateur@{jouer\-\_\-avec\-\_\-ordinateur}}
+\index{jouer\-\_\-avec\-\_\-ordinateur@{jouer\-\_\-avec\-\_\-ordinateur}!jeu.h@{jeu.\-h}}
+\subsubsection[{jouer\-\_\-avec\-\_\-ordinateur}]{\setlength{\rightskip}{0pt plus 5cm}void jouer\-\_\-avec\-\_\-ordinateur (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fichier, }
+\item[{F\-I\-L\-E $\ast$}]{fic\-\_\-records}
+\end{DoxyParamCaption}
+)}}\label{jeu_8h_afc75ac9015ba15325420fa8c5dec3799}
+
+
+Permet de joueur une partie avec l'ordinateur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fichier} & Le fichier de sauvegarde \\
+\hline
+{\em fic\-\_\-records} & Le fichier contenant les records \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 457 du fichier jeu.\-c.
+
+\hypertarget{jeu_8h_a9f53b6fb81145a5f2275d19576b95a53}{\index{jeu.\-h@{jeu.\-h}!regles\-\_\-jeu@{regles\-\_\-jeu}}
+\index{regles\-\_\-jeu@{regles\-\_\-jeu}!jeu.h@{jeu.\-h}}
+\subsubsection[{regles\-\_\-jeu}]{\setlength{\rightskip}{0pt plus 5cm}void regles\-\_\-jeu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{jeu_8h_a9f53b6fb81145a5f2275d19576b95a53}
+
+
+Permet d'afficher les regles du jeu. 
+
+
+
+Définition à la ligne 153 du fichier jeu.\-c.
+
+\hypertarget{jeu_8h_acc82d0a24a8d141c83e5f2891d1d6310}{\index{jeu.\-h@{jeu.\-h}!sauvegarder@{sauvegarder}}
+\index{sauvegarder@{sauvegarder}!jeu.h@{jeu.\-h}}
+\subsubsection[{sauvegarder}]{\setlength{\rightskip}{0pt plus 5cm}void sauvegarder (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fichier}
+\end{DoxyParamCaption}
+)}}\label{jeu_8h_acc82d0a24a8d141c83e5f2891d1d6310}
+
+
+Permet de sauvegarder une partie en cours, les scores et le pseudo du J\-O\-U\-E\-U\-R2 de la partie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fichier} & Le fichier de sauvegarde \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 176 du fichier jeu.\-c.
+
+\hypertarget{jeu_8h_a74fc2dac8f195aab3a01564e1449abd8}{\index{jeu.\-h@{jeu.\-h}!victoire@{victoire}}
+\index{victoire@{victoire}!jeu.h@{jeu.\-h}}
+\subsubsection[{victoire}]{\setlength{\rightskip}{0pt plus 5cm}void victoire (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fichier}
+\end{DoxyParamCaption}
+)}}\label{jeu_8h_a74fc2dac8f195aab3a01564e1449abd8}
+
+
+Permet d'afficher le score et le pseudo du joueur victorieux et de l'enregistrer dans le record des scores. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fichier} & Fichier où les scores des joeuurs gagnants sont enregistrés \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 34 du fichier jeu.\-c.
+
+
+
+\subsection{Documentation des variables}
+\hypertarget{jeu_8h_ab963150b8d2deca07e03645989ca64fa}{\index{jeu.\-h@{jeu.\-h}!awale@{awale}}
+\index{awale@{awale}!jeu.h@{jeu.\-h}}
+\subsubsection[{awale}]{\setlength{\rightskip}{0pt plus 5cm}int awale\mbox{[}{\bf L}\mbox{]}\mbox{[}{\bf C}\mbox{]}}}\label{jeu_8h_ab963150b8d2deca07e03645989ca64fa}
+Matrice représentant le plateau de jeu 
+
+Définition à la ligne 46 du fichier jeu.\-h.
+
+\hypertarget{jeu_8h_abd850fb8d62eae24e086b6d0676c535b}{\index{jeu.\-h@{jeu.\-h}!pseudo1@{pseudo1}}
+\index{pseudo1@{pseudo1}!jeu.h@{jeu.\-h}}
+\subsubsection[{pseudo1}]{\setlength{\rightskip}{0pt plus 5cm}char pseudo1\mbox{[}20\mbox{]}}}\label{jeu_8h_abd850fb8d62eae24e086b6d0676c535b}
+Pseudonyme du J\-O\-U\-E\-U\-R1 
+
+Définition à la ligne 44 du fichier jeu.\-h.
+
+\hypertarget{jeu_8h_abe9579a4a2aed1b038e71987678c9969}{\index{jeu.\-h@{jeu.\-h}!pseudo2@{pseudo2}}
+\index{pseudo2@{pseudo2}!jeu.h@{jeu.\-h}}
+\subsubsection[{pseudo2}]{\setlength{\rightskip}{0pt plus 5cm}char pseudo2\mbox{[}20\mbox{]}}}\label{jeu_8h_abe9579a4a2aed1b038e71987678c9969}
+Pseudonyme du J\-O\-U\-E\-U\-R2 
+
+Définition à la ligne 45 du fichier jeu.\-h.
+
